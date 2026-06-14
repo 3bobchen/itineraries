@@ -87,12 +87,13 @@ export async function createGlobe(host: HTMLElement, options: GlobeOptions): Pro
   const roughnessHigh = uniform(0.7);
 
   const textureLoader = new THREE.TextureLoader();
-  const dayTexture = textureLoader.load('/textures/planets/earth_day_4096.jpg');
+  const resolve = (path: string) => new URL(path, document.baseURI).href;
+  const dayTexture = textureLoader.load(resolve('textures/planets/earth_day_4096.jpg'));
   dayTexture.colorSpace = THREE.SRGBColorSpace;
   dayTexture.anisotropy = 8;
 
   const bumpRoughnessCloudsTexture = textureLoader.load(
-    '/textures/planets/earth_bump_roughness_clouds_4096.jpg',
+    resolve('textures/planets/earth_bump_roughness_clouds_4096.jpg'),
   );
   bumpRoughnessCloudsTexture.anisotropy = 8;
 
