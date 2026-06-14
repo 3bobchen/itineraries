@@ -86,7 +86,7 @@ import type { GlobeHandle, GlobeMarker } from './globe';
       </div>
 
       <div class="overlay container">
-        <h1 class="title">Trips from my camera roll.</h1>
+        <h1 class="title">Where I went and what I did.</h1>
         <p class="lede">
           Itineraries reconstructed from photos metadata
         </p>
