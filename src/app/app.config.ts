@@ -10,7 +10,7 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
  *  so callers pass the intrinsic width via loaderParams to hit the real file. */
 function localImageLoader(config: ImageLoaderConfig): string {
   const width = (config.loaderParams?.['width'] as number | undefined) ?? config.width;
-  return width ? `/images/${config.src}-${width}.jpg` : `/images/${config.src}.jpg`;
+  return width ? `images/${config.src}-${width}.jpg` : `images/${config.src}.jpg`;
 }
 
 export const appConfig: ApplicationConfig = {
