@@ -1,0 +1,81 @@
+<section class="day" [id]="day().slug" [attr.aria-labelledby]="day().slug + '-heading'">
+  <div class="container day-grid">
+    <header class="day-header">
+      <h2 [id]="day().slug + '-heading'">
+        <span class="day-num mono" aria-hidden="true">{{ day().number }}</span>
+        <span class="visually-hidden">Day {{ day().number }}:</span>
+        <span class="day-title">{{ day().title }}</span>
+      </h2>
+      <p class="day-summary">{{ day().summary }}</p>
+    </header>
+
+    @if (mapGroups().length > 0) {
+      <div class="day-maps-rail">
+        @for (group of mapGroups(); track group[0].n) {
+          <app-day-map [pins]="group" [label]="groupLabel(group)" />
+        }
+      </div>
+    }
+
+    <div class="day-body">
+      @if (day().image; as img) {
+        <figure class="day-photo">
+          <img
+            [ngSrc]="img.srcBase"
+            [loaderParams]="{ width: img.width }"
+            [width]="img.width"
+            [height]="img.height"
+            [alt]="img.alt"
+            sizes="(max-width: 64rem) 100vw, 40rem"
+            disableOptimizedSrcset
+            loading="lazy"
+          />
+          <figcaption>
+            {{ img.caption }}
+            @if (img.credit; as credit) {
+              <a [href]="credit.sourceUrl" rel="noopener" target="_blank"
+                >Photo: {{ credit.author }}, {{ credit.license }}</a
+              >
+            }
+          </figcaption>
+        </figure>
+      }
+
+      <ol class="timeline" role="list">
+        @for (row of rows(); track $index) {
+          @switch (row.kind) {
+            @case ('daypart') {
+              <li class="daypart">
+                <span class="mono">{{ row.daypart }}</span>
+              </li>
+            }
+            @case ('stop') {
+              <li class="stop">
+                <span class="rail" aria-hidden="true"></span>
+                <div class="stop-body">
+                  <h3>{{ row.stop.title }}</h3>
+                  <p class="prose">{{ row.stop.body }}</p>
+                  @if (row.stop.image; as img) {
+                    <figure class="stop-photo">
+                      <img
+                        [ngSrc]="img.srcBase"
+                        [loaderParams]="{ width: img.width }"
+                        [width]="img.width"
+                        [height]="img.height"
+                        [alt]="img.alt"
+                        sizes="(max-width: 64rem) 90vw, 24rem"
+                        disableOptimizedSrcset
+                        loading="lazy"
+                      />
+                      <figcaption>{{ img.caption }}</figcaption>
+                    </figure>
+                  }
+                </div>
+              </li>
+            }
+          }
+        }
+      </ol>
+    </div>
+  </div>
+</section>

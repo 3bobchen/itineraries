@@ -1,0 +1,83 @@
+<a class="home-pill" routerLink="/" aria-label="Home">
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M3 10.5 12 3l9 7.5" />
+    <path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5" />
+  </svg>
+</a>
+
+@if (itinerary(); as it) {
+  <article>
+    <header class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="hero-place mono">{{ it.city }} · {{ it.country }}</p>
+          <h1>{{ it.title }}</h1>
+          <p class="hero-tagline">{{ it.tagline }}</p>
+          <dl class="hero-stats mono">
+            <div>
+              <dt>days</dt>
+              <dd>{{ it.stats.days }}</dd>
+            </div>
+            <div>
+              <dt>pace</dt>
+              <dd>{{ it.stats.pace }}</dd>
+            </div>
+            <div>
+              <dt>with</dt>
+              <dd>{{ it.stats.with }}</dd>
+            </div>
+          </dl>
+        </div>
+        <figure class="hero-media">
+          <img
+            [ngSrc]="it.hero.srcBase"
+            [loaderParams]="{ width: it.hero.width }"
+            [width]="it.hero.width"
+            [height]="it.hero.height"
+            [alt]="it.hero.alt"
+            sizes="(max-width: 56rem) 100vw, 34rem"
+            disableOptimizedSrcset
+            priority
+          />
+          <figcaption>
+            {{ it.hero.caption }}
+            @if (it.hero.credit; as credit) {
+              <a [href]="credit.sourceUrl" rel="noopener" target="_blank"
+                >Photo: {{ credit.author }}, {{ credit.license }}</a
+              >
+            }
+          </figcaption>
+        </figure>
+      </div>
+    </header>
+
+    @if (it.days.length > 1) {
+      <app-day-nav [days]="it.days" [activeSlug]="activeDay()" />
+    }
+
+    <div class="intro container">
+      <p>{{ it.intro }}</p>
+    </div>
+
+    @for (day of it.days; track day.slug) {
+      <app-day-section [day]="day" />
+    }
+  </article>
+} @else {
+  <section class="not-found container">
+    <p class="code mono" aria-hidden="true">404</p>
+    <h1>This itinerary doesn’t exist</h1>
+    <p>
+      It may have moved, or the link is mistyped. Try our
+      <a routerLink="/itineraries/hong-kong-in-four-days">Hong Kong in four days</a> plan instead.
+    </p>
+  </section>
+}

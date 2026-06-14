@@ -1,0 +1,326 @@
+:host {
+  display: block;
+}
+
+.day {
+  padding-block: var(--space-3xl) var(--space-xl);
+  scroll-margin-top: var(--nav-offset);
+}
+
+/* ----- Day layout: text + photos on the left, a sticky map rail on the right ----- */
+
+.day-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    'header'
+    'body'
+    'map';
+}
+
+.day-header {
+  grid-area: header;
+  max-width: 46rem;
+}
+
+/* A column of tight mini-maps, one per nearby cluster of stops. */
+.day-maps-rail {
+  grid-area: map;
+  margin-top: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.day-body {
+  grid-area: body;
+  min-width: 0;
+}
+
+@media (min-width: 64rem) {
+  .day-grid {
+    grid-template-columns: minmax(0, 1fr) 22rem;
+    grid-template-areas:
+      'header map'
+      'body   map';
+    grid-template-rows: auto 1fr;
+    column-gap: var(--space-3xl);
+  }
+
+  .day-maps-rail {
+    margin-top: var(--space-md);
+  }
+}
+
+h2 {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-md);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.day-num {
+  flex: none;
+  align-self: center;
+  display: grid;
+  place-items: center;
+  inline-size: 3rem;
+  block-size: 3rem;
+  background: var(--crimson);
+  color: var(--bg);
+  font-size: var(--text-xl);
+  font-weight: 600;
+}
+
+.day-summary {
+  margin-top: var(--space-md);
+  font-size: var(--text-md);
+  max-width: 65ch;
+}
+
+.day-meta {
+  margin-top: var(--space-sm);
+  font-size: var(--text-sm);
+  color: var(--muted);
+}
+
+/* ----- Day lead photo (left column) ----- */
+
+.day-photo {
+  margin: var(--space-xl) 0 0;
+  max-width: 40rem;
+}
+
+.day-photo img,
+.stop-photo img {
+  width: 100%;
+  height: auto;
+}
+
+.day-photo figcaption {
+  margin-top: var(--space-xs);
+  font-size: var(--text-sm);
+  color: var(--muted);
+}
+
+.day-photo figcaption a {
+  color: inherit;
+  font-size: var(--text-xs);
+  margin-inline-start: var(--space-2xs);
+}
+
+/* ----- Timeline ----- */
+
+.timeline {
+  list-style: none;
+  margin: var(--space-2xl) 0 0;
+  padding: 0;
+  max-width: 46rem;
+}
+
+.stop,
+.leg {
+  display: grid;
+  grid-template-columns: 1.5rem 1fr;
+  column-gap: var(--space-sm);
+}
+
+/* Daypart heading — the only time granularity shown, replacing exact clocks. */
+.daypart {
+  margin-top: var(--space-lg);
+  padding-bottom: var(--space-2xs);
+}
+
+.daypart:first-child {
+  margin-top: 0;
+}
+
+.daypart span {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--crimson-deep);
+}
+
+/* Rail: a continuous spine; stops get a node, legs get a dashed segment. */
+.rail {
+  grid-column: 1;
+  position: relative;
+  justify-self: center;
+  inline-size: 2px;
+  background: var(--line);
+}
+
+.stop .rail::before {
+  content: '';
+  position: absolute;
+  top: 0.45rem;
+  left: 50%;
+  translate: -50% 0;
+  inline-size: 0.75rem;
+  block-size: 0.75rem;
+  border-radius: 50%;
+  background: var(--crimson);
+  outline: 3px solid var(--bg);
+}
+
+.rail-dashed {
+  background: none;
+  border-inline-start: 2px dashed var(--line);
+}
+
+.timeline > li:first-child .rail {
+  margin-top: 0.45rem;
+}
+
+.timeline > li:last-child .rail {
+  background: linear-gradient(var(--line) 55%, transparent);
+}
+
+.timeline > li:last-child .rail-dashed {
+  border-image: linear-gradient(var(--line) 55%, transparent) 1;
+}
+
+/* ----- Stops ----- */
+
+.stop {
+  padding-block: var(--space-xs);
+}
+
+.stop-body {
+  padding-block: 0 var(--space-lg);
+  min-width: 0;
+}
+
+h3 {
+  font-size: var(--text-md);
+  font-weight: 650;
+}
+
+.prose {
+  margin-top: var(--space-xs);
+  max-width: 62ch;
+}
+
+.stop-photo {
+  margin: var(--space-md) 0 0;
+  max-width: 24rem;
+}
+
+.stop-photo figcaption {
+  margin-top: var(--space-xs);
+  font-size: var(--text-xs);
+  color: var(--muted);
+}
+
+.stop-photo time {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.stop-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-xs) var(--space-md);
+  margin-top: var(--space-sm);
+  font-size: var(--text-sm);
+  color: var(--muted);
+}
+
+.book-badge {
+  background: var(--crimson-tint);
+  color: var(--crimson-deep);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  padding: 0.1rem 0.5rem;
+}
+
+.tip {
+  margin-top: var(--space-sm);
+  font-size: var(--text-sm);
+  color: var(--muted);
+  max-width: 58ch;
+}
+
+.tip strong {
+  color: var(--crimson-deep);
+  font-weight: 700;
+  margin-inline-end: var(--space-2xs);
+}
+
+/* ----- Transport legs ----- */
+
+.leg-body {
+  grid-column: 2;
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+  padding-block: var(--space-sm) var(--space-md);
+  font-size: var(--text-sm);
+  color: var(--transit);
+  min-width: 0;
+}
+
+.route-badge {
+  flex: none;
+  background: var(--transit);
+  color: var(--bg);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  padding: 0.1rem 0.5rem;
+}
+
+.route-walk {
+  background: var(--muted);
+}
+
+.walk-arrow {
+  flex: none;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.leg-mode {
+  font-weight: 600;
+}
+
+.leg-text {
+  overflow-wrap: anywhere;
+}
+
+.leg-note {
+  color: var(--muted);
+}
+
+/* Walking legs read quieter than ticketed transit */
+.leg:has(.walk-arrow) .leg-body,
+.leg:has(.route-walk) .leg-body {
+  color: var(--muted);
+}
+
+/* ----- Responsive ----- */
+
+@media (max-width: 40rem) {
+  .day {
+    padding-block: var(--space-2xl) var(--space-lg);
+  }
+
+  .stop,
+  .leg {
+    grid-template-columns: 1.25rem 1fr;
+    column-gap: var(--space-sm);
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+    gap: var(--space-sm);
+  }
+
+  .day-num {
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+    font-size: var(--text-lg);
+  }
+}
