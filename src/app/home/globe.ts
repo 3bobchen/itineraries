@@ -43,6 +43,17 @@ export interface GlobeHandle {
  *  UVs on a three.js SphereGeometry (u=0 at lon −180). */
 const LON_OFFSET = 180;
 
+/** Vertical FOV (degrees) designed for landscape/square viewports. In portrait
+ *  we increase it so the horizontal FOV never drops below this value, keeping
+ *  the globe fully visible on narrow screens. */
+const BASE_FOV = 25;
+
+function adaptiveFov(aspect: number): number {
+  if (aspect >= 1) return BASE_FOV;
+  // Lock horizontal FOV = BASE_FOV so the globe stays unclipped in portrait.
+  return (2 * Math.atan(Math.tan((BASE_FOV * Math.PI) / 360) / aspect) * 180) / Math.PI;
+}
+
 /** Convert geographic coordinates to a point on the unit sphere, matching the
  *  orientation of the equirectangular earth texture on a three.js SphereGeometry. */
 function latLonToVector3(lat: number, lon: number): THREE.Vector3 {
@@ -68,7 +79,7 @@ export async function createGlobe(host: HTMLElement, options: GlobeOptions): Pro
   let width = host.clientWidth || 1;
   let height = host.clientHeight || 1;
 
-  const camera = new THREE.PerspectiveCamera(25, width / height, 0.1, 100);
+  const camera = new THREE.PerspectiveCamera(adaptiveFov(width / height), width / height, 0.1, 100);
   camera.position.set(4.5, 2, 3);
 
   const scene = new THREE.Scene();
@@ -211,7 +222,9 @@ export async function createGlobe(host: HTMLElement, options: GlobeOptions): Pro
   const resizeObserver = new ResizeObserver(() => {
     width = host.clientWidth || 1;
     height = host.clientHeight || 1;
-    camera.aspect = width / height;
+    const aspect = width / height;
+    camera.aspect = aspect;
+    camera.fov = adaptiveFov(aspect);
     camera.updateProjectionMatrix();
     renderer.setSize(width, height);
   });

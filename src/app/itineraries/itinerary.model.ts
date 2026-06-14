@@ -85,7 +85,7 @@ export interface Itinerary {
   hero: StopImage;
   stats: {
     days: number;
-    pace: 'relaxed' | 'steady' | 'full';
+    pace: 'relaxed' | 'steady' | 'full' | 'transit';
     /** Travel companions, e.g. 'friends', 'family', 'solo'. */
     with: string;
   };

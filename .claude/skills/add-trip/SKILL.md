@@ -62,22 +62,14 @@ Listen carefully to their free-form answer. Then follow up to fill gaps:
 
 **For each stop they mention:**
 - What time did they arrive? (24h, e.g. 08:00 — explain this is used only for map pin ordering, not displayed to readers)
-- Roughly how long did they spend there? (in minutes)
 - Do they have a Google Maps link for this place? (needed for coordinates — ask specifically, one stop at a time)
-- Was there anything non-obvious about it — a practical tip, an unexpected detail, a better approach they'd tell a friend?
+- Was there anything memorable or unexpected about it?
 - Did they need to book in advance, or was walk-in fine?
 
-**For each transport leg they imply between stops:**
-- What mode? (walk, train, ferry, bus, lightrail, tram)
-- If train/bus/ferry: what's the route name or number shown on signage?
-- How long did it take?
-- Any practical note a traveller would want to know? (e.g. "change at Admiralty", "trains every 2–3 minutes", "need to book online")
-
 **At the end of each day, ask:**
-- "Rough estimate: how many km did you walk that day?"
 - "What's a one-paragraph summary of the day — the arc of it?" (You can draft one based on their answers and ask them to react to it)
 
-Do not move on to the next day until you have all stops and legs for the current day, including at least rough times and durations for each stop.
+Do not move on to the next day until you have all stops for the current day with at least rough times.
 
 ### Coordinate extraction from Google Maps links
 
@@ -130,7 +122,7 @@ For each photo cluster that is **not** near any stop the user mentioned, surface
 
 > "Your photos show [N] photos near [place_name from reverse geocoding] around [time] on Day [X] — you didn't mention that. Was that a stop you want to include, or just a transit moment?"
 
-If the user confirms it's a real stop, go back and add it to the day in Phase 2 order (ask for the missing details: title, body text, duration, any tip).
+If the user confirms it's a real stop, go back and add it to the day in Phase 2 order (ask for the missing details: title, body text, any memorable detail).
 
 This is the single most important editorial step — help them remember what they actually did, not just what they remembered to write down.
 
@@ -210,7 +202,7 @@ Now draft the text fields that need editorial judgment:
 
 For each day with more than ~4 stops, decide on `mapGrouping`. This controls how the day map clusters pins spatially.
 
-Look at the coordinates you have for each stop and mentally (or literally) group them by geographic proximity and/or the time of day the user was there. The groups should reflect "we were in this area of the city then, then moved to this other area."
+Look at the coordinates you have for each stop and mentally (or literally) group them by geographic proximity and/or the time of day the user was there. The groups should reflect "I was in this area of the city then, then moved to this other area."
 
 Ask: "Looking at Day [X], it seems like you were in [area A] in the morning, then [area B] in the afternoon. Does that make sense as two map clusters, or did you pass through somewhere else in between?"
 
@@ -230,11 +222,13 @@ Produce a complete `Itinerary` object literal, ready to be appended to the `ITIN
 Follow these rules exactly:
 - Match the exact shape of the "Hong Kong in four days" entry — every field in the same order
 - `slug` must be the confirmed slug from Phase 1
-- Entries alternate stop → leg → stop → leg → stop
-- Every stop has `time`, `title`, `body`, and at minimum `durationMin`
-- Every leg has `mode`, `from`, `to`, `durationMin`, and `route` where the transit has a named route
+- Entries are **stops only** — omit transport legs entirely
+- Every stop has `time`, `title`, and `body`; omit `durationMin`
 - `image` objects include `srcBase`, `width`, `height`, `alt`, `caption` — all from Phase 3
-- `tip` and `bookAhead` only where the user confirmed them
+- Omit `tip` — weave any practical detail into the `body` text instead
+- `bookAhead: true` only where advance booking is genuinely required
+- Set `walkingKm` as a silent reasonable estimate — do not ask the user
+- Do not include airport arrival or departure as stops
 - No trailing commas on last array elements (TypeScript strict mode)
 
 Show the user the generated object, clearly marked as a draft. Ask for a final read-through.
@@ -293,6 +287,13 @@ Every piece of prose you draft must pass this test:
 
 Things to avoid in body text: "vibrant", "bustling", "hidden gem", "authentic", "iconic" (unless truly ironic), "don't miss", "must-try", "experience", "amazing". One data point (a specific dish name, a price, a time, a queue length) is worth three adjectives.
 
+### Prose conventions
+
+- **"I" throughout** — always first person singular, even when the trip was with others. Never "we".
+- **No timestamps or durations in prose** — `time` and `durationMin` are internal data fields only, never mentioned in `body`, `summary`, `tagline`, or `intro`.
+- **No distances in prose** — don't mention walking distances or km in any prose field.
+- **No tips as a separate field** — if there's a genuinely useful practical detail, fold it into the `body` text naturally. Never use the `tip` field.
+
 ---
 
 ## Error recovery
@@ -302,3 +303,4 @@ Things to avoid in body text: "vibrant", "bustling", "hidden gem", "authentic", 
 - If a Google Maps link won't resolve, note the coordinates as `NEEDS_COORD` and continue
 - If the user wants to skip a stop they mentioned, remove it cleanly — don't leave placeholder entries
 - If osxphotos can't access the Photos library (permissions), tell the user to run `! osxphotos query --count` in the prompt themselves to grant Terminal access to Photos, then re-run the query
+- If photos are in iCloud (path is `None`, `ismissing: True`), do not use `--download-missing` or `--use-photos-export` — both crash. Instead find the highest-res local derivative: `find "~/Pictures/Photos Library.photoslibrary/resources/derivatives" -name "{UUID}*_1_105_c.jpeg"`. These thumbnails are up to 1024px on the longest dimension and suitable for publishing. Convert with `sips -s format jpeg SOURCE --out DEST.jpg`.

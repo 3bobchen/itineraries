@@ -86,9 +86,10 @@ import type { GlobeHandle, GlobeMarker } from './globe';
       </div>
 
       <div class="overlay container">
+        <img class="avatar" src="/images/avatar.png" width="56" height="56" alt="Bob Chen" />
         <h1 class="title">Where I went and what I did.</h1>
         <p class="lede">
-          Itineraries reconstructed from photos metadata
+          Itineraries reconstructed from my photos metadata
         </p>
         @if (failed()) {
           <p class="fallback mono" role="status">
@@ -361,6 +362,18 @@ import type { GlobeHandle, GlobeMarker } from './globe';
     .popover-item-meta {
       font-size: var(--text-xs);
       color: var(--muted);
+    }
+
+    /* --- Avatar ------------------------------------------------------------- */
+    .avatar {
+      display: block;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: var(--space-md);
+      background: oklch(100% 0 0);
+      box-shadow: 0 0 0 2px oklch(100% 0 0 / 0.18);
     }
 
     /* --- Hero copy ---------------------------------------------------------- */

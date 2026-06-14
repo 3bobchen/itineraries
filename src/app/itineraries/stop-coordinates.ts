@@ -47,4 +47,12 @@ export const STOP_COORDS: Record<string, Record<string, Record<string, [number, 
       '17:20': [22.31437, 113.93611],
     },
   },
+  'seoul-in-an-afternoon': {
+    'the-afternoon': {
+      '14:09': [37.55894, 126.97410], // Namdaemun Gate — photo-derived
+      '14:18': [37.57166, 126.97682], // Gwanghwamun Square — photo-derived
+      '15:22': [37.56361, 126.98358], // Myeongdong — photo-derived
+      '16:38': [37.58149, 126.98493], // Bukchon Hanok Village — photo-derived
+    },
+  },
 };

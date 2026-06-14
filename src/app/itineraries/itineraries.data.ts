@@ -815,6 +815,107 @@ export const ITINERARIES: Itinerary[] = [
       },
     ],
   },
+  {
+    slug: 'seoul-in-an-afternoon',
+    title: 'Seoul in an afternoon',
+    city: 'Seoul',
+    country: 'South Korea',
+    tagline:
+      'One afternoon between flights — Namdaemun Gate on foot from Seoul Station, the long plaza up to Gwanghwamun, street food in Myeongdong, and the hanok lanes of Bukchon before the evening flight home.',
+    intro:
+      'I flew Shanghai–Seoul–Sydney with enough of a layover to leave the airport. The AREX gets you into Seoul Station in forty minutes; from there I walked north through the old city, took the subway between some stops, and made it back to Incheon in time for the evening gate.',
+    hero: {
+      srcBase: 'sel-hero-gwanghwamun',
+      width: 1024,
+      height: 768,
+      alt: 'Gwanghwamun gate seen from the front, three arched stone entrances with the characters 光化門 above the central arch, visitors passing through under an overcast October sky',
+      caption: 'Gwanghwamun — the main gate of Gyeongbokgung, from the plaza.',
+    },
+    stats: {
+      days: 1,
+      pace: 'transit',
+      with: 'a friend',
+    },
+    days: [
+      {
+        slug: 'the-afternoon',
+        number: 1,
+        title: 'From Namdaemun to Bukchon',
+        summary:
+          'South from Seoul Station to Namdaemun Gate, then north up Sejong-daero to Gwanghwamun and the palace gate, down to Myeongdong for street food, and back up to the Bukchon hanok lanes before the flight.',
+        walkingKm: 5,
+        image: {
+          srcBase: 'sel-day-bukchon',
+          width: 768,
+          height: 1024,
+          alt: 'The main Bukchon alley looking downhill, traditional hanok walls with tile rooflines receding on both sides, a lone figure walking ahead, afternoon clouds in the sky',
+          caption: 'The main alley in Bukchon Hanok Village, late afternoon.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '14:09',
+              title: 'Namdaemun Gate',
+              body: 'Sungnyemun — the Great South Gate — has stood here since 1398, burned in 2008, and was rebuilt and reopened in 2013. It sits on its own traffic island in the middle of a busy interchange, unexpectedly stone-calm against the towers directly behind it.',
+              image: {
+                srcBase: 'sel-stop-namdaemun',
+                width: 768,
+                height: 1024,
+                alt: 'Sungnyemun seen from across the road, its double-tiered roof and stone wall enclosure against a backdrop of modern office towers under grey October cloud',
+                caption: 'Namdaemun Gate from the road — rebuilt in 2013 after the 2008 fire.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '14:18',
+              title: 'Gwanghwamun Square',
+              body: 'Sejong-daero runs north from downtown to Gwanghwamun, the main gate of Gyeongbokgung. Water jets arc across the square in front of it, King Sejong\'s statue faces south from the middle of the road, and the Bugaksan ridge frames the gate behind. I walked the full length of the plaza and went through Gwanghwamun into the outer courtyard — the haetae guardian lions flanking the gate, the inner gate and throne hall in the distance.',
+              image: {
+                srcBase: 'sel-stop-sejong',
+                width: 768,
+                height: 1024,
+                alt: 'The bronze statue of King Sejong — 세종대왕 — seated on his plinth in Gwanghwamun Square, under an overcast October sky',
+                caption: 'King Sejong in Gwanghwamun Square.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '15:22',
+              title: 'Myeongdong',
+              body: 'Every stall in Myeongdong makes you stop. A waffle corn dog first, then bungeobbang from an iron-mold cart — the wrapper listed red bean, cream cheese, nutella, or custard — then hotteok from a side alley, then fresh-squeezed orange juice from a cart. I went into a department store to escape the crowds and ended up on the Tea Museum floor and then the patisserie.',
+              image: {
+                srcBase: 'sel-stop-bungeobbang',
+                width: 768,
+                height: 1024,
+                alt: 'A hand holding a bungeobbang — a fish-shaped pastry — in its paper wrapper, with a printed checklist of fillings: red bean, cream cheese, nutella, custard',
+                caption: 'Bungeobbang from an iron-mold cart, Myeongdong.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '16:38',
+              title: 'Bukchon Hanok Village',
+              body: 'Bukchon sits on the hillside between Gyeongbokgung and Changdeokgung — a neighbourhood of tile-roof hanok houses that were occupied into the 20th century and still are. The main alley is busy but the side streets go quiet. I was there at the end of the afternoon, the sky going orange over the rooftops.',
+              image: {
+                srcBase: 'sel-stop-bukchon',
+                width: 768,
+                height: 1024,
+                alt: 'A Bukchon street sign hanging from a post under a large tree, traditional hanok walls and rooflines on both sides, visitors below a dramatic cloudy sky',
+                caption: 'The Bukchon entrance, late afternoon.',
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 // Attach photo-derived coordinates to stops (one-time, at module load).
