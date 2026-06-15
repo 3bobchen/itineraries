@@ -38,13 +38,10 @@ export const STOP_COORDS: Record<string, Record<string, Record<string, [number, 
   },
   'hong-kong-in-a-day': {
     'the-day': {
-      '09:08': [22.3091, 113.94456],
-      '11:25': [22.28037, 114.13364],
-      '11:48': [22.2796, 114.13869],
-      '13:22': [22.27131, 114.15413],
-      '13:41': [22.27131, 114.15413],
-      '14:44': [22.28546, 114.16768],
-      '17:20': [22.31437, 113.93611],
+      '11:25': [22.28297, 114.12824], // Sun Hing Restaurant — map-confirmed
+      '11:48': [22.2788, 114.1322],   // Stone-wall trees, Sai Ying Pun — photo-derived
+      '13:22': [22.2749, 114.1531],   // Victoria Peak, Lugard Road — photo-derived
+      '14:44': [22.2855, 114.1679],   // Star Ferry, Central Pier 7 — photo-derived
     },
   },
   'seoul-in-an-afternoon': {
@@ -53,6 +50,35 @@ export const STOP_COORDS: Record<string, Record<string, Record<string, [number, 
       '14:18': [37.57166, 126.97682], // Gwanghwamun Square — photo-derived
       '15:22': [37.56361, 126.98358], // Myeongdong — photo-derived
       '16:38': [37.58149, 126.98493], // Bukchon Hanok Village — photo-derived
+    },
+  },
+  'back-in-singapore': {
+    'the-day': {
+      '06:21': [1.39170, 103.97527], // Changi Beach — photo-derived
+      '08:36': [1.28653, 103.85444], // Merlion Park / Marina Bay waterfront — photo-derived
+      '09:53': [1.24986, 103.82028], // Palawan Beach, Southernmost Point — photo-derived
+      '14:08': [1.36009, 103.99000], // Jewel Changi Airport — photo-derived
+    },
+  },
+  'riyadh-in-two-days': {
+    'day-1': {
+      '11:00': [24.76680, 46.64223], // King Abdullah Financial District — photo-derived
+      '12:00': [24.71343, 46.67455], // Kingdom Centre — photo-derived
+      '16:00': [24.62891, 46.71596], // Masmak Fort — photo-derived
+      '18:00': [24.64781, 46.71036], // National Museum of Saudi Arabia — photo-derived
+    },
+    'day-2': {
+      '12:00': [24.73701, 46.57460], // Ad Diriyah (At-Turaif) — photo-derived
+      '15:30': [24.94861, 45.98841], // Edge of the World — map-confirmed
+      '20:00': [24.78000, 46.75000], // Al Nakheel — approx, NEEDS_COORD
+    },
+  },
+  'singapore-in-a-day': {
+    'the-day': {
+      '08:39': [1.28024, 103.84479], // Maxwell Food Centre — photo-derived
+      '09:54': [1.28212, 103.86558], // Gardens by the Bay, OCBC Skyway — photo-derived
+      '13:01': [1.34337, 103.68307], // NTU campus, The Hive — photo-derived
+      '15:42': [1.36024, 103.98981], // Jewel Changi Airport — photo-derived
     },
   },
 };

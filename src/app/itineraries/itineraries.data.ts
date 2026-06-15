@@ -624,9 +624,9 @@ export const ITINERARIES: Itinerary[] = [
     city: 'Hong Kong',
     country: 'Hong Kong SAR',
     tagline:
-      'A single layover day between flights — eight hours from the airport gate to the top of the Peak and back, with a friend and one bag each.',
+      'One layover day — dim sum at Sun Hing in the Western District, the Sai Ying Pun banyans, Lugard Road above the cloud, and the Star Ferry to Kowloon.',
     intro:
-      'This wasn\'t a holiday so much as a dare: land in the morning, fly out in the evening, and see how much of Hong Kong Island two people could fit in between. The answer turned out to be a lot — dim sum in the Western District, the stone-wall banyans above Sai Ying Pun, the Peak under a building storm, and the harbour from the Central piers before the run back to the gate. The stops below run in order across the day, the way it actually unfolded.',
+      'This wasn\'t a holiday so much as a dare — land in the morning, fly out in the evening, see how much I could fit in between. One carry-on, one Octopus card: the Airport Express in, the Peak Tram up, the Star Ferry across to finish.',
     hero: {
       srcBase: 'hk1d-hero-peak-storm',
       width: 1024,
@@ -636,16 +636,16 @@ export const ITINERARIES: Itinerary[] = [
     },
     stats: {
       days: 1,
-      pace: 'full',
+      pace: 'transit',
       with: 'a friend',
     },
     days: [
       {
         slug: 'the-day',
         number: 1,
-        title: 'Gate to Peak and back',
+        title: 'Dim sum, the Peak, and the harbour',
         summary:
-          'A layover run across Hong Kong Island: in from the airport by Airport Express, dim sum and wall-trees in the Western District, the Peak by tram, the harbour from Central — and back to the gate with time to spare.',
+          'Yum cha at Sun Hing in Kennedy Town, the stone-wall banyans uphill in Sai Ying Pun, the Peak by tram with storm cloud over Kowloon, and the Star Ferry to Tsim Sha Tsui to finish.',
         walkingKm: 7,
         image: {
           srcBase: 'hk1d-day-harbour',
@@ -658,65 +658,16 @@ export const ITINERARIES: Itinerary[] = [
           {
             kind: 'stop',
             stop: {
-              time: '09:08',
-              title: 'Touchdown at HKG',
-              body: 'A red-eye in, one cabin bag each, and no plan beyond a list of stops on a phone. Clearing the airport fast is the whole game on a layover — hand luggage only, straight to the train.',
-              durationMin: 30,
-              image: {
-                srcBase: 'hk1d-stop-arrival',
-                width: 960,
-                height: 1280,
-                alt: 'Two Cathay Pacific aircraft parked at Hong Kong International Airport gates, with green hills behind, seen through a terminal window',
-                caption: 'Cathay tails on the apron — wheels barely stopped.',
-              },
-            },
-          },
-          {
-            kind: 'leg',
-            leg: {
-              mode: 'train',
-              route: 'Airport Express',
-              from: 'Airport',
-              to: 'Hong Kong Station',
-              durationMin: 24,
-              note: 'every 10 minutes; fastest possible way off the island\'s edge',
-            },
-          },
-          {
-            kind: 'leg',
-            leg: {
-              mode: 'train',
-              route: 'Island Line',
-              from: 'Central',
-              to: 'Sai Ying Pun',
-              durationMin: 6,
-              note: 'two stops west into the old Western District',
-            },
-          },
-          {
-            kind: 'stop',
-            stop: {
               time: '11:25',
-              title: 'Dim sum in the Western District',
-              body: 'First proper stop, and the right one: a no-frills tea house with bamboo steamers stacked three high. Har gow, siu mai, cheung fun and a barbecue-pork bun, ordered by ticking a paper slip — exactly the brunch a long flight earns you.',
-              durationMin: 40,
+              title: 'Dim sum at Sun Hing',
+              body: 'Sun Hing is a no-frills Kennedy Town yum cha place that\'s been running since early morning. Har gow, siu mai, cheung fun and a barbecue-pork bun — exactly the first meal a long flight earns you.',
               image: {
-                srcBase: 'hk1d-stop-dimsum',
+                srcBase: 'hk1d-stop-sunhing',
                 width: 768,
                 height: 1024,
-                alt: 'A table of dim sum — har gow and siu mai in bamboo steamers, rice-noodle rolls and a barbecue-pork bun on small plates with green chopsticks',
-                caption: 'The first table of the day, steamers three high.',
+                alt: 'A table of dim sum at Sun Hing Restaurant — a steamer of har gow and siu mai, white plates of cheung fun and a barbecue-pork bun, green chopsticks alongside',
+                caption: 'The table at Sun Hing — har gow, siu mai, cheung fun.',
               },
-            },
-          },
-          {
-            kind: 'leg',
-            leg: {
-              mode: 'walk',
-              from: 'the tea house',
-              to: 'the Western District wall-trees',
-              durationMin: 8,
-              note: 'uphill through Sai Ying Pun\'s back lanes',
             },
           },
           {
@@ -725,7 +676,6 @@ export const ITINERARIES: Itinerary[] = [
               time: '11:48',
               title: 'The stone-wall trees',
               body: 'Sai Ying Pun\'s great Chinese banyans grow straight out of the old masonry retaining walls, roots fanning down the stone like poured wax. They\'re a protected, century-old quirk of the way the hillside was terraced — and far more striking in person than the guidebooks let on.',
-              durationMin: 20,
               image: {
                 srcBase: 'hk1d-stop-banyan',
                 width: 768,
@@ -736,79 +686,33 @@ export const ITINERARIES: Itinerary[] = [
             },
           },
           {
-            kind: 'leg',
-            leg: {
-              mode: 'tram',
-              route: 'Peak Tram',
-              from: 'Garden Road',
-              to: 'The Peak',
-              durationMin: 10,
-              note: 'the 1888 funicular; the climb tilts the city sideways in the window',
-            },
-          },
-          {
             kind: 'stop',
             stop: {
               time: '13:22',
-              title: 'Victoria Peak, under a storm',
-              body: 'The classic view, with weather for once: cloud stacking up over Kowloon, the harbour gone pewter, the towers sharp against it. The Sky Terrace charges for the top deck, but the Lugard Road path gives you the same panorama for free if the rain holds.',
-              durationMin: 20,
-            },
-          },
-          {
-            kind: 'stop',
-            stop: {
-              time: '13:41',
-              title: 'The towers up close',
-              body: 'From the Peak the famous skyline foreshortens into a single wall of glass — One IFC standing clear above the harbour, ferries crossing like toys below. A few minutes along the path and the angle keeps changing.',
-              durationMin: 20,
+              title: 'Victoria Peak',
+              body: 'The Peak Tram tilts the city sideways in the window on the climb up. From Lugard Road the skyline foreshortens into a single flat wall — IFC standing clear above the harbour, the Star Ferries crossing like toys below, cloud stacking hard over Kowloon. A few minutes along the path and the whole thing rotates.',
               image: {
-                srcBase: 'hk1d-stop-ifc',
-                width: 768,
-                height: 1024,
-                alt: 'Two International Finance Centre tower rising above Victoria Harbour and Kowloon, seen from Victoria Peak under heavy cloud',
-                caption: 'Two IFC from the Peak, harbour gone pewter behind it.',
+                srcBase: 'hk1d-stop-peak',
+                width: 1024,
+                height: 768,
+                alt: 'The Hong Kong Island skyline seen from Lugard Road on Victoria Peak, green tree canopy in the foreground, Victoria Harbour and Kowloon beyond under heavy storm cloud',
+                caption: 'From Lugard Road — the whole harbour under heavy cloud.',
               },
-            },
-          },
-          {
-            kind: 'leg',
-            leg: {
-              mode: 'tram',
-              route: 'Peak Tram',
-              from: 'The Peak',
-              to: 'Garden Road',
-              durationMin: 10,
-              note: 'then a short walk down to the waterfront',
             },
           },
           {
             kind: 'stop',
             stop: {
               time: '14:44',
-              title: 'The harbour from Central',
-              body: 'Last stop before the airport run: the Central waterfront, the observation wheel turning slowly against the grey, the Star Ferries butting in and out. A quiet ten minutes to let the day land before the dash back west.',
-              durationMin: 30,
-            },
-          },
-          {
-            kind: 'leg',
-            leg: {
-              mode: 'train',
-              route: 'Airport Express',
-              from: 'Hong Kong Station',
-              to: 'Airport',
-              durationMin: 24,
-              note: 'cutting it fine but fine — back at the gate by half-four',
-            },
-          },
-          {
-            kind: 'stop',
-            stop: {
-              time: '17:20',
-              title: 'Wheels up again',
-              body: 'Eight hours, one island, no checked bags and no regrets. Back through security and onto the next flight — proof that a layover is only dead time if you let it be.',
-              durationMin: 30,
+              title: 'Star Ferry to Kowloon',
+              body: 'Central Pier 7, the upper deck, ten minutes to Tsim Sha Tsui. The Island skyline sat behind me the whole way across — IFC, the HSBC building, the mid-levels stacked above them — while Kowloon came forward: the Clock Tower at the pier, the Peninsula just behind it, the ICC off to the west.',
+              image: {
+                srcBase: 'hk1d-stop-ferry',
+                width: 1024,
+                height: 768,
+                alt: 'The Kowloon skyline seen from the Star Ferry mid-crossing, the ICC tower rising on the left, a cruise ship at the West Kowloon terminal, harbour water grey-green under an afternoon sky',
+                caption: 'Mid-crossing on the Star Ferry — Kowloon ahead.',
+              },
             },
           },
         ],
@@ -916,6 +820,358 @@ export const ITINERARIES: Itinerary[] = [
       },
     ],
   },
+  {
+    slug: 'back-in-singapore',
+    title: 'Back in Singapore',
+    city: 'Singapore',
+    country: 'Singapore',
+    tagline:
+      'Back for another transit day — Changi Beach before sunrise, the Merlion at breakfast hour, Palawan Beach\'s suspension bridge to the end of the continent, and Jewel before the gate.',
+    intro:
+      'I had the better part of a day between flights at Changi and spent it on a day MRT pass: northeast to the coast for the sunrise, west to Marina Bay for the Merlion, south to Sentosa for the southernmost point, and back east to Jewel before the lounge.',
+    hero: {
+      srcBase: 'sin-hero-jewel',
+      width: 1024,
+      height: 768,
+      alt: 'The Rain Vortex waterfall falling through the centre of Jewel Changi Airport\'s domed atrium, surrounded by lush trees on multiple levels under the triangulated glass roof',
+      caption: 'The Rain Vortex at Jewel Changi — the world\'s tallest indoor waterfall, inside an airport.',
+    },
+    stats: {
+      days: 1,
+      pace: 'transit',
+      with: 'solo',
+    },
+    days: [
+      {
+        slug: 'the-day',
+        number: 1,
+        title: 'Sunrise, Merlion, and the end of the continent',
+        summary:
+          'Pre-sunrise at Changi Beach, then the MRT west to the Merlion and Marina Bay waterfront, south to Palawan Beach and across the suspension bridge to the southernmost point of continental Asia — quiet at that hour — then back east to Jewel and the rain vortex before the gate.',
+        walkingKm: 5,
+        image: {
+          srcBase: 'sin-day-changi',
+          width: 1024,
+          height: 768,
+          alt: 'Changi Beach at pre-sunrise, lamps still lit along white colonial balustrades descending to a sandy shore, palm trees against an orange-gold sky, a glasshouse building to the right',
+          caption: 'The Changi coast before the sun was up — lamps still on, nobody there.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '06:21',
+              title: 'Changi Beach at dawn',
+              body: 'I took the MRT to the northeast end of the island before the sun was up — the seafront lamps still lit, the sky going orange above the Strait. Changi Beach is long and quiet: white colonial-era railings along the promenade, palm trees, almost nobody there at that hour.',
+              image: {
+                srcBase: 'sin-stop-changi',
+                width: 768,
+                height: 1024,
+                alt: 'Pre-sunrise over the Changi Strait, a crescent moon in the orange sky, sailboats moored on still water, silhouetted trees to the right',
+                caption: 'The Changi Strait before sunrise — crescent moon, sailboats at anchor.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '08:36',
+              title: 'Merlion Park',
+              body: 'The Merlion is at the mouth of the Singapore River — the stone lion-fish spout facing the harbour, Marina Bay Sands across the basin behind it. I walked the waterfront promenade in the early morning, the financial district towers on one side and the bay on the other.',
+              image: {
+                srcBase: 'sin-stop-merlion',
+                width: 768,
+                height: 1024,
+                alt: 'The Merlion spout close up, water arcing into the bay, with Marina Bay Sands\' three towers rising directly behind it under a cloudy morning sky',
+                caption: 'The Merlion and Marina Bay Sands, early morning.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '09:53',
+              title: 'Palawan Beach, Southernmost Point',
+              body: 'A suspension bridge from Palawan Beach leads to a small wooden islet with a marker for the southernmost point of continental Asia — open water on three sides, the strait ahead. The beach behind was mostly empty.',
+              image: {
+                srcBase: 'sin-stop-palawan',
+                width: 1024,
+                height: 768,
+                alt: 'Palawan Beach seen from the lookout tower on the southernmost islet — a curved white sand beach with clear blue-green water, palm trees and dense jungle, almost empty in the morning',
+                caption: 'Palawan Beach from the islet lookout — the sand curving back to Sentosa, mostly empty.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '14:08',
+              title: 'Jewel Changi Airport',
+              body: 'Jewel is a glass dome attached to Terminal 1 — the Rain Vortex falls from a circular aperture in the roof through the full height of the atrium, the sound carrying down through the shopping and garden levels below. I walked the levels before going through to departures.',
+              image: {
+                srcBase: 'sin-stop-jewel',
+                width: 768,
+                height: 1024,
+                alt: 'The Rain Vortex at Jewel Changi falling from the circular aperture in the dome through the full height of the atrium, surrounded by tall trees, with crowds on the walkways below',
+                caption: 'The Rain Vortex from mid-level — full height of the atrium, trees on all sides.',
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'riyadh-in-two-days',
+    title: 'Riyadh in two days',
+    city: 'Riyadh',
+    country: 'Saudi Arabia',
+    tagline:
+      'Two days in Riyadh — the towers of KAFD and Masmak Fort in the old quarter, At-Turaif and Bujairi Terrace in the midday heat, and the Tuwaiq escarpment an hour west.',
+    intro:
+      'I got around on the Riyadh Metro for the first day — clean, fast, and rarely crowded — and hired a car on the second for the drive out to Diriyah and the Edge of the World.',
+    hero: {
+      srcBase: 'ruh-hero-edge',
+      width: 1024,
+      height: 768,
+      alt: 'The Tuwaiq escarpment at the Edge of the World, the rocky plateau surface dropping away to a canyon and flat desert below under a clear late-afternoon sky',
+      caption: 'The Edge of the World — the Tuwaiq plateau drops to desert floor, late afternoon.',
+    },
+    stats: {
+      days: 2,
+      pace: 'steady',
+      with: 'family',
+    },
+    days: [
+      {
+        slug: 'day-1',
+        number: 1,
+        title: 'KAFD, Masmak, and the Museum',
+        summary:
+          'A morning in the towers and plazas of the King Abdullah Financial District, lunch and aircon at Kingdom Centre, then south to the old quarter — inside Masmak Fort for the tour and the insignia exhibit, and the National Museum of Saudi Arabia to close.',
+        walkingKm: 4,
+        mapGrouping: [['11:00', '12:00'], ['16:00', '18:00']],
+        image: {
+          srcBase: 'ruh-kafd-building',
+          width: 1024,
+          height: 768,
+          alt: 'A curving white lattice-facade office tower in the King Abdullah Financial District, Riyadh, with palm trees and a parked car below under a blue midday sky',
+          caption: 'A KAFD tower, its lattice facade in the midday heat.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '11:00',
+              title: 'King Abdullah Financial District',
+              body: 'The King Abdullah Financial District is Riyadh\'s planned financial hub in the north — a cluster of towers set around wide plazas and pedestrian streets still finding their rhythm. The architecture does most of the work: undulating lattice facades, a metro station whose ceiling ribs look like something structural turned decorative. Quiet on a September morning.',
+              image: {
+                srcBase: 'ruh-kafd-building',
+                width: 1024,
+                height: 768,
+                alt: 'A curving white lattice-facade office tower in the King Abdullah Financial District, Riyadh, with palm trees and a parked car below under a blue midday sky',
+                caption: 'A KAFD tower, its lattice facade in the midday heat.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '12:00',
+              title: 'Kingdom Centre',
+              body: 'Kingdom Centre is a 302-metre tower with a sky bridge cutting through the top. I went in mainly for the air conditioning — at 40 degrees outside, the mall floor was a reasonable midday reset.',
+              image: {
+                srcBase: 'ruh-stop-kingdom',
+                width: 1024,
+                height: 768,
+                alt: 'The Kingdom Centre tower in Riyadh seen from street level, the sun directly behind its parabolic arch, a palm frond visible on the right',
+                caption: 'Kingdom Centre from street level, the arch cutting the sun.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '16:00',
+              title: 'Masmak Fort',
+              body: 'Masmak is a 19th-century mud-brick fort in the old quarter, the site where Abdulaziz ibn Saud took Riyadh from the Rashidis in 1902. I went inside for the tour and stayed for the insignia exhibit — a room of Saudi heraldry and royal emblems that gives a clean narrative of the unification. Compact and well-presented.',
+              image: {
+                srcBase: 'ruh-stop-masmak',
+                width: 1024,
+                height: 768,
+                alt: 'Masmak Fort\'s two round mud-brick towers and outer walls under a deep blue sky, stone paving in the foreground, late afternoon light',
+                caption: 'Masmak Fort — the mud-brick towers in late afternoon light.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '18:00',
+              title: 'National Museum of Saudi Arabia',
+              body: 'Eight halls spanning prehistoric Arabia through the modern Saudi state. I did a quick pass — the geological sections and the pre-Islamic maps of the peninsula are the most visually striking.',
+              image: {
+                srcBase: 'ruh-stop-museum',
+                width: 1024,
+                height: 768,
+                alt: 'A large bilingual Arabic and English map panel of the Kingdom of Saudi Arabia at the National Museum in Riyadh, with historical site locations marked across the peninsula',
+                caption: 'The peninsula mapped — the National Museum\'s Saudi Arabia panel.',
+              },
+            },
+          },
+        ],
+      },
+      {
+        slug: 'day-2',
+        number: 2,
+        title: 'Diriyah and the Edge of the World',
+        summary:
+          'Hired a car out to Diriyah — At-Turaif and Bujairi Terrace in 40-degree heat — then northwest to walk the Tuwaiq escarpment for over an hour, and back to Riyadh for the lit towers of Al Nakheel at night.',
+        walkingKm: 6,
+        image: {
+          srcBase: 'ruh-day2-edge',
+          width: 768,
+          height: 1024,
+          alt: 'The view from the Tuwaiq escarpment edge, white limestone rocks in the foreground and the desert floor hundreds of metres below, afternoon haze on the horizon',
+          caption: 'From the cliff edge — the desert floor far below, afternoon haze.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '12:00',
+              title: 'Ad Diriyah',
+              body: 'At-Turaif is the UNESCO-listed mud-brick walled city from which the Diriyah Emirate was governed in the 18th century. Bujairi Terrace is the restored visitor area adjacent, with cafés and palm-shaded plazas facing the ruins. I went through both — the 40-degree heat keeping every stop shorter than planned.',
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '15:30',
+              title: 'Edge of the World',
+              body: 'Jebel Fihrayn is the local name for the Tuwaiq escarpment — a cliff line that drops several hundred metres straight down to flat desert. The road out is an hour of plateau with nothing to signal what\'s coming, then the edge opens up and the scale of it lands all at once. I walked along the clifftops for over an hour.',
+              image: {
+                srcBase: 'ruh-stop-escarpment',
+                width: 768,
+                height: 1024,
+                alt: 'The rocky surface of the Tuwaiq plateau at the Edge of the World, scattered limestone stones and sparse desert scrub, deep blue sky above',
+                caption: 'The plateau surface at the escarpment edge.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '20:00',
+              title: 'Al Nakheel',
+              body: 'Al Nakheel is a cluster of glass towers in northern Riyadh, lit up at night against the dark. After the desert, the contrast is stark.',
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'singapore-in-a-day',
+    title: 'Singapore in a day',
+    city: 'Singapore',
+    country: 'Singapore',
+    tagline:
+      'A transit day with friends — Maxwell hawker centre for breakfast, the OCBC Skyway between the Supertrees, NTU to visit friends on exchange, and the Rain Vortex at Jewel before the gate.',
+    intro:
+      'I had a day in Singapore between flights with a few friends — breakfast at Maxwell in Tanjong Pagar, the MRT to Gardens by the Bay for the OCBC Skyway walk, a Grab across to NTU to visit friends on exchange, and back east to Jewel and the Rain Vortex before departures.',
+    hero: {
+      srcBase: 'sg2-hero-skyway',
+      width: 1024,
+      height: 768,
+      alt: "Marina Bay Sands' three towers and the Singapore financial district skyline seen from the OCBC Skyway at Gardens by the Bay, with the lush green canopy of the gardens below and blue sky above",
+      caption: 'Looking toward Marina Bay Sands from the OCBC Skyway — the gardens below, the city beyond.',
+    },
+    stats: {
+      days: 1,
+      pace: 'transit',
+      with: 'friends',
+    },
+    days: [
+      {
+        slug: 'the-day',
+        number: 1,
+        title: 'Maxwell, Supertrees, and Nanyang',
+        summary:
+          "Breakfast at Maxwell hawker centre in Tanjong Pagar, then the MRT to Gardens by the Bay and the OCBC Skyway between the Supertrees, a Grab across the island to NTU's campus to see friends on exchange, and back east to Jewel before the gate.",
+        walkingKm: 4,
+        image: {
+          srcBase: 'sg2-day-gbtb',
+          width: 1024,
+          height: 768,
+          alt: 'The Singapore Flyer ferris wheel and city skyline seen from the elevated OCBC Skyway at Gardens by the Bay, with a Supertree canopy visible in the lower right corner and blue sky with hazy clouds',
+          caption: 'The Singapore Flyer and downtown from the Skyway — the view east along the bay.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '08:39',
+              title: 'Maxwell Food Centre',
+              body: 'Maxwell is an old colonial market building in Tanjong Pagar that runs as a hawker centre — stalls of Malay, Chinese, and Indian food, tables crammed together under the ceiling fans. I had nasi padang: rice with braised fried chicken, long beans, bean sprouts, and two sambals on the side.',
+              image: {
+                srcBase: 'sg2-stop-maxwell',
+                width: 768,
+                height: 1024,
+                alt: 'A styrofoam tray of nasi padang on a green hawker table — rice, braised fried chicken with red sambal, stir-fried long beans, bean sprouts, and two small cups of sauce',
+                caption: 'Nasi padang at Maxwell — rice, fried chicken, and a few sides for breakfast.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '09:54',
+              title: 'Gardens by the Bay, OCBC Skyway',
+              body: 'The Supertrees are large steel lattice structures covered in bromeliads and ferns — solar panels on top, planters all down the trunk. The OCBC Skyway bridges two of the taller ones at canopy height, with the gardens below and a clear view to Marina Bay Sands and the financial district on one side and the Flyer and the strait on the other.',
+              image: {
+                srcBase: 'sg2-stop-supertrees',
+                width: 1024,
+                height: 768,
+                alt: 'Three Supertree structures at Gardens by the Bay seen from directly below, their branching steel canopies spreading against a blue sky, a palm tree visible at the lower left',
+                caption: 'The Supertrees from ground level — lattice steel and planted ferns reaching up.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '13:01',
+              title: 'NTU campus',
+              body: 'NTU is on the far west of the island. The Hive is one of the more recognisable buildings on campus — stacked oval floors of exposed concrete with plants trailing between the levels, open at the base. I met up with friends who were on exchange there and walked around the grounds for a while.',
+              image: {
+                srcBase: 'sg2-stop-ntu',
+                width: 768,
+                height: 1024,
+                alt: 'The Hive building at NTU, shot from directly below — five stacked oval concrete floors with trailing green plants between each level, against a dramatic cloudy sky',
+                caption: 'The Hive at NTU — stacked concrete ovals with trailing plants between the floors.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '15:42',
+              title: 'Jewel Changi Airport',
+              body: 'Jewel connects to Terminal 1 — the Rain Vortex falls from a circular aperture in the dome straight through the full height of the atrium, the glass roof grid surrounding it on all sides. I went up a few levels to stand close to the top before crossing through to departures.',
+              image: {
+                srcBase: 'sg2-stop-jewel',
+                width: 1024,
+                height: 768,
+                alt: 'The Rain Vortex at Jewel Changi seen from close below the circular roof aperture — water falling in a thick column through a grid of white steel and glass triangles, silhouetted trees below',
+                caption: 'The Rain Vortex from just below the aperture — glass dome grid, water column, trees.',
+              },
+            },
+          },
+        ],
+      },
+    ],
+  }
 ];
 
 // Attach photo-derived coordinates to stops (one-time, at module load).

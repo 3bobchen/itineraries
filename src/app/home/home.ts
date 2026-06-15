@@ -87,9 +87,13 @@ import type { GlobeHandle, GlobeMarker } from './globe';
 
       <div class="overlay container">
         <img class="avatar" src="/images/avatar.png" width="56" height="56" alt="Bob Chen" />
-        <h1 class="title">Where I went and what I did.</h1>
+        <h1 class="title">
+          Places I've been,
+          <br/>
+          Things that I've done
+        </h1>
         <p class="lede">
-          Itineraries reconstructed from my photos metadata
+          Itineraries reconstructed from my photos metadata by Claude
         </p>
         @if (failed()) {
           <p class="fallback mono" role="status">
@@ -389,7 +393,7 @@ import type { GlobeHandle, GlobeMarker } from './globe';
 
     .title {
       margin: 0;
-      max-width: 16ch;
+      max-width: 20ch;
       font-size: var(--text-3xl);
       font-weight: 700;
       letter-spacing: -0.01em;
@@ -398,7 +402,7 @@ import type { GlobeHandle, GlobeMarker } from './globe';
 
     .lede {
       margin: var(--space-md) 0 0;
-      max-width: 48ch;
+      max-width: 56ch;
       font-size: var(--text-md);
       color: oklch(90% 0 0);
       text-shadow: 0 1px 18px oklch(0% 0 0 / 0.6);
