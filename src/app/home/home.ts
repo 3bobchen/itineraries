@@ -86,7 +86,7 @@ import type { GlobeHandle, GlobeMarker } from './globe';
       </div>
 
       <div class="overlay container">
-        <img class="avatar" src="/images/avatar.png" width="56" height="56" alt="Bob Chen" />
+        <img class="avatar" src="images/avatar.png" width="56" height="56" alt="Bob Chen" />
         <h1 class="title">
           Places I've been,
           <br/>
