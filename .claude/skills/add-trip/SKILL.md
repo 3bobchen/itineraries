@@ -1,10 +1,14 @@
 ---
 name: add-trip
-description: Interactive wizard to onboard a new trip into the itineraries data. Queries Apple Photos first to build a skeleton of the trip from GPS clusters, then interviews the user to enrich each stop, selects images, drafts prose, and writes the TypeScript data entries.
+description: Onboard a new trip into the itineraries data. Takes a short set of starting facts, then autonomously reconstructs the whole itinerary from Apple Photos — clustering stops, drafting prose, selecting images, deriving coordinates — and only comes back to the user once, with the finished draft, for a single day-by-day round of contributions. Finishes by placing the trip's pin on the homepage globe.
 user-invocable: true
 ---
 
-You are onboarding a new travel itinerary into this publication. Work through the phases below in order. Never skip phases. Keep the tone of your questions conversational and specific — you are a meticulous editor helping a writer remember and structure what they actually did, not filling out a form.
+You are onboarding a new travel itinerary into this publication. The guiding principle is **work first, ask once**: gather the minimum starting facts, then construct the entire itinerary autonomously from the photos, and only return to the user a single time — at the end — with a finished draft for them to enrich and correct.
+
+Do **not** interview the user day-by-day. Do **not** confirm each cluster, each image, or each name as you go. Make confident, reasonable choices from the photo evidence and your editorial judgment, flag anything genuinely uncertain inline, and roll it all up into one review at the end.
+
+Keep your tone that of a meticulous editor who has already done a first draft — not a form asking the writer to fill in blanks.
 
 ---
 
@@ -14,272 +18,195 @@ Before asking the user anything, do all of these:
 
 1. Read `src/app/itineraries/itinerary.model.ts` — internalize every field, type, and constraint. Know what `mapGrouping`, `walkingKm`, `tip`, `bookAhead`, and `daypart` mean.
 2. Read `src/app/itineraries/itineraries.data.ts` — study the **"Hong Kong in four days"** entry as the canonical example. Note:
-   - Entry rhythm: stop → leg → stop → leg → stop, alternating
-   - `body` prose: one short paragraph, past tense, first person, specific and concrete — no superlatives, no atmosphere for its own sake. Written like a knowledgeable friend.
+   - Entry rhythm: stops only (omit transport legs entirely)
+   - `body` prose: one short paragraph, past tense, first person singular ("I", never "we"), specific and concrete — no superlatives, no atmosphere for its own sake. Written like a knowledgeable friend.
    - `time` fields are 24h clocks keyed to map pins, not displayed as labels
-   - Legs carry the *practical* transit detail (route name, note with useful extra)
-   - `mapGrouping` clusters the day's stops into spatial groups that make sense geographically (e.g. by area of the city visited)
-   - `tip` is optional, used sparingly — only when there is a genuinely non-obvious practical insight
+   - `mapGrouping` clusters the day's stops into spatial groups that make sense geographically
    - `bookAhead` is only `true` when advance booking is actually required or strongly advised
 3. Read `src/app/itineraries/stop-coordinates.ts` — note the key structure: `itinerary-slug → day-slug → stop-time → [lat, lon]`
-4. Read `PRODUCT.md` and `DESIGN.md` — absorb the voice ("practical, trustworthy, specific") and the anti-patterns (no superlatives, no SEO sludge, no "best of" framing)
+4. Read `src/app/itineraries/city-coordinates.ts` — note `CITY_COORDS` (city → centroid, drives the globe pin) and `PLANNED_CITIES` (placeholder "coming soon" pins). You will update both in the final phase.
+5. Read `PRODUCT.md` and `DESIGN.md` — absorb the voice ("practical, trustworthy, specific") and the anti-patterns (no superlatives, no SEO sludge, no "best of" framing).
 
 Only after completing these reads, proceed to Phase 1.
 
 ---
 
-## Phase 1 — Trip basics
+## Phase 1 — Starting facts (the only questions up front)
 
-Ask the following in a single message (group naturally, not as a numbered list):
+Ask for all of this in a **single** message (group naturally, not as a numbered list). This is the only time you interview the user before building. Keep it tight:
 
 - Where was the trip? (city, country)
 - What should the itinerary be titled? (Suggest a format like "Tokyo in three days" if they don't have one)
-- How long was the trip? (number of days)
-- What were the exact travel dates? (needed to query Apple Photos — ask for start and end date in YYYY-MM-DD)
+- What were the exact travel dates? (start and end, YYYY-MM-DD — required to query Apple Photos)
 - What was the pace: relaxed, steady, or full?
 - Who did they travel with? (e.g. "solo", "a friend", "friends", "partner", "family")
-- Where did they stay? (neighbourhood/area — this usually anchors the opening of the `intro`)
-- How did they get around? (dominant transit mode — feeds the `intro`)
+- Where did they stay, and how did they get around? (one line each — anchors the `intro`)
 
-Once you have answers, derive:
+From their answers, derive **silently** (state your choices, do not ask for confirmation — the user can correct anything in the final review):
 - `slug`: kebab-case from title (e.g. "tokyo-in-three-days")
-- `city` and `country`
-- Image prefix: short abbreviation, e.g. "tok" for Tokyo, "bkk" for Bangkok (confirm with user)
+- `city`, `country`, number of days (from the date range)
+- Image prefix: short abbreviation, e.g. "tok" for Tokyo, "bkk" for Bangkok
 
-Tell the user the slug and prefix you've chosen and ask them to confirm before continuing.
+Tell the user, in one line, the slug and prefix you'll use, then say you're going to build the draft from their photos and will come back with the full thing. Do not wait for a reply — proceed straight to Phase 2.
 
 ---
 
-## Phase 2 — Photos reconnaissance
+## Phase 2 — Autonomous construction
 
-Before asking the user anything about their days, do a full pass of Apple Photos to understand the shape of the trip. This gives you a skeleton to work from rather than starting cold.
+This is the heart of the skill. With the starting facts in hand, build the **entire** itinerary from the photos without further questions. Do every step below, in order, making decisions yourself.
 
-### Step 2a — Install osxphotos if needed
+### 2a — Photos setup and query
 
 ```bash
 python3 -c "import osxphotos" 2>/dev/null || pip3 install osxphotos
 ```
 
-### Step 2b — Query all geotagged photos in the trip date range
+Query all geotagged photos across the trip date range (use the day *after* the last travel date as `--to-date`; the upper bound is exclusive):
 
 ```bash
 osxphotos query --json --from-date YYYY-MM-DD --to-date NEXT-DAY --location 2>/dev/null
 ```
 
-Note: use the day *after* the last travel date as `--to-date` — the upper bound is exclusive.
+Each photo object has: `filename`, `date`, `latitude`, `longitude`, `place_names` (reverse-geocoded country → region → city → POI), `path`, `uuid`, `ismissing`.
 
-This returns a JSON array of photo objects. Each has:
-- `filename` — original filename
-- `date` — ISO timestamp
-- `latitude`, `longitude` — GPS coordinates
-- `place_names` — reverse-geocoded place hierarchy (country → region → city → POI name)
-- `path` — path to the original file on disk
-- `uuid` — unique identifier (needed later for derivative lookup)
-- `ismissing` — whether the original is in iCloud rather than local
+### 2b — Cluster into stops
 
-Parse the output and:
-1. Group photos by calendar day using `date`
-2. Within each day, cluster by GPS proximity (~200m radius) in chronological order
-3. For each cluster, note: approximate time range, centroid coordinates, place names if available, photo count, representative UUIDs
+Parse the JSON and build the skeleton yourself:
 
-### Step 2c — Present the skeleton to the user
+1. Group photos by calendar day using `date`.
+2. Within each day, cluster by GPS proximity (~200m radius) in chronological order.
+3. For each cluster, record: time range, centroid coordinates, place names, photo count, representative UUIDs.
+4. Decide which clusters are **stops** and which are **transit/incidental** (a couple of photos in motion between two real stops). Drop incidental clusters. Don't force every cluster into a stop.
+5. Name each stop from `place_names` (use the most specific POI). Where reverse geocoding is empty or vague, give it a best-guess working title and mark it for the review (see Phase 3).
 
-Share what you found, day by day, as a structured read-back — not a form, but a narrative summary:
+### 2c — Derive coordinates
 
-> "From your photos I can see you were in [City] on [date]. It looks like:
-> - Around [time]: [N] photos near [place or coordinates] — [place_names hint if available]
-> - Around [time]: [N] photos near [place or coordinates]
-> - …
->
-> Does that match what you remember? I'll use this as the starting point."
+Build the `STOP_COORDS` structure as you cluster: each stop's `time` → centroid `[lat, lon]`, tagged `// photo-derived`. You are not asking the user for Google Maps links in this flow — photo EXIF is the coordinate source. (If a user volunteers a Maps link during the final review, resolve it with `curl -Ls -o /dev/null -w "%{url_effective}" "URL"` and parse the `@lat,lon`.)
 
-Ask the user to confirm the list is roughly right before moving on. If place_names are empty or ambiguous, note the coordinates and ask the user to identify the location.
+### 2d — Select and export images
 
----
+Pick images yourself — do not show candidates one by one. For each slot, choose the single most representative frame from the relevant cluster (favor sharp, well-composed, daylight shots; avoid duplicates, screenshots, and people-only close-ups unless that's the moment).
 
-## Phase 3 — Day-by-day interview
+Slots:
+- **Hero** (`hero`): the one image that defines the trip — a striking wide view (harbour, skyline, landmark). Landscape, ~1024×768.
+- **Day header** (`days[n].image`): one per day, capturing the day's arc. Landscape preferred.
+- **Stop image** (`stop.image`): optional, only for stops with a genuinely strong frame. Portrait preferred. Not every stop needs one — omit rather than force.
 
-Now work through each day using the photo skeleton as a scaffold. You already know *where* the user was; this phase is about understanding *what happened* at each place.
+Naming: `{prefix}-hero-{shortname}`, `{prefix}-day-{shortname}`, `{prefix}-stop-{shortname}`.
 
-For each day, open with the photo-derived stop list rather than a blank question:
-
-> "Day [N] — you had [N] stops from your photos. Let me go through them:
->
-> **[Place name or coordinates]** around [time] — what were you doing here? Anything memorable?"
-
-Work through each cluster in order. For each:
-- Confirm or correct the place name/title
-- Ask what they did or saw there — one open question, then follow up only if needed
-- Ask if they needed to book in advance, or walk-in was fine
-- Ask if there are any photo clusters between stops that they want to add as a stop, or skip as transit
-
-If a cluster has no recognisable place name from reverse geocoding, show the coordinates and ask: "I can see [N] photos around [lat, lon] — do you remember what this was?"
-
-**At the end of each day, ask:**
-- "What's a one-line title for this day? (e.g. 'Harbour, Central, and the Peak')"
-- Draft a one-paragraph summary of the day's arc from what they've told you, and ask them to react to it.
-
-Do not move on to the next day until the current day's stops are confirmed with titles and at least rough times.
-
-### Coordinate extraction from Google Maps links
-
-When the user provides a Google Maps link, extract coordinates immediately:
+Export and resize with `sips`. For iCloud-only photos (`ismissing: True`, `path` is `None`), use the local derivative instead of `--download-missing`/`--use-photos-export` (both crash):
 
 ```bash
-curl -Ls -o /dev/null -w "%{url_effective}" "MAPS_URL_HERE" 2>/dev/null
-```
-
-Parse the `@lat,lon` from the resolved URL (e.g. `@22.2809,114.1598` → `[22.2809, 114.1598]`). If it doesn't resolve, ask for the full URL from the address bar.
-
-Accumulate all coordinates into the `STOP_COORDS` structure as you go. Photo-derived cluster centroids fill in any stops without a Maps link.
-
----
-
-## Phase 4 — Image selection
-
-You already have all photo metadata from Phase 2. For each image slot, pull candidates from the relevant cluster and show them to the user.
-
-Slots needed:
-- **Hero** (`hero`): wide landscape, 1024×768 — the single image that defines the trip. Usually a striking view: a harbour, a skyline, a landmark. Ask the user: "What's the most iconic single image from the whole trip?"
-- **Day header** (`days[n].image`): one per day. Landscape preferred, 1280×1706 or 1024×768. Should capture the day's arc.
-- **Stop image** (`stop.image`): optional per stop. Portrait preferred (768×1024 or 960×1280). The most visually interesting moment at that stop.
-
-For each slot, export the candidates as previews so the user can see them, then ask which one they want. Do this stop by stop — don't dump all candidates at once.
-
-**Naming convention for exported images:**
-- Hero: `{prefix}-hero-{shortname}` (e.g. `tok-hero-shinjuku`)
-- Day header: `{prefix}-day-{shortname}` (e.g. `tok-day-senso-ji`)
-- Stop: `{prefix}-stop-{shortname}` (e.g. `tok-stop-ramen`)
-
-Ask the user to confirm or adjust each name.
-
-### Export and resize
-
-For each selected photo, export to the correct size using `sips`. If the photo is missing locally (`ismissing: True`), use the derivative cache instead of the original — find it at `resources/derivatives/{first-char-of-UUID}/{UUID}*_1_105_c.jpeg` inside the Photos library bundle.
-
-```bash
-# For local originals:
+# Local originals:
 sips -s format jpeg "SOURCE_PATH" --out "/Users/bobchen/WebstormProjects/itineraries/public/images/{srcBase}-{width}.jpg"
 
-# For iCloud derivatives (convert then resize if needed):
+# iCloud derivatives (find highest-res local thumb, convert, resize):
+find "$HOME/Pictures/Photos Library.photoslibrary/resources/derivatives" -name "{UUID}*_1_105_c.jpeg"
 sips -s format jpeg "DERIVATIVE_PATH" --out /tmp/converted.jpg
 sips -Z LONGEST_DIM /tmp/converted.jpg --out "/Users/bobchen/WebstormProjects/itineraries/public/images/{srcBase}-{width}.jpg"
 ```
 
-Target longest dimension by slot:
-- **Hero (landscape):** `-Z 1024` (targets ~1024×768)
-- **Day header (portrait):** `-Z 1706` (targets ~1280×1706)
-- **Stop portrait:** `-Z 1024` (targets ~768×1024)
+Target longest dimension: Hero `-Z 1024`, Day header `-Z 1706`, Stop portrait `-Z 1024`. Always read back the real output size and use the actual pixels for `width`/`height`, naming the file `{srcBase}-{actualWidth}.jpg`:
 
-After exporting, always check actual output dimensions:
 ```bash
 sips -g pixelWidth -g pixelHeight "/path/to/exported.jpg"
 ```
 
-Use the actual pixel values for `width` and `height`. Name the file `{srcBase}-{actualWidth}.jpg`.
+Draft `alt` (specific: foreground, background, time of day) and a one-sentence `caption` (present tense, grounded) for each exported image yourself.
 
-**For each exported image, draft the `alt` text** (specific: foreground, background, time of day) and a one-sentence `caption` (present tense, grounded in the moment). Share drafts with the user and ask them to react.
+### 2e — Draft all prose
 
----
+Write every text field from the photo evidence and the starting facts, in this publication's voice (see Style reference below). Don't leave blanks; a confident draft the user can correct beats a question.
 
-## Phase 5 — Draft prose
+- **`tagline`** — one concrete sentence, names the actual things, no superlatives.
+- **`intro`** — 2–3 sentences: where they stayed, how they got around, the tone of the trip. First person.
+- **Stop `body`** — one paragraph each (2–4 sentences), past tense, first person, specific. Infer what happened at each stop from the place, the time of day, and the photos. Where you're guessing at an activity, keep it factual and mark the stop for review.
+- **Day `summary`** — the arc of the day, key beats in order.
+- **Day `title`** — one line (e.g. "Harbour, Central, and the Peak").
 
-Now draft the text fields that need editorial judgment:
+### 2f — mapGrouping
 
-**`tagline`** (one sentence, goes in meta description):
-- Concrete, specific, honest. Names the things. No superlatives.
-- Model: "Four days from Kennedy Town to Macau and back — morning swims, Disneyland fireworks, zip lining in Cotai and the Peak after dark."
-- Draft one, share with user, iterate once.
+For each day with more than ~4 stops, cluster the stop times into geographic groups based on the coordinates you derived (morning area → afternoon area → evening area). Format: `mapGrouping: [['08:00','10:30','12:30'], ['14:30','17:00'], ['19:00','21:30']]`.
 
-**`intro`** (2–3 sentences, opening prose):
-- Where they stayed, how they got around, overall tone of the trip. First person.
-- Model: "I stayed in Kennedy Town, the island's quiet western end, and got around on an Octopus card: the MTR, buses, one international ferry to Macau, and the Star Ferry more times than expected."
-- Draft one, share with user, iterate once.
+### 2g — Assemble the draft
 
-**Stop `body` texts** (one paragraph each):
-- For each stop without body text yet, draft based on what the user told you.
-- Past tense, first person, specific and concrete. No "vibrant", "bustling", "amazing", "hidden gem". Name the actual thing.
-- Keep to 2–4 sentences. If the user gave you rich detail, use it.
-- Share each draft and ask for a thumbs up or corrections.
+Hold the complete `Itinerary` object and `STOP_COORDS` block in memory, fully populated. Set `walkingKm` as a silent reasonable estimate. Omit `tip` entirely. Omit airport arrival/departure as stops.
 
-**Day `summary`** (one longer sentence or two, the arc of the day):
-- Enumerate the key beats in order. Specific. Should make the reader feel the shape of the day.
-- Model: "Two rival bakeries on Lyndhurst Terrace for a late start, then the MTR all the way out to Lantau for a full day at Disneyland through the fireworks, and a late dinner at Paradise Dynasty in Mong Kok."
+Do not write any files yet. Proceed to the single review.
 
 ---
 
-## Phase 6 — mapGrouping
+## Phase 3 — The single review (one round, day by day)
 
-For each day with more than ~4 stops, decide on `mapGrouping`. This controls how the day map clusters pins spatially.
+Now — and only now — return to the user. Present the finished draft and collect all their contributions in **one pass**. This replaces the entire old day-by-day interview.
 
-Look at the coordinates you have for each stop and mentally (or literally) group them by geographic proximity and/or the time of day the user was there. The groups should reflect "I was in this area of the city then, then moved to this other area."
+Structure the review so the user can scan the whole trip and respond per day in a single message:
 
-Ask: "Looking at Day [X], it seems like you were in [area A] in the morning, then [area B] in the afternoon. Does that make sense as two map clusters, or did you pass through somewhere else in between?"
+> "I've reconstructed the trip from your photos. Here's the full draft — read through and tell me, per day, anything that's wrong, missing, or worth adding. I especially flagged the spots marked ⚠️ where I was guessing.
+>
+> **Day 1 — [title]**
+> _[summary]_
+> 1. **[Stop title]** ~[time] — [one-line gloss of the body you drafted]
+> 2. **[Stop title]** ~[time] — [gloss]  ⚠️ couldn't identify this from geocoding — [coords]; what was it?
+> …
+>
+> **Day 2 — [title]** …"
 
-Format: `mapGrouping: [['08:00', '10:30', '12:30'], ['14:30', '17:00'], ['19:00', '21:30']]`
-Each inner array is a group of stop times that appear together on one map cluster.
+Then ask, once:
 
----
+> "For each day, what would you add or change? Anything memorable I missed, names I got wrong, stops to drop or merge, a different hero shot? Give it to me all at once and I'll fold it in."
 
-## Phase 7 — Generate TypeScript
-
-Now generate the code. Produce two things:
-
-### 6a — The Itinerary object
-
-Produce a complete `Itinerary` object literal, ready to be appended to the `ITINERARIES` array in `src/app/itineraries/itineraries.data.ts`.
-
-Follow these rules exactly:
-- Match the exact shape of the "Hong Kong in four days" entry — every field in the same order
-- `slug` must be the confirmed slug from Phase 1
-- Entries are **stops only** — omit transport legs entirely
-- Every stop has `time`, `title`, and `body`; omit `durationMin`
-- `image` objects include `srcBase`, `width`, `height`, `alt`, `caption` — all from Phase 4
-- Omit `tip` — weave any practical detail into the `body` text instead
-- `bookAhead: true` only where advance booking is genuinely required
-- Set `walkingKm` as a silent reasonable estimate — do not ask the user
-- Do not include airport arrival or departure as stops
-- No trailing commas on last array elements (TypeScript strict mode)
-
-Show the user the generated object, clearly marked as a draft. Ask for a final read-through.
-
-### 6b — The STOP_COORDS entry
-
-Produce the coordinates block to append inside the `STOP_COORDS` object in `src/app/itineraries/stop-coordinates.ts`:
-
-```typescript
-'your-trip-slug': {
-  'day-1': {
-    '08:00': [lat, lon], // Place name — source note (photo-derived | map-confirmed)
-    '10:30': [lat, lon], // Place name
-  },
-  'day-2': { ... },
-},
-```
-
-For coordinates that came from a Google Maps link, mark them `// map-confirmed`. For coordinates derived from photo EXIF, mark them `// photo-derived`. For any still missing, use a placeholder `// NEEDS_COORD` and flag them explicitly to the user.
+Rules for this review:
+- Present **everything** — taglines, intro, every day's title/summary/stops, and the chosen hero + day images (state the filenames you exported so they can object).
+- Flag every uncertain item with ⚠️ and a concrete question, so the user's effort goes where it matters.
+- Accept the user's contributions as a batch. If they reply day-by-day across several messages, that's fine — just don't prompt them stop-by-stop.
+- After incorporating their input, only re-confirm if a change is large (e.g. they restructured a day). Small corrections you just apply.
 
 ---
 
-## Phase 8 — Write the files
+## Phase 4 — Generate and write
 
-Only after the user has approved the drafts in Phase 7, write the changes:
+Once the user's contributions are folded in:
 
-1. **Append to `itineraries.data.ts`**: Add the new `Itinerary` object to the `ITINERARIES` array. Edit the file — do not rewrite the whole thing. Place it after the last existing entry, before the closing `]`.
+### 4a — Final objects
 
-2. **Append to `stop-coordinates.ts`**: Add the new coordinates block inside `STOP_COORDS`, after the last existing entry.
+Produce the complete `Itinerary` object literal and the `STOP_COORDS` block, matching the exact shape and field order of the "Hong Kong in four days" entry:
+- `slug` is the confirmed slug; stops only (no legs); every stop has `time`, `title`, `body`; omit `durationMin`.
+- `image` objects carry `srcBase`, `width`, `height`, `alt`, `caption`.
+- Omit `tip`; fold any practical detail into `body`. `bookAhead: true` only where genuinely required.
+- `walkingKm` is a silent estimate. No airport stops. No trailing commas on last array elements.
+- In `STOP_COORDS`, tag each coordinate `// photo-derived` (or `// map-confirmed` if the user supplied a link). Use `// NEEDS_COORD` for anything still missing and flag it.
 
-3. After writing both files, run a TypeScript check:
+### 4b — Write the data files
+
+1. **Append to `itineraries.data.ts`** — add the new `Itinerary` object to the `ITINERARIES` array, after the last entry, before the closing `]`. Edit; don't rewrite the file.
+2. **Append to `stop-coordinates.ts`** — add the new coordinates block inside `STOP_COORDS`, after the last entry.
+
+---
+
+## Phase 5 — Place the pin on the globe
+
+This is what makes the trip appear on the homepage. A published itinerary only renders as a globe marker if its `city` has a centroid in `CITY_COORDS` (`itinerary.service.ts` skips cities without one). Do both:
+
+1. **Add the city centroid to `CITY_COORDS`** in `src/app/itineraries/city-coordinates.ts`, keyed by the **exact** `city` string used on the itinerary (must match character-for-character, including spaces and punctuation like "Washington, DC"). Use the city's well-known centroid `[lat, lon]` (you can use the trip's overall photo centroid if you have nothing better). Skip if a row already exists for that city.
+2. **Remove the city from `PLANNED_CITIES`** if it's listed there — a real itinerary now covers it, so the placeholder "coming soon" pin should give way to the live one. (The service already de-dupes, but remove the stale entry to keep the file honest.)
+
+After editing, the marker turns from `planned` (hollow) to `available` (crimson) automatically — no other change is needed.
+
+---
+
+## Phase 6 — Verify and report
+
+1. Run a type check and fix any errors before reporting done:
    ```bash
    npx tsc --noEmit
    ```
-   Fix any type errors before reporting done.
-
-4. Tell the user:
-   - What was written and where
+2. Tell the user:
+   - What was written and where (data, coords, city pin)
+   - That the trip now has a live pin on the homepage globe
    - Any stops still needing coordinates (`NEEDS_COORD`)
-   - Any image slots that were left empty (stops with no photo)
-   - The URL path their itinerary will appear at (e.g. `/hong-kong-in-four-days`)
+   - Any stops left without an image
+   - The URL path the itinerary will appear at (e.g. `/itineraries/hong-kong-in-four-days`)
 
 ---
 
@@ -295,22 +222,22 @@ Every piece of prose you draft must pass this test:
 **Pass:** "Clouds move fast on the Peak — it was socked in when I arrived and clear twenty minutes later."
 **Fail:** "Pro tip: the weather at the Peak can be unpredictable, so be prepared!"
 
-Things to avoid in body text: "vibrant", "bustling", "hidden gem", "authentic", "iconic" (unless truly ironic), "don't miss", "must-try", "experience", "amazing". One data point (a specific dish name, a price, a time, a queue length) is worth three adjectives.
+Avoid in body text: "vibrant", "bustling", "hidden gem", "authentic", "iconic" (unless truly ironic), "don't miss", "must-try", "experience", "amazing". One data point (a dish name, a price, a queue length) is worth three adjectives.
 
 ### Prose conventions
 
 - **"I" throughout** — always first person singular, even when the trip was with others. Never "we".
 - **No timestamps or durations in prose** — `time` and `durationMin` are internal data fields only, never mentioned in `body`, `summary`, `tagline`, or `intro`.
 - **No distances in prose** — don't mention walking distances or km in any prose field.
-- **No tips as a separate field** — if there's a genuinely useful practical detail, fold it into the `body` text naturally. Never use the `tip` field.
+- **No tips as a separate field** — fold any genuinely useful practical detail into the `body`. Never use the `tip` field.
 
 ---
 
 ## Error recovery
 
-- If the user can't remember a time for a stop, use a round estimate and flag it with a `// approx` comment in the coordinates file
-- If no photo exists for a stop, omit the `image` field — don't force it
-- If a Google Maps link won't resolve, note the coordinates as `NEEDS_COORD` and continue
-- If the user wants to skip a stop they mentioned, remove it cleanly — don't leave placeholder entries
-- If osxphotos can't access the Photos library (permissions), tell the user to run `! osxphotos query --count` in the prompt themselves to grant Terminal access to Photos, then re-run the query
-- If photos are in iCloud (path is `None`, `ismissing: True`), do not use `--download-missing` or `--use-photos-export` — both crash. Instead find the highest-res local derivative: `find "~/Pictures/Photos Library.photoslibrary/resources/derivatives" -name "{UUID}*_1_105_c.jpeg"`. These thumbnails are up to 1024px on the longest dimension and suitable for publishing. Convert with `sips -s format jpeg SOURCE --out DEST.jpg`.
+- If the user can't (or doesn't) supply a time for a stop, use a round estimate and flag it with `// approx` in the coordinates file.
+- If no photo exists for a stop, omit the `image` field — don't force it.
+- If reverse geocoding gives no place name, keep the working title, show the coordinates in the review with ⚠️, and let the user name it.
+- If osxphotos can't access the Photos library (permissions), tell the user to run `! osxphotos query --count` in the prompt themselves to grant Terminal access to Photos, then re-run.
+- If photos are in iCloud (`path` is `None`, `ismissing: True`), do not use `--download-missing` or `--use-photos-export` (both crash). Use the local derivative: `find "$HOME/Pictures/Photos Library.photoslibrary/resources/derivatives" -name "{UUID}*_1_105_c.jpeg"` (up to 1024px, publishable). Convert with `sips -s format jpeg SOURCE --out DEST.jpg`.
+- If the user's `city` string and the `CITY_COORDS` key don't match exactly, the pin silently won't appear — double-check the key matches the itinerary's `city` field character-for-character.

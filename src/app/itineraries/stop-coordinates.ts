@@ -113,4 +113,45 @@ export const STOP_COORDS: Record<string, Record<string, Record<string, [number, 
       '22:00': [7.8940, 98.2953], // Bangla Road, Patong — photo-derived
     },
   },
+  'dubai-and-abu-dhabi-in-three-days': {
+    'day-1': {
+      '09:00': [24.41193, 54.47543], // Sheikh Zayed Grand Mosque — photo-derived
+      '13:00': [24.46052, 54.31800], // Emirates Palace / Etihad Towers, Corniche — photo-derived
+      '14:30': [24.47578, 54.32195], // Marina Mall — photo-derived
+      '16:00': [24.53336, 54.39883], // Louvre Abu Dhabi, Saadiyat Island — photo-derived
+    },
+    'day-2': {
+      '10:30': [25.19671, 55.27884], // Dubai Mall — photo-derived
+      '13:00': [25.19712, 55.27425], // Burj Khalifa, At the Top — photo-derived
+      '16:00': [25.23577, 55.29875], // Dubai Frame, Zabeel Park — photo-derived
+      '16:45': [25.20591, 55.34188], // Ras Al Khor / Creek skyline — photo-derived
+      '18:15': [25.21542, 55.27954], // DIFC, Sheikh Zayed Road — photo-derived
+    },
+    'day-3': {
+      '12:00': [25.11393, 55.13978], // The View at The Palm — photo-derived
+      '14:00': [25.13759, 55.12753], // Atlantis, the Crescent — photo-derived
+      '16:50': [25.14467, 55.19134], // Burj Al Arab / Madinat Jumeirah — photo-derived
+    },
+  },
+  'cairo-and-alexandria-in-four-days': {
+    'day-1': {
+      '10:00': [29.97132, 31.12171], // Giza pyramids plateau — photo-derived
+      '12:00': [29.97551, 31.13767], // The Sphinx, below Khafre — photo-derived
+    },
+    'day-2': {
+      '10:30': [29.99402, 31.11996], // Grand Egyptian Museum — photo-derived
+      '16:30': [30.04953, 31.26141], // Khan el-Khalili / Al-Muizz Street — photo-derived
+    },
+    'day-3': {
+      '10:30': [31.21397, 29.88587], // Citadel of Qaitbay — photo-derived
+      '12:00': [31.20888, 29.90870], // Bibliotheca Alexandrina — photo-derived
+      '15:20': [31.18201, 29.89680], // Pompey's Pillar / Serapeum — photo-derived
+      '15:45': [31.17862, 29.89305], // Catacombs of Kom el-Shoqafa — photo-derived
+    },
+    'day-4': {
+      '10:40': [30.02944, 31.26061], // Citadel of Saladin / Mosque of Muhammad Ali — photo-derived
+      '14:20': [30.03101, 31.27586], // Cave Church of St. Simon, Mokattam — photo-derived
+      '15:45': [30.00572, 31.22980], // Coptic Cairo / Old Cairo — photo-derived
+    },
+  },
 };

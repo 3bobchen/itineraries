@@ -1573,6 +1573,504 @@ export const ITINERARIES: Itinerary[] = [
         ],
       },
     ],
+  },
+  {
+    slug: 'dubai-and-abu-dhabi-in-three-days',
+    title: 'Dubai and Abu Dhabi in three days',
+    city: 'Dubai',
+    country: 'United Arab Emirates',
+    tagline:
+      'Three days across the Emirates — the Sheikh Zayed Grand Mosque and the Louvre on Saadiyat in Abu Dhabi, then the coach to Dubai for the Burj Khalifa, the creek at dusk, and the Palm.',
+    intro:
+      'I started in Abu Dhabi for a day — the Sheikh Zayed Grand Mosque, the Corniche, and the Louvre out on Saadiyat Island — then took the intercity coach across to Dubai after dark. The two Dubai days ran on taxis and Careem: Downtown and the Burj Khalifa first, then the Palm and the Jumeirah coast before the evening flight.',
+    hero: {
+      srcBase: 'dxb-hero-skyline',
+      width: 1024,
+      height: 768,
+      alt: 'The Dubai Downtown skyline in silhouette across the water at dusk, the Burj Khalifa\'s needle in the centre, the low sun glittering on the creek in the foreground',
+      caption: 'The Downtown skyline across the creek at Ras Al Khor, dusk.',
+    },
+    stats: {
+      days: 3,
+      pace: 'steady',
+      with: 'family',
+    },
+    days: [
+      {
+        slug: 'day-1',
+        number: 1,
+        title: 'Abu Dhabi: the Grand Mosque, the Corniche, and the Louvre',
+        summary:
+          'A full day in Abu Dhabi before the move to Dubai — the Sheikh Zayed Grand Mosque first thing, the Corniche past Emirates Palace and the Etihad Towers, a lunch break at Marina Mall, and the Louvre out on Saadiyat Island, then the intercity coach to Dubai after dark.',
+        walkingKm: 4,
+        mapGrouping: [['09:00'], ['13:00', '14:30'], ['16:00']],
+        image: {
+          srcBase: 'dxb-day1-mosque',
+          width: 1706,
+          height: 1279,
+          alt: 'The Sheikh Zayed Grand Mosque in Abu Dhabi seen from the approach road, white domes and a row of minarets above the gardens under a pale sky',
+          caption: 'The Sheikh Zayed Grand Mosque from the approach, mid-morning.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '09:00',
+              title: 'Sheikh Zayed Grand Mosque',
+              body: 'The Sheikh Zayed Grand Mosque sits south of the city, all white marble and gold — domes, a forest of minarets, and a courtyard you cross barefoot. Inside the colonnades the columns are inlaid with coloured floral mosaic and the floor is polished to a mirror. I went early, before the heat built. Dress is covered head to ankle; entry is free and modest clothing is lent at the door if you need it.',
+              image: {
+                srcBase: 'dxb-stop-mosque',
+                width: 768,
+                height: 1024,
+                alt: 'A colonnade inside the Sheikh Zayed Grand Mosque, white columns inlaid with coloured floral mosaic and topped with gilded capitals, reflected in the polished marble floor',
+                caption: 'The mosque\'s inlaid colonnade.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '13:00',
+              title: 'The Corniche: Emirates Palace and Etihad Towers',
+              body: 'Midday on the Corniche, the waterfront strip along the Gulf. Emirates Palace anchors the western end — a vast sand-coloured hotel set back behind tiered fountains and formal gardens — with the curved blue Etihad Towers rising just behind it. The water was flat and the streets near-empty in the heat.',
+              image: {
+                srcBase: 'dxb-stop-emirates-palace',
+                width: 576,
+                height: 1024,
+                alt: 'Emirates Palace in Abu Dhabi seen across its forecourt, the sand-coloured domed hotel rising behind tiered fountains and palms under a bright sky',
+                caption: 'Emirates Palace from the forecourt fountains.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '14:30',
+              title: 'Lunch at Marina Mall',
+              body: 'A break out of the sun at Marina Mall, on the breakwater off the Corniche — lunch and air conditioning before the drive out to Saadiyat Island.',
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '16:00',
+              title: 'Louvre Abu Dhabi',
+              body: 'The Louvre Abu Dhabi is out on Saadiyat Island, under Jean Nouvel\'s huge latticed dome that filters the sun into a "rain of light" across the galleries. The collection runs chronologically and across cultures — a Renaissance globe, antiquities and religious objects set side by side rather than by region. I spent the late afternoon there, then caught the coach to Dubai after dark.',
+              image: {
+                srcBase: 'dxb-stop-louvre',
+                width: 768,
+                height: 1024,
+                alt: 'A Renaissance terrestrial globe of aged parchment mounted in a dark wooden meridian ring inside the Louvre Abu Dhabi, the bright gallery beyond',
+                caption: 'A Renaissance globe in the Louvre Abu Dhabi.',
+              },
+            },
+          },
+        ],
+      },
+      {
+        slug: 'day-2',
+        number: 2,
+        title: 'Dubai Downtown: the Mall, the Burj, and the creek',
+        summary:
+          'A Downtown day in Dubai — the Dubai Mall and its aquarium, up the Burj Khalifa to At the Top, the golden Dubai Frame in Zabeel Park, the Downtown skyline from across the creek at Ras Al Khor, and the towers of DIFC at dusk.',
+        walkingKm: 6,
+        mapGrouping: [['10:30', '13:00'], ['16:00'], ['16:45'], ['18:15']],
+        image: {
+          srcBase: 'dxb-day2-downtown',
+          width: 959,
+          height: 1706,
+          alt: 'An aerial view straight down from the Burj Khalifa onto the Sheikh Zayed Road interchange, looping flyovers and dense towers fading into haze',
+          caption: 'Looking down on the Sheikh Zayed Road interchange from the Burj Khalifa.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '10:30',
+              title: 'Dubai Mall',
+              body: 'I started at the Dubai Mall, which is less a mall than a small indoor city — the aquarium with its walk-through tunnel of rays and sharks, the waterfall hung with life-size sculptures of human divers, and the fountains out front on the lake. It is also the base of the Burj Khalifa, so it doubles as the way up.',
+              image: {
+                srcBase: 'dxb-stop-dubai-mall',
+                width: 768,
+                height: 1024,
+                alt: 'The waterfall inside the Dubai Mall, cascading water hung with life-size silver sculptures of human divers, shoppers on a walkway at its base',
+                caption: 'The diver waterfall in the Dubai Mall.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '13:00',
+              title: 'Burj Khalifa, At the Top',
+              body: 'Up the Burj Khalifa to the At the Top deck. The lift is fast enough to pop your ears; from the observation floors the whole city flattens out below — the Sheikh Zayed Road interchange, Business Bay and its canal loop, the desert running off into haze. A timed slot booked ahead is worth it: walk-up queues are long and the cheaper early-and-late slots sell out.',
+              bookAhead: true,
+              image: {
+                srcBase: 'dxb-stop-burj-khalifa',
+                width: 768,
+                height: 1024,
+                alt: 'The view from high on the Burj Khalifa over Business Bay, dense towers around a curved stretch of canal, the desert flattening into haze beyond',
+                caption: 'Business Bay from the Burj Khalifa.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '16:00',
+              title: 'The Dubai Frame',
+              body: 'The Dubai Frame stands in Zabeel Park — a 150-metre golden picture frame you can ride to the top of, old Dubai on one side of it and the new towers on the other. I saw it from the lawn; it is an odd, photogenic thing close up.',
+              image: {
+                srcBase: 'dxb-stop-frame',
+                width: 1024,
+                height: 768,
+                alt: 'The Dubai Frame, a tall golden rectangular structure rising above the trees of Zabeel Park against a clear blue sky',
+                caption: 'The Dubai Frame over Zabeel Park.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '16:45',
+              title: 'Ras Al Khor and the creek',
+              body: 'From the far side of the water at Ras Al Khor the whole Downtown skyline lines up across the creek, the Burj Khalifa needle in the middle and the low sun coming off the water. The wetland reserve here is a flamingo sanctuary right on the city\'s edge.',
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '18:15',
+              title: 'DIFC at dusk',
+              body: 'The day ended around DIFC, the financial district off Sheikh Zayed Road — the Gate building, the Emirates Towers, and the elevated Metro line running between the towers as the light went.',
+              image: {
+                srcBase: 'dxb-stop-difc',
+                width: 768,
+                height: 1024,
+                alt: 'Sheikh Zayed Road at dusk near DIFC, the elevated Metro viaduct curving past high-rise towers, a taxi waiting at an empty junction',
+                caption: 'Sheikh Zayed Road by DIFC, dusk.',
+              },
+            },
+          },
+        ],
+      },
+      {
+        slug: 'day-3',
+        number: 3,
+        title: 'The Palm and the Jumeirah coast',
+        summary:
+          'The last day on the coast before the flight — Palm Jumeirah from The View observation deck, an afternoon at Atlantis on the Crescent, and the Burj Al Arab from the Jumeirah beach at sunset.',
+        walkingKm: 3,
+        mapGrouping: [['12:00', '14:00'], ['16:50']],
+        image: {
+          srcBase: 'dxb-day3-palm',
+          width: 1279,
+          height: 1706,
+          alt: 'An aerial view of Palm Jumeirah from The View observation deck, the central trunk road and rows of frond villas reaching out to the marina and the Gulf',
+          caption: 'Palm Jumeirah from The View, midday.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '12:00',
+              title: 'The View at The Palm',
+              body: 'The View at The Palm is an observation deck near the top of the Palm Tower, and the one place the Palm Jumeirah reads as the palm shape it is named for — the trunk road, the fronds of villas, the marina and the breakwater curling round, the Gulf beyond.',
+              image: {
+                srcBase: 'dxb-stop-the-view',
+                width: 768,
+                height: 1024,
+                alt: 'Looking down through the glass of The View at The Palm onto the trunk road of Palm Jumeirah, rows of frond villas and a marina spreading out below',
+                caption: 'Down onto the Palm from The View.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '14:00',
+              title: 'Atlantis, the Crescent',
+              body: 'The afternoon was at Atlantis, out on the outer crescent of the Palm — the older Atlantis The Palm and the newer staggered Atlantis The Royal next to it, beach and pools and a waterpark. I spent it by the water.',
+              image: {
+                srcBase: 'dxb-stop-atlantis',
+                width: 768,
+                height: 1024,
+                alt: 'The staggered terraced tower of Atlantis The Royal on the Palm\'s crescent, seen between the fronds of tall palm trees',
+                caption: 'Atlantis The Royal through the palms.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '16:50',
+              title: 'The Burj Al Arab from Jumeirah',
+              body: 'Late in the day along the Jumeirah beach, where the Burj Al Arab sits on its own island like a sail catching the sun. The Madinat Jumeirah resorts and the public Sunset Beach look straight onto it. Then back across the city to the airport for the night flight.',
+              image: {
+                srcBase: 'dxb-stop-burj-al-arab',
+                width: 768,
+                height: 1024,
+                alt: 'The sail-shaped Burj Al Arab hotel on its island at sunset, the low sun beside it and palms in the foreground of the Jumeirah beachfront',
+                caption: 'The Burj Al Arab from Jumeirah at sunset.',
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'cairo-and-alexandria-in-four-days',
+    title: 'Cairo and Alexandria in four days',
+    city: 'Cairo',
+    country: 'Egypt',
+    tagline:
+      'Four days around Egypt\'s headline sites — the Giza pyramids and the Sphinx, the new Grand Egyptian Museum, Islamic and Coptic Cairo, and a day up the coast to Alexandria.',
+    intro:
+      'I was based in Downtown Cairo, near Talaat Harb, and covered a lot of ground in four days — Giza, the Grand Egyptian Museum, the medieval and Coptic quarters, and a full day up to Alexandria. Most of it ran on a hired car and driver, which made the distances between sites and the run to the coast manageable in the September heat.',
+    hero: {
+      srcBase: 'cai-hero-pyramids',
+      width: 1024,
+      height: 768,
+      alt: 'The three pyramids of Giza lined up across the desert under a dark, heavy sky, with tiny figures walking the sand in the foreground',
+      caption: 'The three pyramids from the desert track, a storm building behind them.',
+    },
+    stats: {
+      days: 4,
+      pace: 'steady',
+      with: 'family',
+    },
+    days: [
+      {
+        slug: 'day-1',
+        number: 1,
+        title: 'The pyramids and the Sphinx at Giza',
+        summary:
+          'A morning on the Giza plateau — the three pyramids from the desert, a camel ride across the sand, and the Sphinx in its hollow below Khafre\'s pyramid.',
+        walkingKm: 3,
+        image: {
+          srcBase: 'cai-day1-giza',
+          width: 1706,
+          height: 1279,
+          alt: 'A man riding a camel across the golden sand of the Giza plateau, two of the pyramids rising behind him against a clear sky',
+          caption: 'The camel ride out across the plateau, the pyramids behind.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '10:00',
+              title: 'The Giza pyramids',
+              body: 'The plateau opens straight onto the three pyramids — Khufu, Khafre, and the smaller Menkaure — set back across the sand. I rode a camel out to the panorama point on the desert side, where all three line up, then walked in close to the base of Khafre, where the casing stones still cling near the top. The site sits right at the edge of the city; the suburbs of Giza run up almost to the fence.',
+              image: {
+                srcBase: 'cai-stop-pyramids',
+                width: 768,
+                height: 1024,
+                alt: 'Two of the Giza pyramids on golden desert sand under a deep blue sky, a stretch of empty plateau in the foreground',
+                caption: 'Khafre and Menkaure from the plateau.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '12:00',
+              title: 'The Sphinx',
+              body: 'The Sphinx sits in a hollow below Khafre\'s pyramid, carved from a single ridge of limestone, its face weathered and noseless and smaller than I expected. From the viewing terrace you get the classic line-up — the Sphinx in front, the pyramid rising directly behind it.',
+            },
+          },
+        ],
+      },
+      {
+        slug: 'day-2',
+        number: 2,
+        title: 'The Grand Egyptian Museum and Islamic Cairo',
+        summary:
+          'The new Grand Egyptian Museum out by Giza in the morning, then across the city to the medieval quarter — Khan el-Khalili and the mosques along Al-Muizz Street.',
+        walkingKm: 4,
+        image: {
+          srcBase: 'cai-day2-islamic',
+          width: 960,
+          height: 1706,
+          alt: 'A street in medieval Cairo with a domed mosque and tall minaret rising at the end, shops and pedestrians along the lane under a clear sky',
+          caption: 'Looking up Al-Muizz Street to a Fatimid-era mosque.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '10:30',
+              title: 'The Grand Egyptian Museum',
+              body: 'The Grand Egyptian Museum sits near the pyramids, and the scale is the point — a colossal statue of Ramesses II stands in the atrium and a grand staircase lined with kings climbs toward a window framing the pyramids themselves. The galleries run chronologically through the dynasties; I spent the morning among granite statuary, painted pottery, and rows of stone sarcophagi.',
+              bookAhead: true,
+              image: {
+                srcBase: 'cai-stop-gem',
+                width: 768,
+                height: 1024,
+                alt: 'A row of dark stone anthropoid sarcophagi standing upright in a dim gallery of the Grand Egyptian Museum, their carved faces lit from above',
+                caption: 'Anthropoid coffins in the Grand Egyptian Museum.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '16:30',
+              title: 'Khan el-Khalili and Al-Muizz Street',
+              body: 'Late afternoon in the medieval city. Khan el-Khalili is the old bazaar — lanes of lanterns, brass, spices, and stacked shisha pipes, with a tout at every stall. From there I walked up Al-Muizz Street, the spine of Fatimid Cairo, lined end to end with mosques, madrasas, and sabils, to the northern gate at Bab al-Futuh as the light went gold.',
+              image: {
+                srcBase: 'cai-stop-khan',
+                width: 768,
+                height: 1024,
+                alt: 'Rows of brass and silver shisha water pipes lined up for sale on the steps of a shop in Khan el-Khalili bazaar',
+                caption: 'Shisha pipes stacked outside a stall in Khan el-Khalili.',
+              },
+            },
+          },
+        ],
+      },
+      {
+        slug: 'day-3',
+        number: 3,
+        title: 'A day in Alexandria',
+        summary:
+          'A day trip to the coast — the Qaitbay fort on the harbour where the Pharos lighthouse once stood, the modern Bibliotheca Alexandrina, and the Roman-era Pompey\'s Pillar and Catacombs of Kom el-Shoqafa.',
+        walkingKm: 3,
+        mapGrouping: [['10:30', '12:00'], ['15:20', '15:45']],
+        image: {
+          srcBase: 'cai-day3-alexandria',
+          width: 1279,
+          height: 1706,
+          alt: 'The sandstone Citadel of Qaitbay in Alexandria under a deep blue sky, an Egyptian flag flying from its central tower, a few visitors on the walls',
+          caption: 'The Citadel of Qaitbay on the eastern harbour.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '10:30',
+              title: 'The Citadel of Qaitbay',
+              body: 'Qaitbay stands at the tip of the eastern harbour, a squat sandstone fort raised in the 1480s on the rubble of the Pharos lighthouse that once stood here. The Mediterranean wraps around three sides; from the ramparts you look back across the harbour to the city, and the sea comes right up through the embrasures.',
+              image: {
+                srcBase: 'cai-stop-qaitbay',
+                width: 768,
+                height: 1024,
+                alt: 'The Mediterranean framed through a stone embrasure in the wall of the Qaitbay fort, a harbour breakwater visible across the calm blue water',
+                caption: 'The harbour through an embrasure in the fort wall.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '12:00',
+              title: 'Bibliotheca Alexandrina',
+              body: 'The Bibliotheca Alexandrina is the modern revival of the ancient library, a vast tilted disc of a building facing the sea. Inside, the main reading room steps down in terraces under a slanted glass roof — one enormous open hall on the harbour. The complex also keeps museums and a planetarium.',
+              image: {
+                srcBase: 'cai-stop-biblio',
+                width: 768,
+                height: 1024,
+                alt: 'The terraced main reading room of the Bibliotheca Alexandrina, tiers of desks descending under a slanted roof carried on angled columns',
+                caption: 'The terraced reading room of the Bibliotheca Alexandrina.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '15:20',
+              title: 'Pompey\'s Pillar',
+              body: 'Pompey\'s Pillar is a single red granite column nearly thirty metres tall, raised around AD 300 on the site of the Serapeum temple — nothing to do with Pompey, despite the name. Two granite sphinxes sit on the rise beside it, and the underground galleries of the old temple run below.',
+              image: {
+                srcBase: 'cai-stop-pompey',
+                width: 768,
+                height: 1024,
+                alt: 'A granite sphinx in the foreground with the tall single shaft of Pompey\'s Pillar rising behind it against a deep blue sky',
+                caption: 'A granite sphinx below Pompey\'s Pillar.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '15:45',
+              title: 'Catacombs of Kom el-Shoqafa',
+              body: 'A short way on are the Catacombs of Kom el-Shoqafa, a Roman-era burial complex cut three levels down into the rock and reached by a spiral stair. The carving is a strange blend — Egyptian gods rendered in Roman dress, Anubis in a legionary\'s tunic — and the painted tomb chambers still hold their colour.',
+              image: {
+                srcBase: 'cai-stop-catacombs',
+                width: 768,
+                height: 1024,
+                alt: 'A painted tomb chamber in the Catacombs of Kom el-Shoqafa, a faded fresco of a reclining mummy flanked by standing figures above a sunken floor',
+                caption: 'A painted tomb chamber in the catacombs.',
+              },
+            },
+          },
+        ],
+      },
+      {
+        slug: 'day-4',
+        number: 4,
+        title: 'The Citadel, the Cave Church, and Coptic Cairo',
+        summary:
+          'The last day across old Cairo — Saladin\'s Citadel and the alabaster Mosque of Muhammad Ali, the rock-cut Cave Church out in Mokattam, and the Coptic quarter of Old Cairo.',
+        walkingKm: 3,
+        mapGrouping: [['10:40', '14:20'], ['15:45']],
+        image: {
+          srcBase: 'cai-day4-citadel',
+          width: 1279,
+          height: 1706,
+          alt: 'The Mosque of Muhammad Ali at the Citadel of Cairo, its alabaster domes and two slender pencil minarets rising against a clear blue sky',
+          caption: 'The Mosque of Muhammad Ali crowning the Citadel.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '10:40',
+              title: 'The Citadel and Mosque of Muhammad Ali',
+              body: 'Saladin\'s Citadel sits on a spur of high ground with the whole city laid out below. The Mosque of Muhammad Ali crowns it — an Ottoman-style mosque in alabaster with a great central dome and two pencil minarets, finished in the 1840s. The dim, lamp-hung prayer hall under the painted dome was the high point; on a clear day you can pick out the pyramids from the walls.',
+              image: {
+                srcBase: 'cai-stop-citadel',
+                width: 768,
+                height: 1024,
+                alt: 'Looking up inside the Mosque of Muhammad Ali, a great column and arch carrying the painted central dome, chandeliers hung low over the carpeted hall',
+                caption: 'Inside the prayer hall of the Mosque of Muhammad Ali.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '14:20',
+              title: 'The Cave Church at Mokattam',
+              body: 'Out on the eastern edge, past the Zabbaleen district that collects and sorts much of Cairo\'s waste, the Monastery of St. Simon the Tanner is built straight into the Mokattam cliffs. The main church is an amphitheatre carved into the rock that seats thousands, and the cliff faces around it are cut with huge reliefs of biblical scenes. It is the largest church in the Middle East and almost unknown to most visitors.',
+              image: {
+                srcBase: 'cai-stop-mokattam',
+                width: 768,
+                height: 1024,
+                alt: 'A towering Mokattam cliff face carved with a large relief of a robed figure, scrubby palms and parked cars at its base',
+                caption: 'A biblical relief cut into the Mokattam cliff at the Cave Church.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '15:45',
+              title: 'Coptic Cairo',
+              body: 'Old Cairo, the Coptic quarter, is built in and around the Roman fortress of Babylon. I walked between the Hanging Church, suspended over a Roman gate tower, the round Greek Orthodox church of St. George, and the sunken lanes that link the old churches and the synagogue. It is quiet and shaded, a different register from the rest of the city.',
+              image: {
+                srcBase: 'cai-stop-coptic',
+                width: 768,
+                height: 1024,
+                alt: 'The round Greek Orthodox Church of St. George in Coptic Cairo, its domed drum and bell tower rising above a broad flight of steps with visitors climbing them',
+                caption: 'The Greek Orthodox church of St. George in Coptic Cairo.',
+              },
+            },
+          },
+        ],
+      },
+    ],
   }
 ];
 
