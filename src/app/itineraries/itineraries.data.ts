@@ -1171,6 +1171,408 @@ export const ITINERARIES: Itinerary[] = [
         ],
       },
     ],
+  },
+  {
+    slug: 'bangkok-in-two-days',
+    title: 'Bangkok in two days',
+    city: 'Bangkok',
+    country: 'Thailand',
+    tagline:
+      'Two days in Bangkok — the Maeklong railway market and Damnoen Saduak by longtail, a Chao Phraya ferry to ICONSIAM, HardMission after dark, and a bicycle tour through the Thonburi canals to Wat Paknam before the flight.',
+    intro:
+      'I landed the night before and spent it around Khao San Road in the old town. The two days after ran on Grab and started early — southwest out of the city for the railway and floating markets the first morning, a hardstyle festival across town that night, then a bicycle tour through the Thonburi canals on the last day before the evening flight.',
+    hero: {
+      srcBase: 'bkk-hero-river',
+      width: 1024,
+      height: 768,
+      alt: 'An ornate Thai-roofed wooden ferry crossing the Chao Phraya river in Bangkok, riverside towers behind under a dramatic cloud-streaked sky',
+      caption: 'A teak ferry on the Chao Phraya, late afternoon.',
+    },
+    stats: {
+      days: 2,
+      pace: 'steady',
+      with: 'friends',
+    },
+    days: [
+      {
+        slug: 'day-1',
+        number: 1,
+        title: 'Floating markets, the river, and HardMission',
+        summary:
+          'An early start southwest of the city for the Maeklong railway market and the Damnoen Saduak floating market, back into Bangkok for a Chao Phraya ferry down to ICONSIAM, and east to BITEC for HardMission after dark.',
+        walkingKm: 5,
+        mapGrouping: [['08:30', '11:00'], ['16:00'], ['19:00']],
+        image: {
+          srcBase: 'bkk-day1-maeklong',
+          width: 1279,
+          height: 1706,
+          alt: 'The Maeklong Railway Market, stalls and awnings lining a working railway track that runs straight through the middle, baskets of produce stacked at the rail edge under a blue sky',
+          caption: 'The Maeklong Railway Market, stalls set right against the rails.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '08:30',
+              title: 'Maeklong Railway Market',
+              body: 'The market at Maeklong lays its stalls, awnings and baskets of produce directly over a working railway track. When the train comes through, the vendors fold the awnings back and pull the goods in, the carriages pass within a hand\'s width of the stalls, and it all slides out again behind. I was there for it.',
+              image: {
+                srcBase: 'bkk-stop-maeklong',
+                width: 768,
+                height: 1024,
+                alt: 'The covered platform at Maeklong station, corrugated-iron awnings over two railway tracks, market stalls along the left and travellers seated on a bench to the right',
+                caption: 'Maeklong station, the market crowding the platform.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '11:00',
+              title: 'Damnoen Saduak floating market',
+              body: 'From Maeklong it\'s a short way on to Damnoen Saduak, the floating market out on the canals. I went through it by longtail — vendors paddling flat wooden boats between the stilt houses, cooking and selling fruit, noodles and drinks off the water, the canal jammed tight enough in places to stop the traffic.',
+              image: {
+                srcBase: 'bkk-stop-damnoen',
+                width: 768,
+                height: 1024,
+                alt: 'The view from a longtail boat at Damnoen Saduak floating market, rainbow beach umbrellas overhead and wooden vendor boats crowding the narrow canal ahead',
+                caption: 'From the longtail at Damnoen Saduak.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '16:00',
+              title: 'A ferry to ICONSIAM',
+              body: 'Back in the city I took a Chao Phraya express ferry downriver to ICONSIAM, the riverside mall on the Thonburi bank. The river is the best way to read Bangkok — teak ferries, hotel shuttle boats and barges all working the same brown water, towers stacked along both banks.',
+              image: {
+                srcBase: 'bkk-stop-river',
+                width: 1024,
+                height: 768,
+                alt: 'A wide view down the Chao Phraya river in Bangkok, residential towers on the left bank and the downtown skyline in the distance under tall white clouds',
+                caption: 'The Chao Phraya opening toward downtown.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '19:00',
+              title: 'HardMission',
+              body: 'The night was HardMission The Prophecy at BITEC in Bang Na — a hardstyle festival, Darren Styles on the bill. After a day of markets and the river it was a hard turn: lasers, a full floor, and a long way back across the city after.',
+              image: {
+                srcBase: 'bkk-stop-hardmission',
+                width: 1024,
+                height: 576,
+                alt: 'A symmetric fan of white and blue laser beams radiating from the stage over a darkened festival crowd at HardMission inside BITEC',
+                caption: 'Lasers over the floor at HardMission, BITEC.',
+              },
+            },
+          },
+        ],
+      },
+      {
+        slug: 'day-2',
+        number: 2,
+        title: 'Old Bangkok by bike',
+        summary:
+          'A morning bicycle tour out of the old town and across the river into Thonburi — the gilded halls of Wat Paknam, the canal lanes and a boat crossing, and a lunch stop before the ride back and the airport.',
+        walkingKm: 3,
+        mapGrouping: [['07:30'], ['10:30', '12:00']],
+        image: {
+          srcBase: 'bkk-day2-buddha',
+          width: 1279,
+          height: 1706,
+          alt: 'The giant golden Buddha at Wat Paknam seen from below, the seated figure rising against a blue sky scattered with cloud',
+          caption: 'The great golden Buddha at Wat Paknam, from the base.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '07:30',
+              title: 'The old town by bike',
+              body: 'The tour set off from the old town early, while it was still cool and the lanes around the Grand Palace and Wat Pho were quiet. Underneath runs Sanam Chai, the metro station built like a Rattanakosin throne hall — a red and gold coffered ceiling, gilded lotus columns, a chequerboard floor.',
+              image: {
+                srcBase: 'bkk-stop-sanamchai',
+                width: 768,
+                height: 1024,
+                alt: 'The concourse of Sanam Chai MRT station in Bangkok\'s old town, a red coffered ceiling patterned in gold, white columns with gilt lotus capitals, hanging lanterns and a chequerboard floor',
+                caption: 'Sanam Chai station, built like a throne hall.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '10:30',
+              title: 'Wat Paknam',
+              body: 'Wat Paknam, in Phasi Charoen, is dominated by an enormous golden Buddha you can see from streets away. Below it the halls are dense with gilt carving and painted ceilings — glass cases of relics under circular gold mandalas. The tour pulled in off the canal lanes.',
+              image: {
+                srcBase: 'bkk-stop-watpaknam',
+                width: 768,
+                height: 1024,
+                alt: 'An ornate hall inside Wat Paknam, a deep-red ceiling painted with circular gold mandalas above a heavily gilded carved column and wooden display cases',
+                caption: 'Inside Wat Paknam, the gilded relic hall.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '12:00',
+              title: 'The Thonburi canals',
+              body: 'Most of the morning was on the Thonburi side, in the khlongs — the canal network west of the river where Bangkok still runs on water. Narrow waterways between stilt houses and small canal-side shrines, a boat ride partway through where the lanes gave out, and a lunch stop in the backstreets before the ride back and out to the airport.',
+              image: {
+                srcBase: 'bkk-stop-canal',
+                width: 768,
+                height: 1024,
+                alt: 'A quiet Thonburi canal seen from a boat, a small red-and-gold shrine and a large tree on the left bank, a green-roofed stilt house on the right, still water reflecting the sky',
+                caption: 'A canal-side shrine deep in the Thonburi khlongs.',
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'phuket-in-four-days',
+    title: 'Phuket in four days',
+    city: 'Phuket',
+    country: 'Thailand',
+    tagline:
+      'Four days across Phuket — a speedboat circuit of Ko Phi Phi Leh, the Nine Emperor Gods Festival in Old Town, the Big Buddha at dusk, and Bangla Road at night.',
+    intro:
+      'I stayed the first two nights at Panwaburi on Cape Panwa, on the quieter southeastern headland, then moved across to Patong for the last two. I rented a car for all of it.',
+    hero: {
+      srcBase: 'phu-hero-pileh',
+      width: 1024,
+      height: 768,
+      alt: 'Pileh Lagoon on Ko Phi Phi Leh seen from the water, enclosed on three sides by vertical limestone karst, turquoise water with longtail boats clustered at the entrance',
+      caption: 'Pileh Lagoon — limestone on three sides, longtail boats at the entrance.',
+    },
+    stats: {
+      days: 4,
+      pace: 'steady',
+      with: 'friends',
+    },
+    days: [
+      {
+        slug: 'day-1',
+        number: 1,
+        title: 'Ko Phi Phi and the festival',
+        summary:
+          'A speedboat tour from the east coast to Ko Phi Phi Leh — through Pileh Lagoon, then a walk-in to Maya Bay and a swim. Dinner at Three Monkeys in Chalong, then the Nine Emperor Gods Festival in the Old Town after dark.',
+        walkingKm: 4,
+        mapGrouping: [['10:30', '13:30'], ['20:30', '22:00']],
+        image: {
+          srcBase: 'phu-day1-maya',
+          width: 1279,
+          height: 1706,
+          alt: 'Maya Bay on Ko Phi Phi Leh, turquoise water lapping white sand with limestone karst walls rising on both sides under a blue sky',
+          caption: 'Maya Bay — three limestone walls, white sand, the beach from The Beach.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '10:30',
+              title: 'Pileh Lagoon, Ko Phi Phi Leh',
+              body: 'The tour leaves from the east coast and takes about an hour to reach Ko Phi Phi Leh. Pileh is first — an almost enclosed bay with vertical limestone karst on three sides, the water an improbable turquoise green. Longtail boats queue at the entrance; ours drifted through slowly.',
+              bookAhead: true,
+              image: {
+                srcBase: 'phu-stop-pileh',
+                width: 768,
+                height: 1024,
+                alt: 'A longtail tour boat moored at the base of a sheer limestone cliff on Ko Phi Phi Leh, turquoise water below and dense tropical vegetation above',
+                caption: 'Barokat Tour longtail at the cliff face, Pileh Lagoon.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '13:30',
+              title: 'Maya Bay',
+              body: 'Boats can\'t enter Maya Bay directly since the four-year conservation closure ended — the tour ties up on Ko Phi Phi Leh\'s back side and I walked a flat path across the isthmus, about ten minutes. The bay opens at the end of the path: three limestone walls, white sand, turquoise water. I snorkelled in it.',
+              image: {
+                srcBase: 'phu-stop-maya',
+                width: 768,
+                height: 1024,
+                alt: 'A weathered driftwood Welcome to Maya Bay sign against a limestone cliff face',
+                caption: 'The entrance sign at Maya Bay — driftwood at the cliff.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '20:30',
+              title: 'Three Monkeys',
+              body: 'Three Monkeys is an open-air garden bar and restaurant in Chalong, tables outside under a large tree strung with fairy lights. A good place to land after a day on the water.',
+              image: {
+                srcBase: 'phu-stop-three-monkeys',
+                width: 768,
+                height: 1024,
+                alt: 'The Three Monkeys neon sign glowing white at night, surrounded by string lights and tropical foliage at the garden restaurant entrance',
+                caption: 'Three Monkeys, Chalong — neon sign, fairy lights.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '22:00',
+              title: 'Old Town and Jui Tui Shrine',
+              body: 'The Nine Emperor Gods Festival runs for nine days in October, centred on the Taoist shrines in Phuket Old Town. I walked around at night — food stalls along the lanes, the Jui Tui Shrine entrance gated in yellow banners and red lanterns, the streets crowded and lit.',
+              image: {
+                srcBase: 'phu-stop-jui-tui',
+                width: 768,
+                height: 1024,
+                alt: 'The gateway of Jui Tui Shrine at night during the Nine Emperor Gods Festival, decorated with yellow banners and red Chinese lanterns, a stone lantern in the courtyard beyond',
+                caption: 'Jui Tui Shrine, Old Town — Nine Emperor Gods Festival, late October.',
+              },
+            },
+          },
+        ],
+      },
+      {
+        slug: 'day-2',
+        number: 2,
+        title: 'Temples, the Buddha, and Kata at sunset',
+        summary:
+          'South from Chalong to Wat Chalong for the temple complex, then to a viewpoint above Nai Harn Beach, up to the Big Buddha around sunset, and down to Kata for drinks as it got dark.',
+        walkingKm: 6,
+        mapGrouping: [['12:00'], ['14:30', '17:00', '18:30']],
+        image: {
+          srcBase: 'phu-day2-buddha',
+          width: 1279,
+          height: 1706,
+          alt: 'The Big Buddha of Phuket, a 45-metre white marble seated statue on the Nakkerd Hills, visitors on the steps at its base, sky going orange at sunset',
+          caption: 'The Big Buddha at Nakkerd Hills — sunset light on white marble.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '12:00',
+              title: 'Wat Chalong',
+              body: 'Wat Chalong is the island\'s main Buddhist temple — a wide compound with the Chedi Phutthakhom as the centrepiece, gilded and multi-tiered, rising above the surrounding buildings. I walked the grounds.',
+              image: {
+                srcBase: 'phu-stop-chalong',
+                width: 768,
+                height: 1024,
+                alt: 'The Chedi Phutthakhom at Wat Chalong, a multi-tiered gilded Buddhist stupa rising above the temple compound under a bright cloudy sky',
+                caption: 'The Chedi Phutthakhom at Wat Chalong.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '14:30',
+              title: 'Nai Harn viewpoint',
+              body: 'The road to the south coast crosses a low ridge before dropping to Nai Harn. From the pull-off above there\'s a view down to the bay — the beach curving below, one resort tucked into the treeline, the Andaman beyond.',
+              image: {
+                srcBase: 'phu-stop-nai-harn',
+                width: 768,
+                height: 1024,
+                alt: 'Nai Harn Beach seen from a hillside road above, a crescent of white sand and turquoise water backed by dense tropical hills, yellow flowering trees in the foreground',
+                caption: 'Nai Harn from the road above — the beach curving into the bay.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '17:00',
+              title: 'Big Buddha',
+              body: 'The Big Buddha is a 45-metre white marble statue on the Nakkerd Hills above Chalong, visible from most of southern Phuket on a clear day. I was there around sunset — the platform crowded, the light going orange on the marble, the island spread out below.',
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '18:30',
+              title: 'Kata Beach',
+              body: 'Kata Beach has a stretch of open-air bars at its north end that fill up as the sun drops. I found a spot and watched the Andaman go orange.',
+              image: {
+                srcBase: 'phu-stop-kata',
+                width: 768,
+                height: 1024,
+                alt: 'An open-air beach bar at Kata Beach at sunset, palm trees lit purple by bar lighting, outdoor seating facing the sea with a golden sky and the Andaman beyond',
+                caption: 'Kata Beach at sunset — the bar filling as the light went orange.',
+              },
+            },
+          },
+        ],
+      },
+      {
+        slug: 'day-3',
+        number: 3,
+        title: 'Elephants, Kamala, and Bangla Road',
+        summary:
+          'North to an elephant sanctuary in the Layan hills to feed the herd, then south along the coast for lunch at a cliffside spot above Kamala, and Bangla Road and Illuzion at night.',
+        walkingKm: 5,
+        mapGrouping: [['11:00'], ['13:30'], ['22:00']],
+        image: {
+          srcBase: 'phu-day3-bangla',
+          width: 1279,
+          height: 1706,
+          alt: 'The illuminated Welcome to Patong Beach Phuket Thailand arch over Bangla Road at night, crowds below, neon signs lining the pedestrianised street',
+          caption: 'Bangla Road at night — the arch, the neon, the crowd.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '11:00',
+              title: 'Elephant sanctuary',
+              body: 'The sanctuary is in the hills north of the city — a rescue operation that has visitors feed and walk with the herd. I spent a couple of hours there, cutting watermelon and bananas to feed by hand. The elephants were relaxed about the whole process in a way that made it easy to underestimate how large they are.',
+              image: {
+                srcBase: 'phu-stop-elephant',
+                width: 768,
+                height: 1024,
+                alt: 'A rescued elephant up close at a sanctuary in northern Phuket, turning toward the camera, dusty ground and trees in the background',
+                caption: 'At the elephant sanctuary — feeding by hand.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '13:30',
+              title: 'Cliffside above Kamala',
+              body: 'A cliffside restaurant above the rocks between Patong and Kamala — large boulders below, the Andaman out to the west, the Kamala headland visible around the curve.',
+              image: {
+                srcBase: 'phu-stop-kamala',
+                width: 768,
+                height: 1024,
+                alt: 'Large granite boulders and dense tropical vegetation on a clifftop above Kamala Beach, the Andaman Sea and a headland visible in the distance',
+                caption: 'Cliffside above Kamala — boulders, sea, and the headland.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '22:00',
+              title: 'Bangla Road',
+              body: 'Bangla Road is Patong\'s main nightlife strip — pedestrianised, dense, running inland from the beach. I went to Illuzion, one of the bigger clubs on the road, which runs a production show with full light and video rigs. The street itself is worth walking even before going in anywhere.',
+              image: {
+                srcBase: 'phu-stop-bangla',
+                width: 768,
+                height: 1024,
+                alt: 'The illuminated Welcome to Patong Beach arch over Bangla Road at night, neon signs lining the street, crowds below',
+                caption: 'Bangla Road — the arch and the street ahead.',
+              },
+            },
+          },
+        ],
+      },
+    ],
   }
 ];
 

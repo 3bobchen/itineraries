@@ -81,4 +81,36 @@ export const STOP_COORDS: Record<string, Record<string, Record<string, [number, 
       '15:42': [1.36024, 103.98981], // Jewel Changi Airport — photo-derived
     },
   },
+  'bangkok-in-two-days': {
+    'day-1': {
+      '08:30': [13.40749, 99.99854], // Maeklong Railway Market — photo-derived
+      '11:00': [13.52099, 99.95904], // Damnoen Saduak floating market — photo-derived
+      '16:00': [13.70497, 100.49154], // ICONSIAM / Chao Phraya — photo-derived
+      '19:00': [13.66917, 100.60843], // HardMission, BITEC Bang Na — photo-derived
+    },
+    'day-2': {
+      '07:30': [13.74416, 100.49474], // Old town / Sanam Chai, near Wat Pho — photo-derived
+      '10:30': [13.72144, 100.47125], // Wat Paknam, Phasi Charoen — photo-derived
+      '12:00': [13.74348, 100.45680], // Thonburi canals, Bang Waek — photo-derived
+    },
+  },
+  'phuket-in-four-days': {
+    'day-1': {
+      '10:30': [7.6843, 98.7676], // Pileh Lagoon, Ko Phi Phi Leh — photo-derived
+      '13:30': [7.6767, 98.7656], // Maya Bay, Ko Phi Phi Leh — photo-derived
+      '20:30': [7.8761, 98.3517], // Three Monkeys, Chalong — photo-derived
+      '22:00': [7.8848, 98.3879], // Jui Tui Shrine, Old Town — photo-derived
+    },
+    'day-2': {
+      '12:00': [7.8467, 98.3377], // Wat Chalong — photo-derived
+      '14:30': [7.7630, 98.3052], // Nai Harn viewpoint — photo-derived
+      '17:00': [7.8278, 98.3133], // Big Buddha, Nakkerd Hills — photo-derived
+      '18:30': [7.8300, 98.2950], // Kata Beach — photo-derived
+    },
+    'day-3': {
+      '11:00': [7.9786, 98.3082], // Elephant sanctuary, Layan — photo-derived
+      '13:30': [7.9199, 98.2803], // Cliffside above Kamala — photo-derived
+      '22:00': [7.8940, 98.2953], // Bangla Road, Patong — photo-derived
+    },
+  },
 };

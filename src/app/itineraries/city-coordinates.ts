@@ -10,6 +10,8 @@ export const CITY_COORDS: Record<string, [number, number]> = {
   Riyadh: [24.7136, 46.6753],
   Cairo: [30.0444, 31.2357],
   Singapore: [1.3521, 103.8198],
+  Bangkok: [13.7563, 100.5018],
+  Phuket: [7.8804, 98.3923],
   'San Francisco': [37.7749, -122.4194],
   'Washington, DC': [38.9072, -77.0369],
   'New York City': [40.7128, -74.006],
