@@ -2078,6 +2078,740 @@ export const ITINERARIES: Itinerary[] = [
         ],
       },
     ],
+  },
+  {
+    slug: 'kuala-lumpur-in-three-days',
+    title: 'Kuala Lumpur in three days',
+    city: 'Kuala Lumpur',
+    country: 'Malaysia',
+    tagline:
+      'Three days across Kuala Lumpur — the Awana SkyWay and Chin Swee temple at Genting, the Batu Caves and Thean Hou, the Petronas Towers after dark, i-City\'s neon and Musang King durian on Jalan Alor.',
+    intro:
+      'I stayed near KLCC, in the shadow of the Petronas Towers, and got around entirely by Grab — cheap and everywhere, which makes a spread-out city manageable. Three full days that ran from the hill stations north of the city out to the temples, malls and night markets, and west after dark.',
+    hero: {
+      srcBase: 'kl-hero-skyline',
+      width: 1024,
+      height: 576,
+      alt: 'The Kuala Lumpur skyline at sunset from a rooftop, the sun low in haze on the left and the Petronas Towers rising on the right above a dense field of high-rises',
+      caption: 'The city at sunset, the Petronas Towers on the right.',
+    },
+    stats: {
+      days: 3,
+      pace: 'full',
+      with: 'friends',
+    },
+    days: [
+      {
+        slug: 'day-1',
+        number: 1,
+        title: 'Up to Genting, and i-City after dark',
+        summary:
+          'A nasi lemak breakfast out in Damansara, north into the hills for the Awana SkyWay cable car and the Chin Swee temple at Genting, hawker noodles back around Bukit Bintang, and i-City\'s neon in Shah Alam after dark.',
+        walkingKm: 4,
+        mapGrouping: [['09:00'], ['11:30'], ['20:00'], ['22:00']],
+        image: {
+          srcBase: 'kl-day1-genting',
+          width: 768,
+          height: 1024,
+          alt: 'The nine-tier pagoda of the Chin Swee Caves Temple at Genting Highlands rising over yellow-roofed halls, the forested ridge dropping into heavy cloud behind',
+          caption: 'The Chin Swee Caves Temple at Genting, cloud on the ridge.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '09:00',
+              title: 'Village Park nasi lemak',
+              body: 'Village Park, in Damansara Uptown, is the nasi lemak most people in KL will name first — coconut rice, sambal, cucumber and a piece of fried chicken with a crust that holds up under the sauce. I had it with an iced Milo to start the trip.',
+              image: {
+                srcBase: 'kl-stop-nasilemak',
+                width: 768,
+                height: 1024,
+                alt: 'A plate of nasi lemak on brown paper — a mound of coconut rice, dark fried chicken, sambal and cucumber slices, an iced chocolate drink behind',
+                caption: 'Nasi lemak ayam goreng at Village Park.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '11:30',
+              title: 'Genting Highlands',
+              body: 'Genting Highlands sits in the hills an hour north, cool and usually wrapped in cloud. I went up on the Awana SkyWay cable car, which runs over the rainforest into the resort, and stopped at the Chin Swee Caves Temple on the way — a nine-tier pagoda on the ridge with the valley dropping away into the mist below.',
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '20:00',
+              title: 'Hawker noodles in Bukit Bintang',
+              body: 'Back in the city I ate around Bukit Bintang — a hawker stall doing prawn and beef noodles, the kind of place with plastic stools, a laminated menu and a long steel counter going hard all night.',
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '22:00',
+              title: 'i-City',
+              body: 'i-City, out in Shah Alam west of the city, is a park built almost entirely out of LED light — trees, animals and arches wired in colour, a Ferris wheel turning over the middle. It is deliberately garish and good fun after dark.',
+              image: {
+                srcBase: 'kl-stop-icity',
+                width: 768,
+                height: 1024,
+                alt: 'A Ferris wheel outlined in blue and purple neon at i-City, a glowing "SkyCity" sign and a red heart-shaped frame in the foreground against a black night sky',
+                caption: 'The SkyCity wheel at i-City, Shah Alam.',
+              },
+            },
+          },
+        ],
+      },
+      {
+        slug: 'day-2',
+        number: 2,
+        title: 'Batu Caves, the old town, and the towers',
+        summary:
+          'The Batu Caves and their rainbow staircase in the morning, Chinatown and lunch in the old town, the Thean Hou temple on its hill in the afternoon, and the Petronas Towers lit up at night.',
+        walkingKm: 6,
+        mapGrouping: [['10:30'], ['13:00', '16:00'], ['19:30']],
+        image: {
+          srcBase: 'kl-day2-batu',
+          width: 768,
+          height: 1024,
+          alt: 'A long-tailed macaque perched on a gilded finial at the Batu Caves, the rainbow-painted staircase rising out of focus behind it',
+          caption: 'A macaque on the rainbow staircase at the Batu Caves.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '10:30',
+              title: 'Batu Caves',
+              body: 'The Batu Caves are a set of limestone caverns north of the city, a Hindu shrine reached by a tall rainbow-painted staircase under a giant gold statue of Murugan. Long-tailed macaques work the steps for food. At the top the rock opens into a high chamber with temples set into it.',
+              image: {
+                srcBase: 'kl-stop-batu',
+                width: 768,
+                height: 1024,
+                alt: 'The brightly painted gopuram of the temple at the Batu Caves, dense with figures of Hindu deities in pink, blue, green and gold, a monkey climbing the carved tower',
+                caption: 'The painted tower at the Batu Caves.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '13:00',
+              title: 'Chinatown and Petaling Street',
+              body: 'Down in the old town I walked Petaling Street and the lanes around it — red lanterns strung overhead, restored shophouses, a market under the awnings. Lunch was in one of those shophouses: mushroom pasta and truffle fries, the kind of thing Chinatown KL now does alongside the stalls.',
+              image: {
+                srcBase: 'kl-stop-chinatown',
+                width: 768,
+                height: 1024,
+                alt: 'A narrow Chinatown lane in Kuala Lumpur strung with rows of red Chinese lanterns overhead, old shophouses on either side and modern towers rising at the end of the street',
+                caption: 'Red lanterns over a lane off Petaling Street.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '16:00',
+              title: 'Thean Hou Temple',
+              body: 'Thean Hou is a six-tier Chinese temple on a hill in Robson Heights, dedicated to the sea goddess Mazu. Inside it is dense with red pillars, gold carving and a painted ceiling; outside, a terrace looks back over the city.',
+              image: {
+                srcBase: 'kl-stop-theanhou',
+                width: 768,
+                height: 1024,
+                alt: 'The ornate main hall of the Thean Hou Temple, a brightly painted coffered ceiling above red and gold pillars and a seated golden deity at the altar',
+                caption: 'Inside the main hall at Thean Hou.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '19:30',
+              title: 'The Petronas Towers',
+              body: 'I ended the night with the Petronas Towers — eighty-eight floors of stainless steel and glass, lit white after dark and joined by the skybridge halfway up. I saw them from a rooftop pool near where I was staying, the whole pair reflected in the water.',
+              image: {
+                srcBase: 'kl-stop-petronas',
+                width: 768,
+                height: 1024,
+                alt: 'The Petronas Towers lit white at night, the twin spires and skybridge mirrored in a dark rooftop pool with purple loungers along its edge',
+                caption: 'The towers from a rooftop pool, near midnight.',
+              },
+            },
+          },
+        ],
+      },
+      {
+        slug: 'day-3',
+        number: 3,
+        title: 'Coffee, Bukit Bintang, and a hillside skyride',
+        summary:
+          'A slow start over coffee, an afternoon around Bukit Bintang\'s malls and crossings, a hillside skyride and luge at dusk, and durian on Jalan Alor.',
+        walkingKm: 5,
+        mapGrouping: [['12:30'], ['15:00'], ['18:00'], ['21:30']],
+        image: {
+          srcBase: 'kl-day3-skyride',
+          width: 665,
+          height: 1182,
+          alt: 'The view from a chairlift skyride at dusk, the cable running out over forested hills with a winding luge track and access road visible on the slope below',
+          caption: 'The skyride out over the hills at dusk.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '12:30',
+              title: 'Coffee to start',
+              body: 'I started the last day slowly, at a café with soft-serve and a counter of round, glowing pods for the coffee. A quiet hour before the city woke up properly.',
+              image: {
+                srcBase: 'kl-stop-coffee',
+                width: 480,
+                height: 360,
+                alt: 'A coffee counter built as illuminated circular pods, warm light glowing around the rims, a barista working at the far one in a glass-walled lobby',
+                caption: 'The glowing pods at the coffee counter.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '15:00',
+              title: 'Bukit Bintang',
+              body: 'Bukit Bintang is KL\'s shopping core — Pavilion, Fahrenheit 88 and the big crossings between them, screens overhead and the monorail running past. I spent the afternoon working through the malls.',
+              image: {
+                srcBase: 'kl-stop-bukitbintang',
+                width: 576,
+                height: 1024,
+                alt: 'A busy Bukit Bintang street crossing under a bright sky, the Fahrenheit 88 mall sign on the left, big digital screens on the buildings and crowds waiting at the lights',
+                caption: 'The crossing outside Fahrenheit 88, Bukit Bintang.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '18:00',
+              title: 'The skyride and luge',
+              body: 'Out on the edge of the city there is a hillside park with a chairlift skyride and a luge track that winds back down through the trees. I rode up at dusk as the lights came on along the course, then took the luge down.',
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '21:30',
+              title: 'Durian on Jalan Alor',
+              body: 'I finished on Jalan Alor, the open-air food street off Bukit Bintang, at a durian stall stacked with Musang King — the seller splitting them open on the spot, the custard rich and a little bitter. A strong way to end the trip.',
+              image: {
+                srcBase: 'kl-stop-durian',
+                width: 768,
+                height: 1024,
+                alt: 'A night durian stall on Jalan Alor, whole spiky durians stacked on a green rack under hanging bulbs, trays of opened yellow flesh on the table in front',
+                caption: 'A Musang King stall on Jalan Alor.',
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'washington-dc-in-a-day',
+    title: 'Washington, DC in a day',
+    city: 'Washington, DC',
+    country: 'United States',
+    tagline:
+      'A day trip from New York — Capitol Hill and the Library of Congress in the morning, then the length of the National Mall on foot to the Washington Monument, the Tidal Basin memorials, and the Lincoln Memorial at sunset.',
+    intro:
+      'I came down from New York just for the day — in and out of Reagan National, the whole of it spent on foot and on the Metro along the National Mall. One full day, solo, from Capitol Hill at the east end to the Lincoln Memorial at the west.',
+    hero: {
+      srcBase: 'dc-hero-monument',
+      width: 1024,
+      height: 768,
+      alt: 'The Washington Monument silhouetted against a clear sunset sky, the sun low on the left, a plane crossing and the ring of flags lit at the base of the obelisk',
+      caption: 'The Washington Monument at sunset, a plane crossing the Mall.',
+    },
+    stats: {
+      days: 1,
+      pace: 'full',
+      with: 'solo',
+    },
+    days: [
+      {
+        slug: 'the-day',
+        number: 1,
+        title: 'The National Mall, end to end',
+        summary:
+          'In on the morning flight to Reagan National and straight to Capitol Hill for the Capitol and the Library of Congress, then the whole length of the Mall on foot through the afternoon — the Washington Monument, the FDR and MLK memorials around the Tidal Basin, and the Lincoln Memorial as the sun went down.',
+        walkingKm: 9,
+        mapGrouping: [['10:00', '11:00'], ['15:55'], ['16:40', '17:20']],
+        image: {
+          srcBase: 'dc-day-mall-capitol',
+          width: 1279,
+          height: 1706,
+          alt: 'The dome of the United States Capitol seen from down the National Mall, the grassy lawn and gravel walks lined with trees turning autumn colours, under a clear blue sky',
+          caption: 'The Capitol from down the Mall, autumn on the lawn.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '10:00',
+              title: 'The United States Capitol',
+              body: 'The Capitol sits at the east end of the Mall, on the hill the rest of the city is laid out from. I came up from the Capitol South Metro to the East Front — the dome over the colonnade, the Senate wing to the north — and went inside on a tour, which runs on timed passes you reserve ahead. It ends in the National Statuary Hall, the old House chamber, ringed with the statues each state sends.',
+              bookAhead: true,
+              image: {
+                srcBase: 'dc-stop-capitol',
+                width: 768,
+                height: 1024,
+                alt: 'The white dome of the United States Capitol against a deep blue sky, an American flag flying at half-mast in front and a thin sliver of moon above the statue at the top',
+                caption: 'The Capitol dome, a sliver of moon above the Statue of Freedom.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '11:00',
+              title: 'The Library of Congress',
+              body: 'Across the street is the Library of Congress — the Thomas Jefferson Building, the most ornate interior in the city, and free to walk into. The Great Hall rises in marble and gold leaf under a painted ceiling, and from a gallery above you look down into the Main Reading Room, an octagon of desks under a coffered dome.',
+              image: {
+                srcBase: 'dc-stop-loc',
+                width: 360,
+                height: 480,
+                alt: 'The coffered dome of the Main Reading Room at the Library of Congress, a circular skylight at its centre, marble columns and red-draped arches below',
+                caption: 'Under the dome of the Main Reading Room.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '15:55',
+              title: 'The Washington Monument',
+              body: 'The Washington Monument stands in the middle of the Mall, a marble obelisk with a visible colour change partway up where construction stopped for twenty years and the stone came from a different quarry. I reached it as the afternoon light was going gold.',
+              image: {
+                srcBase: 'dc-stop-monument',
+                width: 768,
+                height: 1024,
+                alt: 'The Washington Monument seen looking straight up from its base against a deep blue sky, the two-tone marble of the obelisk tapering to the point',
+                caption: 'The obelisk from the base, the two-tone marble showing.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '16:40',
+              title: 'The Tidal Basin — FDR and MLK Memorials',
+              body: 'South of the Monument the Tidal Basin curves past two memorials I walked between — the Franklin Delano Roosevelt Memorial, a long sequence of granite rooms and waterfalls, and the Martin Luther King Jr. Memorial, where his figure stands half-cut from a block of pale stone, the Stone of Hope. The Monument sat reflected across the water.',
+              image: {
+                srcBase: 'dc-stop-mlk',
+                width: 768,
+                height: 1024,
+                alt: 'The Stone of Hope at the Martin Luther King Jr. Memorial, his figure carved emerging from a block of pale granite with arms folded, against a clear blue sky',
+                caption: 'The Stone of Hope at the MLK Memorial.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '17:20',
+              title: 'The Lincoln Memorial',
+              body: 'The Mall ends at the Lincoln Memorial, up the steps under the colonnade, Lincoln seated inside with the Gettysburg Address and Second Inaugural cut into the side walls. From the top the Reflecting Pool runs straight back to the Monument; I watched the sun drop and a plane bank over the water before taking the Metro out from Foggy Bottom.',
+              image: {
+                srcBase: 'dc-stop-lincoln',
+                width: 768,
+                height: 1024,
+                alt: 'The seated marble statue of Abraham Lincoln inside the memorial, the inscription "In this temple... the memory of Abraham Lincoln is enshrined forever" carved on the wall above',
+                caption: 'Lincoln seated, the inscription cut above.',
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'new-york-city-in-four-days',
+    title: 'New York City in four days',
+    city: 'New York City',
+    country: 'United States',
+    tagline:
+      'Four days across Manhattan and Brooklyn — Midtown landmarks, the harbour by ferry, the Brooklyn Bridge on foot, and a last day up the East River to Roosevelt Island and Central Park.',
+    intro:
+      'I spent four days in New York on my own, getting around almost entirely on the subway and on foot. It split into a Midtown day, a downtown-and-harbour day that ran from the World Trade Center out to Brooklyn, a day on the bridges and the West Side, and a last day up the East River to Roosevelt Island and back through Central Park.',
+    hero: {
+      srcBase: 'nyc-hero-skyline',
+      width: 1024,
+      height: 768,
+      alt: 'Lower Manhattan\'s skyline seen through the steel cables of the Brooklyn Bridge, One World Trade Center and the financial-district towers below a clear blue sky',
+      caption: 'Lower Manhattan framed through the Brooklyn Bridge cables.',
+    },
+    stats: {
+      days: 4,
+      pace: 'steady',
+      with: 'solo',
+    },
+    days: [
+      {
+        slug: 'day-1',
+        number: 1,
+        title: 'Midtown on foot',
+        summary:
+          'In on the early flight to JFK and straight into Midtown — up through Grand Central, then the Empire State Building, Times Square, and Rockefeller Center on a first afternoon of walking the landmarks.',
+        walkingKm: 7,
+        mapGrouping: [['10:00', '12:30', '14:10', '15:05']],
+        image: {
+          srcBase: 'nyc-day1-rockefeller',
+          width: 1706,
+          height: 1279,
+          alt: 'The sunken plaza at Rockefeller Center ringed with flags, the ice rink below being set up for the season and the surrounding buildings catching late afternoon light',
+          caption: 'Rockefeller Center, the rink going in for the season.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '10:00',
+              title: 'Grand Central Terminal',
+              body: 'I came into the city through Grand Central, up from the platforms into the main concourse — the marble, the brass clock over the information booth, the painted constellations across the ceiling. It works as a station and as a place to stand still in for a while.',
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '12:30',
+              title: 'The Empire State Building',
+              body: 'The Empire State Building rises straight out of the blocks around 34th and Fifth, the Art Deco crown stepping up to the spire. I came at it from the side streets, where the tower fills the gap between buildings.',
+              image: {
+                srcBase: 'nyc-stop-empire',
+                width: 768,
+                height: 1024,
+                alt: 'The Empire State Building seen from below between two buildings, the stepped Art Deco tower and spire rising into a pale sky, metal stairways framing the view in the foreground',
+                caption: 'The Empire State Building from the streets below.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '14:10',
+              title: 'Times Square',
+              body: 'Times Square is where Broadway cuts across Seventh Avenue, the buildings wrapped top to bottom in screens. I stood in the middle of it in full daylight, which strips some of the magic and leaves the scale.',
+              image: {
+                srcBase: 'nyc-stop-times-square',
+                width: 768,
+                height: 1024,
+                alt: 'Times Square in daylight, billboards and digital screens covering the buildings, yellow cabs and crowds crossing Broadway under a clear blue sky',
+                caption: 'Times Square in daylight — Broadway at Seventh.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '15:05',
+              title: 'Rockefeller Center',
+              body: 'Rockefeller Center sits a few blocks north, the slab of 30 Rock above a sunken plaza ringed with flags. The rink at the bottom was being set up for the season, the gold Prometheus looking over it.',
+            },
+          },
+        ],
+      },
+      {
+        slug: 'day-2',
+        number: 2,
+        title: 'Downtown, the harbour, and Times Square at night',
+        summary:
+          'Down the length of Manhattan to the World Trade Center and the Battery, out on the Staten Island Ferry for the harbour and the Statue of Liberty, a hop across to Bed-Stuy, then back up to Central Park and Times Square after dark.',
+        walkingKm: 12,
+        mapGrouping: [['13:15'], ['14:00', '14:45', '15:15'], ['16:56'], ['18:05', '22:00']],
+        image: {
+          srcBase: 'nyc-day2-skyline',
+          width: 1706,
+          height: 1279,
+          alt: 'The Lower Manhattan skyline seen from the water, One World Trade Center rising above the financial-district towers, a Seastreak ferry crossing in the foreground under a clear sky',
+          caption: 'Lower Manhattan from the harbour, a ferry crossing the foreground.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '13:15',
+              title: 'The Flatiron Building',
+              body: 'I started downtown at the Flatiron Building, the wedge where Broadway crosses Fifth at 23rd. It is thinner in person than it photographs, a single sharp prow of limestone and terracotta.',
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '14:00',
+              title: '9/11 Memorial and the World Trade Center',
+              body: 'At the World Trade Center the two memorial pools sit in the footprints of the towers, water running down all four sides into a square void at the centre, the names cut into the bronze parapet around them. Beside them the Oculus opens up white and ribbed, more cathedral than mall.',
+              image: {
+                srcBase: 'nyc-stop-oculus',
+                width: 1024,
+                height: 768,
+                alt: 'The interior of the Oculus at the World Trade Center, white steel ribs arching up to a central skylight, the pale marble floor below with people crossing it',
+                caption: 'Inside the Oculus at the World Trade Center.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '14:45',
+              title: 'Bowling Green',
+              body: 'Bowling Green is the city\'s oldest park, a small oval at the foot of Broadway with the old Custom House behind it and the Charging Bull at its top end. The bull always has a crowd working its way around it for photos.',
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '15:15',
+              title: 'The Staten Island Ferry',
+              body: 'The Staten Island Ferry runs free from Whitehall, out across the harbour and back. I rode it for the crossing — the Statue of Liberty off to one side, Ellis Island beyond, and the Lower Manhattan skyline pulling away and then coming back.',
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '16:56',
+              title: 'Bed-Stuy',
+              body: 'Over in Bed-Stuy I went to find the Bed-Stuy Aquarium — a pothole that flooded and got adopted as a neighbourhood koi pond, fenced and decorated and looked after by the people on the block. Pumpkins were out on the stoops for the end of October.',
+              image: {
+                srcBase: 'nyc-stop-bedstuy',
+                width: 768,
+                height: 1024,
+                alt: 'A Brooklyn sidewalk in Bed-Stuy with the hand-painted "Bed-Stuy Aquarium" pothole pond, a blue painted pole, a bench and orange pumpkins set out in front of a brownstone',
+                caption: 'The Bed-Stuy Aquarium, pumpkins out for the end of October.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '18:05',
+              title: 'Central Park and Columbus Circle',
+              body: 'Back in Manhattan I came up at Columbus Circle, where the southwest corner of Central Park meets the towers of Central Park South. The Maine Monument stands at the entrance; behind it the park goes dark green and the buildings catch the last of the light.',
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '22:00',
+              title: 'Times Square at night',
+              body: 'I worked back through the theatre district to Times Square after dark, which is when it makes sense — the screens turned up to full, the whole intersection lit like daylight with no sun. I stayed a while in the noise of it.',
+              image: {
+                srcBase: 'nyc-stop-times-night',
+                width: 1024,
+                height: 768,
+                alt: 'Times Square at night, the buildings covered in brilliantly lit billboards and screens, a double-decker bus and cabs on the street below',
+                caption: 'Times Square after dark, the screens at full.',
+              },
+            },
+          },
+        ],
+      },
+      {
+        slug: 'day-3',
+        number: 3,
+        title: 'The Brooklyn Bridge, the West Side, and the skyline after dark',
+        summary:
+          'Across the Brooklyn Bridge on foot to DUMBO, then up to Hudson Yards and down the High Line through Chelsea to Little Island, and the skyline from above — Summit One Vanderbilt at dusk and Bryant Park at night.',
+        walkingKm: 13,
+        mapGrouping: [['10:00', '12:00'], ['13:30', '14:20', '14:45', '16:45'], ['19:15', '21:15']],
+        image: {
+          srcBase: 'nyc-day3-highline',
+          width: 1706,
+          height: 1279,
+          alt: 'The High Line elevated park, a large yellow abstract sculpture among planted grasses and wildflowers, brick West Side buildings and a clear blue sky beyond',
+          caption: 'The High Line, the planting grown in over the old rail line.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '10:00',
+              title: 'The Brooklyn Bridge',
+              body: 'I walked the Brooklyn Bridge from the Manhattan side, up on the wooden promenade that runs above the traffic. The Gothic stone arches and the fan of cables frame the skyline the whole way across, and the deck was already busy by mid-morning.',
+              image: {
+                srcBase: 'nyc-stop-brooklyn-bridge',
+                width: 768,
+                height: 1024,
+                alt: 'The wooden walkway of the Brooklyn Bridge leading to one of its Gothic stone towers, steel cables fanning out on either side, the Lower Manhattan skyline to the left under a clear blue sky',
+                caption: 'The Brooklyn Bridge promenade toward the first tower.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '12:00',
+              title: 'DUMBO',
+              body: 'Down in DUMBO, under the Manhattan Bridge, the blue steel of the bridge tower rises straight out of the streets. The neighbourhood is old warehouse blocks turned over to shops and waterfront, the bridges overhead the whole reason to be there.',
+              image: {
+                srcBase: 'nyc-stop-dumbo',
+                width: 768,
+                height: 1024,
+                alt: 'The blue steel tower of the Manhattan Bridge seen from below in DUMBO, the lattice ironwork and arched span standing against a clear blue sky',
+                caption: 'The Manhattan Bridge tower from DUMBO.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '13:30',
+              title: 'Hudson Yards and The Vessel',
+              body: 'Back over in Manhattan, Hudson Yards is the newest corner of the West Side, towers over a rail yard with the Vessel at the centre — a copper-coloured honeycomb of staircases that goes nowhere in particular. It was closed to climbing, so I looked at it from the base.',
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '14:20',
+              title: 'The High Line',
+              body: 'The High Line runs south from there along an old elevated freight line, planted as a narrow garden above the streets. I walked it down through the West Side, the rails left in place under the grasses and the city moving below.',
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '14:45',
+              title: 'Chelsea Market',
+              body: 'Chelsea Market fills the old Nabisco bakery where the Oreo was invented, a brick passage of food stalls and counters running the length of the block. I went through for lunch and came out the far side near the river.',
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '16:45',
+              title: 'Little Island',
+              body: 'Little Island is a small park built out over the Hudson on concrete tulips, each pillar flaring up to hold a different height of lawn and planting. I went up the paths to the high point, the river on one side and the West Side on the other.',
+              image: {
+                srcBase: 'nyc-stop-little-island',
+                width: 768,
+                height: 1024,
+                alt: 'One of the concrete tulip-shaped pillars holding up Little Island over the Hudson, planted with grasses on top, the river and a wooden slat railing beyond',
+                caption: 'Little Island on its concrete tulips over the Hudson.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '19:15',
+              title: 'Summit One Vanderbilt',
+              body: 'Summit One Vanderbilt is the observation deck on the tower beside Grand Central, mirrored rooms and glass floors near the top. I went up at dusk and stayed for the change to night — the Empire State Building lit up to the south, the avenues running out in straight lines of light below.',
+              bookAhead: true,
+              image: {
+                srcBase: 'nyc-stop-summit',
+                width: 1024,
+                height: 768,
+                alt: 'The Manhattan grid at night seen from high above at Summit One Vanderbilt, the Empire State Building lit blue and orange to the right, avenues running in lines of light toward the horizon',
+                caption: 'The skyline from Summit One Vanderbilt, the Empire State lit to the south.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '21:15',
+              title: 'Bryant Park',
+              body: 'I finished at Bryant Park, behind the public library, where the Winter Village was going up — the rink laid down and the glass stalls being built around the lawn. The fountain was still running and the lit towers of Midtown stood over the trees.',
+              image: {
+                srcBase: 'nyc-stop-bryant-park',
+                width: 768,
+                height: 1024,
+                alt: 'Bryant Park at night, the stone fountain lit in the foreground, the Winter Village rink and glass kiosks behind, and the lit towers of Midtown rising over the bare trees',
+                caption: 'Bryant Park at night, the Winter Village going up.',
+              },
+            },
+          },
+        ],
+      },
+      {
+        slug: 'day-4',
+        number: 4,
+        title: 'The East River, Roosevelt Island, and Central Park',
+        summary:
+          'A last day up the east side — the United Nations, the tram across to Roosevelt Island and the Four Freedoms park at its tip, then back across to Central Park in full autumn and up Museum Mile to the Guggenheim.',
+        walkingKm: 9,
+        mapGrouping: [['11:25', '12:40'], ['15:25', '16:20']],
+        image: {
+          srcBase: 'nyc-day4-tram',
+          width: 1706,
+          height: 1279,
+          alt: 'The Midtown skyline seen from the Roosevelt Island Tramway as it climbs over the East River, the cable and tower mechanism in the foreground and the streets far below',
+          caption: 'Midtown from the Roosevelt Island Tramway, climbing over the river.',
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '11:25',
+              title: 'The United Nations',
+              body: 'The United Nations sits on its own strip of land along the East River, the Secretariat a flat green slab of glass above the line of member-state flags. I came down to it past the flags in the morning.',
+              image: {
+                srcBase: 'nyc-stop-un',
+                width: 768,
+                height: 1024,
+                alt: 'The glass slab of the United Nations Secretariat building rising against a clear blue sky, a row of flagpoles and a clipped hedge in front',
+                caption: 'The UN Secretariat above the flags.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '12:40',
+              title: 'Roosevelt Island',
+              body: 'From 59th Street the Roosevelt Island Tramway runs over the East River on a cable, level with the towers. The island is a thin strip in the middle of the river; I walked down to Four Freedoms Park at its southern tip, an avenue of trees on a granite point with the FDR memorial and the Manhattan skyline straight across the water. Pumpkins were set out on the lawn for the season.',
+              image: {
+                srcBase: 'nyc-stop-roosevelt-island',
+                width: 768,
+                height: 1024,
+                alt: 'The tree-lined allée of Four Freedoms Park on Roosevelt Island in autumn, the trees turning gold on either side, pumpkins and hay bales set out on the lawn and the river beyond',
+                caption: 'The allée at Four Freedoms Park, pumpkins out for the season.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '15:25',
+              title: 'Central Park',
+              body: 'Back across the river, Central Park was at the peak of its autumn — the Lake and the model-boat pond ringed with gold, Bethesda Fountain running below the terrace with the bronze angel on top. I came in from the east and worked north through the park.',
+              image: {
+                srcBase: 'nyc-stop-central-park',
+                width: 768,
+                height: 1024,
+                alt: 'Bethesda Fountain in Central Park, the bronze Angel of the Waters on top spraying into the pool, autumn trees and a crowd along the rim behind under a clear blue sky',
+                caption: 'Bethesda Fountain, the park at peak autumn.',
+              },
+            },
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '16:20',
+              title: 'The Guggenheim',
+              body: 'Up the east edge of the park, Museum Mile runs past the Met and on to the Guggenheim. Frank Lloyd Wright\'s white spiral curves out toward Fifth Avenue from the street; inside, the ramp winds up around the open rotunda under the skylight, the galleries running off it the whole way. I went up the spiral as the light through the dome turned to evening.',
+              image: {
+                srcBase: 'nyc-stop-guggenheim',
+                width: 1024,
+                height: 768,
+                alt: 'The interior rotunda of the Guggenheim Museum, the white spiral ramp curving up around the open atrium toward the round skylight, artworks hung along the curved walls',
+                caption: 'The Guggenheim rotunda, the spiral ramp under the dome.',
+              },
+            },
+          },
+        ],
+      },
+    ],
   }
 ];
 

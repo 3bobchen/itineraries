@@ -154,4 +154,66 @@ export const STOP_COORDS: Record<string, Record<string, Record<string, [number, 
       '15:45': [30.00572, 31.22980], // Coptic Cairo / Old Cairo — photo-derived
     },
   },
+  'kuala-lumpur-in-three-days': {
+    'day-1': {
+      '09:00': [3.13767, 101.62313], // Village Park Restaurant, Damansara Uptown — photo-derived
+      '11:30': [3.41295, 101.78824], // Chin Swee Caves Temple / Awana SkyWay, Genting — photo-derived
+      '20:00': [3.14437, 101.71441], // Hawker stall, Bukit Bintang — photo-derived
+      '22:00': [3.06448, 101.48396], // i-City, Shah Alam — photo-derived
+    },
+    'day-2': {
+      '10:30': [3.23742, 101.68376], // Batu Caves — photo-derived
+      '13:00': [3.14155, 101.69770], // Chinatown / Petaling Street — photo-derived
+      '16:00': [3.12189, 101.68770], // Thean Hou Temple — photo-derived
+      '19:30': [3.15800, 101.71100], // Petronas Towers / KLCC (rooftop pool) — photo-derived
+    },
+    'day-3': {
+      '12:30': [3.18091, 101.66486], // Coffee stop, northwest KL — photo-derived
+      '15:00': [3.14800, 101.71316], // Bukit Bintang / Pavilion — photo-derived
+      '18:00': [3.27290, 101.55115], // Hillside skyride & luge park — photo-derived
+      '21:30': [3.14657, 101.70951], // Jalan Alor durian stalls — photo-derived
+    },
+  },
+  'washington-dc-in-a-day': {
+    'the-day': {
+      '10:00': [38.88990, -77.00910], // United States Capitol, East Front — photo-derived
+      '11:00': [38.88870, -77.00470], // Library of Congress, Thomas Jefferson Building — photo-derived
+      '15:55': [38.88950, -77.03530], // Washington Monument — photo-derived
+      '16:40': [38.88480, -77.04400], // Tidal Basin / FDR & MLK Memorials — photo-derived
+      '17:20': [38.88930, -77.05020], // Lincoln Memorial — photo-derived
+    },
+  },
+  'new-york-city-in-four-days': {
+    'day-1': {
+      '10:00': [40.75276, -73.97801], // Grand Central Terminal — photo-derived
+      '12:30': [40.74862, -73.98562], // Empire State Building — photo-derived
+      '14:10': [40.75868, -73.98517], // Times Square — photo-derived
+      '15:05': [40.75893, -73.97934], // Rockefeller Center — photo-derived
+    },
+    'day-2': {
+      '13:15': [40.74127, -73.98934], // Flatiron Building — photo-derived
+      '14:00': [40.71054, -74.01184], // 9/11 Memorial & World Trade Center — photo-derived
+      '14:45': [40.70427, -74.01378], // Bowling Green / Charging Bull — photo-derived
+      '15:15': [40.70110, -74.01290], // Staten Island Ferry, Whitehall Terminal — photo-derived
+      '16:56': [40.68307, -73.94410], // Bed-Stuy — photo-derived
+      '18:05': [40.76783, -73.98028], // Central Park / Columbus Circle — photo-derived
+      '22:00': [40.75745, -73.98588], // Times Square at night — photo-derived
+    },
+    'day-3': {
+      '10:00': [40.70505, -73.99592], // Brooklyn Bridge — photo-derived
+      '12:00': [40.70302, -73.98989], // DUMBO — photo-derived
+      '13:30': [40.75401, -74.00190], // Hudson Yards / The Vessel — photo-derived
+      '14:20': [40.74683, -74.00552], // The High Line — photo-derived
+      '14:45': [40.74267, -74.00689], // Chelsea Market — photo-derived
+      '16:45': [40.74182, -74.01062], // Little Island — photo-derived
+      '19:15': [40.75301, -73.97846], // Summit One Vanderbilt — photo-derived
+      '21:15': [40.75377, -73.98373], // Bryant Park — photo-derived
+    },
+    'day-4': {
+      '11:25': [40.75006, -73.96850], // United Nations — photo-derived
+      '12:40': [40.75020, -73.96095], // Roosevelt Island / Four Freedoms Park — photo-derived
+      '15:25': [40.77446, -73.97000], // Central Park, Bethesda Fountain — photo-derived
+      '16:20': [40.78271, -73.95990], // The Guggenheim — photo-derived
+    },
+  },
 };

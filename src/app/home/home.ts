@@ -44,7 +44,16 @@ import type { GlobeHandle, GlobeMarker } from './globe';
               [attr.aria-label]="pinLabel(marker)"
               (click)="toggle(marker.city)"
             >
-              <span class="pin-dot" aria-hidden="true"></span>
+              <span class="pin-shadow" aria-hidden="true"></span>
+              <span class="pin-marker" aria-hidden="true">
+                <svg class="pin-shape" viewBox="0 0 24 34" width="24" height="34">
+                  <path
+                    class="pin-body"
+                    d="M12 1C5.92 1 1 5.92 1 12c0 8.25 11 21 11 21s11-12.75 11-21C23 5.92 18.08 1 12 1Z"
+                  />
+                  <circle class="pin-hole" cx="12" cy="12" r="4.5" />
+                </svg>
+              </span>
               <span class="pin-label" aria-hidden="true">{{ marker.city }}</span>
             </button>
 
@@ -170,12 +179,12 @@ import type { GlobeHandle, GlobeMarker } from './globe';
       opacity: 0; /* on the far side of the globe; inert disables interaction */
     }
 
+    /* The button's bottom-centre is anchored to the coordinate, so the teardrop's
+       point lands exactly on the city while the balloon rises above it. */
     .pin {
       position: absolute;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -100%);
       pointer-events: auto;
-      display: grid;
-      place-items: center;
       width: 44px;
       height: 44px;
       margin: 0;
@@ -186,63 +195,93 @@ import type { GlobeHandle, GlobeMarker } from './globe';
       -webkit-tap-highlight-color: transparent;
     }
 
-    .pin-dot {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--crimson);
-      box-shadow:
-        0 0 0 3px oklch(100% 0 0),
-        0 1px 6px oklch(0% 0 0 / 0.55);
-      transition:
-        transform var(--dur-fast) var(--ease-out),
-        background var(--dur-fast) var(--ease-out),
-        box-shadow var(--dur-fast) var(--ease-out);
+    /* The teardrop marker, pinned to the button's bottom-centre (the coordinate)
+       and growing upward from its tip on hover/focus. */
+    .pin-marker {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      transform-origin: bottom center;
+      width: 24px;
+      height: 34px;
+      filter: drop-shadow(0 2px 3px oklch(0% 0 0 / 0.45));
+      transition: transform var(--dur-fast) var(--ease-out);
     }
 
-    .pin:hover .pin-dot {
-      transform: scale(1.25);
-      background: var(--crimson-deep);
+    .pin-shape {
+      display: block;
+    }
+
+    .pin-body {
+      fill: var(--crimson);
+      stroke: oklch(100% 0 0);
+      stroke-width: 1.5;
+      transition: fill var(--dur-fast) var(--ease-out);
+    }
+
+    .pin-hole {
+      fill: oklch(100% 0 0);
+    }
+
+    /* Soft contact shadow where the tip meets the surface. */
+    .pin-shadow {
+      position: absolute;
+      left: 50%;
+      bottom: -1px;
+      width: 12px;
+      height: 4px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: oklch(0% 0 0 / 0.4);
+      filter: blur(1.5px);
+      transition: transform var(--dur-fast) var(--ease-out);
+    }
+
+    .pin:hover .pin-marker,
+    .pin:focus-visible .pin-marker {
+      transform: translateX(-50%) scale(1.18);
+    }
+
+    .pin:hover .pin-body {
+      fill: var(--crimson-deep);
+    }
+
+    .pin:hover .pin-shadow,
+    .pin:focus-visible .pin-shadow {
+      transform: translateX(-50%) scaleX(1.3);
     }
 
     .pin:focus-visible {
       outline: none;
     }
 
-    .pin:focus-visible .pin-dot {
-      transform: scale(1.25);
-      box-shadow:
-        0 0 0 3px oklch(100% 0 0),
-        0 0 0 6px var(--crimson),
-        0 1px 6px oklch(0% 0 0 / 0.55);
+    .pin:focus-visible .pin-body {
+      stroke: var(--crimson);
+      stroke-width: 3.5;
     }
 
     /* Planned (placeholder) markers — hollow + muted, no crimson fill. */
-    .marker[data-status='planned'] .pin-dot {
-      width: 11px;
-      height: 11px;
-      background: oklch(13% 0 0 / 0.35);
-      box-shadow:
-        inset 0 0 0 2px oklch(100% 0 0 / 0.92),
-        0 1px 5px oklch(0% 0 0 / 0.55);
+    .marker[data-status='planned'] .pin-body {
+      fill: oklch(13% 0 0 / 0.55);
+      stroke: oklch(100% 0 0 / 0.92);
     }
 
-    .marker[data-status='planned'] .pin:hover .pin-dot {
-      transform: scale(1.25);
-      background: oklch(13% 0 0 / 0.2);
+    .marker[data-status='planned'] .pin-hole {
+      fill: oklch(100% 0 0 / 0.92);
     }
 
-    .marker[data-status='planned'] .pin:focus-visible .pin-dot {
-      transform: scale(1.25);
-      box-shadow:
-        inset 0 0 0 2px oklch(100% 0 0),
-        0 0 0 5px var(--crimson),
-        0 1px 5px oklch(0% 0 0 / 0.55);
+    .marker[data-status='planned'] .pin:hover .pin-body {
+      fill: oklch(13% 0 0 / 0.4);
+    }
+
+    .marker[data-status='planned'] .pin:focus-visible .pin-body {
+      stroke: var(--crimson);
     }
 
     .pin-label {
       position: absolute;
-      bottom: calc(50% + 16px);
+      bottom: calc(100% - 2px);
       left: 50%;
       transform: translateX(-50%) translateY(4px);
       white-space: nowrap;
