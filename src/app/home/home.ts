@@ -23,49 +23,8 @@ import { FLIGHTS, FlightRoute } from '../flights/flights.data';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section class="hero" (pointerenter)="hovering.set(true)" (pointerleave)="hovering.set(false)">
-      <!-- Menu toggle button for mobile/tablet -->
-      <button
-        type="button"
-        class="menu-toggle"
-        [class.is-open]="menuOpen()"
-        (click)="toggleMenu()"
-        aria-label="Toggle menu"
-      >
-        @if (menuOpen()) {
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        } @else {
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        }
-      </button>
-
-      <!-- Toggle mode switcher -->
-      <div class="mode-switcher">
-        <button
-          type="button"
-          class="switch-btn"
-          [class.is-active]="mode() === 'itineraries'"
-          (click)="setMode('itineraries')"
-        >
-          Itineraries
-        </button>
-        <button
-          type="button"
-          class="switch-btn"
-          [class.is-active]="mode() === 'flights'"
-          (click)="setMode('flights')"
-        >
-          Flights
-        </button>
-      </div>
-
-      <div class="dashboard" [class.is-open]="menuOpen()">
+      <!-- Mobile top bar: always visible on mobile -->
+      <div class="mobile-top-bar">
         <header class="header">
           <a
             href="https://www.instagram.com/3bobchen/"
@@ -86,10 +45,114 @@ import { FLIGHTS, FlightRoute } from '../flights/flights.data';
             }
           </div>
         </header>
+        <div class="mobile-actions">
+          <!-- Toggle mode switcher -->
+          <div class="mode-switcher">
+            <button
+              type="button"
+              class="switch-btn"
+              [class.is-active]="mode() === 'itineraries'"
+              (click)="setMode('itineraries')"
+            >
+              Itineraries
+            </button>
+            <button
+              type="button"
+              class="switch-btn"
+              [class.is-active]="mode() === 'flights'"
+              (click)="setMode('flights')"
+            >
+              Flights
+            </button>
+          </div>
+          <!-- Filter toggle button -->
+          <button
+            type="button"
+            class="filter-toggle"
+            [class.is-open]="menuOpen()"
+            (click)="toggleMenu()"
+            [attr.aria-label]="menuOpen() ? 'Close filter panel' : 'Open filter panel'"
+            [attr.aria-expanded]="menuOpen()"
+          >
+            @if (menuOpen()) {
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            } @else {
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" y1="6" x2="20" y2="6"></line>
+                <line x1="7" y1="12" x2="17" y2="12"></line>
+                <line x1="10" y1="18" x2="14" y2="18"></line>
+              </svg>
+            }
+          </button>
+        </div>
+      </div>
+
+      <!-- Desktop header: inside the dashboard overlay -->
+      <div class="desktop-header">
+        <header class="header">
+          <a
+            href="https://www.instagram.com/3bobchen/"
+            target="_blank"
+            rel="noopener"
+            class="avatar-link"
+            aria-label="Bob Chen on Instagram"
+          >
+            <img class="avatar" src="images/avatar.png" width="44" height="44" alt="Bob Chen" />
+          </a>
+          <div class="header-text">
+            @if (mode() === 'itineraries') {
+              <h1 class="main-title">Travel Itineraries<span class="dot">.</span></h1>
+              <p class="subtitle">A travel log compiled with AI from camera roll metadata</p>
+            } @else {
+              <h1 class="main-title">Flighty Passport<span class="dot">.</span></h1>
+              <p class="subtitle">Flight routes across my travels exported from Flighty</p>
+            }
+          </div>
+        </header>
+        <!-- Desktop mode switcher -->
+        <div class="mode-switcher mode-switcher--desktop">
+          <button
+            type="button"
+            class="switch-btn"
+            [class.is-active]="mode() === 'itineraries'"
+            (click)="setMode('itineraries')"
+          >
+            Itineraries
+          </button>
+          <button
+            type="button"
+            class="switch-btn"
+            [class.is-active]="mode() === 'flights'"
+            (click)="setMode('flights')"
+          >
+            Flights
+          </button>
+        </div>
+      </div>
+
+      <div class="dashboard" [class.is-open]="menuOpen()">
 
         <div class="glass-card">
           @if (mode() === 'itineraries') {
             <div class="itineraries-section">
+              <div class="flight-stats">
+                <div class="stat-card">
+                  <span class="stat-value mono">30</span>
+                  <span class="stat-label">countries</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-value mono">5</span>
+                  <span class="stat-label">continents</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-value mono">{{ itineraryCount }}</span>
+                  <span class="stat-label">itineraries</span>
+                </div>
+              </div>
+
               <h2 class="section-title">Destinations</h2>
               <div class="itineraries-list">
                 @for (group of groupedMarkers(); track group.country) {
@@ -266,11 +329,69 @@ import { FLIGHTS, FlightRoute } from '../flights/flights.data';
       overflow: clip;
     }
 
-    .mode-switcher,
-    .menu-toggle {
-      position: absolute;
-      top: var(--space-lg);
-      z-index: 4;
+    /* ── Mobile top bar ── */
+    .mobile-top-bar {
+      display: none;
+    }
+
+    @media (max-width: 63.99rem) {
+      .mobile-top-bar {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 5;
+        padding: var(--space-md) var(--space-md) var(--space-sm);
+        background: oklch(13% 0 0 / 0.85);
+        backdrop-filter: blur(16px) saturate(1.3);
+        -webkit-backdrop-filter: blur(16px) saturate(1.3);
+        border-bottom: 1px solid oklch(100% 0 0 / 0.06);
+        color: oklch(98% 0 0);
+      }
+
+      .mobile-top-bar .header {
+        margin-bottom: 0;
+      }
+
+      .mobile-actions {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+      }
+    }
+
+    /* ── Desktop header (inside dashboard overlay) ── */
+    .desktop-header {
+      display: none;
+    }
+
+    @media (min-width: 64rem) {
+      .desktop-header {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+        position: absolute;
+        top: var(--space-xl);
+        left: var(--space-xl);
+        width: 420px;
+        z-index: 4;
+        color: oklch(98% 0 0);
+        pointer-events: auto;
+      }
+
+      .desktop-header .header {
+        margin-bottom: 0;
+      }
+    }
+
+    /* ── Mode switcher ── */
+    .mode-switcher {
+      display: flex;
+      border-radius: 999px;
+      padding: 3px;
       background: oklch(100% 0 0 / 0.05);
       border: 1px solid oklch(100% 0 0 / 0.15);
       backdrop-filter: blur(12px) saturate(1.3);
@@ -278,11 +399,26 @@ import { FLIGHTS, FlightRoute } from '../flights/flights.data';
       box-shadow: 0 4px 20px oklch(0% 0 0 / 0.3);
     }
 
-    .mode-switcher {
-      right: clamp(1rem, 4vw, 2.5rem);
-      display: flex;
-      border-radius: 999px;
-      padding: 3px;
+    .mode-switcher--desktop {
+      display: none;
+    }
+
+    @media (min-width: 64rem) {
+      .mode-switcher--desktop {
+        display: flex;
+        width: fit-content;
+      }
+    }
+
+    @media (max-width: 63.99rem) {
+      .mode-switcher {
+        flex: 1;
+      }
+
+      .switch-btn {
+        flex: 1;
+        text-align: center;
+      }
     }
 
     .switch-btn,
@@ -312,32 +448,38 @@ import { FLIGHTS, FlightRoute } from '../flights/flights.data';
       box-shadow: 0 2px 10px oklch(48% 0.13 150 / 0.3);
     }
 
-    .menu-toggle {
-      display: none;
+    /* ── Filter toggle button (mobile/tablet) ── */
+    .filter-toggle {
+      display: flex;
       align-items: center;
       justify-content: center;
-      left: clamp(1rem, 4vw, 2.5rem);
-      z-index: 5;
-      width: 40px;
-      height: 40px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
+      border: 1px solid oklch(100% 0 0 / 0.15);
+      background: oklch(100% 0 0 / 0.05);
+      backdrop-filter: blur(12px) saturate(1.3);
+      -webkit-backdrop-filter: blur(12px) saturate(1.3);
+      box-shadow: 0 4px 20px oklch(0% 0 0 / 0.3);
       color: oklch(90% 0 0);
       cursor: pointer;
+      flex-shrink: 0;
       transition: all var(--dur-fast) var(--ease-out);
     }
 
-    .menu-toggle:hover {
+    .filter-toggle:hover {
       color: oklch(100% 0 0);
       background: oklch(100% 0 0 / 0.1);
     }
 
-    .menu-toggle.is-open {
+    .filter-toggle.is-open {
       background: var(--primary);
       border-color: var(--primary);
       color: oklch(100% 0 0);
       box-shadow: 0 2px 10px oklch(48% 0.13 150 / 0.3);
     }
 
+    /* ── Dashboard (filter panel) ── */
     .dashboard {
       position: relative;
       z-index: 3;
@@ -352,10 +494,6 @@ import { FLIGHTS, FlightRoute } from '../flights/flights.data';
     }
 
     @media (max-width: 63.99rem) {
-      .menu-toggle {
-        display: flex;
-      }
-
       .dashboard {
         position: absolute;
         top: 0;
@@ -363,31 +501,35 @@ import { FLIGHTS, FlightRoute } from '../flights/flights.data';
         width: 100%;
         height: 100svh;
         max-height: 100svh;
-        padding: 80px var(--space-lg) var(--space-lg);
-        background: oklch(13% 0 0 / 0.85);
-        backdrop-filter: blur(20px) saturate(1.2);
-        -webkit-backdrop-filter: blur(20px) saturate(1.2);
-        transform: translateX(-100%);
-        transition: transform var(--dur-medium) var(--ease-out);
-        pointer-events: auto;
+        padding: 120px var(--space-md) var(--space-lg);
+        background: oklch(13% 0 0 / 0.88);
+        backdrop-filter: blur(24px) saturate(1.2);
+        -webkit-backdrop-filter: blur(24px) saturate(1.2);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(12px);
+        transition:
+          opacity var(--dur-medium) var(--ease-out),
+          transform var(--dur-medium) var(--ease-out);
       }
 
       .dashboard.is-open {
-        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
       }
     }
 
     @media (min-width: 64rem) {
       .dashboard {
         position: absolute;
-        top: var(--space-xl);
+        top: calc(var(--space-xl) + 100px);
         left: var(--space-xl);
         width: 420px;
-        max-height: calc(100svh - var(--space-3xl));
+        max-height: calc(100svh - var(--space-3xl) - 60px);
         pointer-events: none;
       }
 
-      .header,
       .glass-card {
         pointer-events: auto;
       }
@@ -955,6 +1097,7 @@ export class Home {
     .sort((a, b) => b.date.localeCompare(a.date));
   protected readonly activeFlightId = signal<string | null>(null);
   protected readonly menuOpen = signal(false);
+  protected readonly itineraryCount = this.itineraries.all().length;
 
   protected readonly selectedYear = signal<string>('2026');
   protected readonly flightYears = computed(() => {
