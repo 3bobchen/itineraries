@@ -261,4 +261,78 @@ export const STOP_COORDS: Record<string, Record<string, Record<string, [number, 
       '19:58': [37.61213, -122.38636], // SFO Airport — photo-derived
     },
   },
+  'los-angeles-in-three-days': {
+    'day-1': {
+      '14:13': [34.11654, -118.35135], // Runyon Canyon — photo-derived
+      '15:01': [34.12982, -118.32624], // Innsdale Trail — photo-derived
+      '18:15': [34.04317, -118.25245], // Sonder on Broadway — photo-derived
+    },
+    'day-2': {
+      '10:54': [34.04521, -118.56504], // Getty Villa — photo-derived
+      '15:03': [34.10587, -118.63748], // Red Rock Canyon — photo-derived
+      '17:56': [34.07153, -118.69117], // Piuma Road Overlook — photo-derived
+      '18:53': [34.03102, -118.68264], // Malibu Lagoon State Beach — photo-derived
+      '20:33': [34.07156, -118.44960], // UCLA Campus — photo-derived
+      '22:12': [34.04414, -118.25209], // Downtown Broadway (night) — photo-derived
+    },
+    'day-3': {
+      '09:35': [34.04364, -118.25444], // Downtown Broadway (CicLAvia) — photo-derived
+      '09:46': [34.05141, -118.24966], // Angels Flight — photo-derived
+      '10:02': [34.04875, -118.23970], // Japanese Village Plaza — photo-derived
+      '10:24': [34.03855, -118.22877], // 6th Street Viaduct — photo-derived
+      '12:49': [34.06761, -118.39620], // Beverly Hills Palms — photo-derived
+      '13:58': [34.00893, -118.49782], // Santa Monica Pier — photo-derived
+    },
+  },
+  'uk-road-trip-in-ten-days': {
+    'day-1': {
+      '12:41': [52.20446, 0.11778], // Cambridge — photo-derived
+      '17:28': [53.95241, -1.01210], // York — photo-derived
+    },
+    'day-2': {
+      '08:51': [53.96193, -1.08115], // York Minster — photo-derived
+      '13:33': [54.97220, -1.61422], // Newcastle upon Tyne — photo-derived
+      '16:23': [55.80676, -2.04340], // Berwick-upon-Tweed — photo-derived
+    },
+    'day-3': {
+      '08:49': [55.95440, -3.18141], // Calton Hill — photo-derived
+      '09:41': [55.94954, -3.19307], // St Giles’ Cathedral — photo-derived
+      '10:40': [55.94881, -3.19928], // Edinburgh Castle — photo-derived
+      '13:34': [55.95259, -3.17373], // The Scottish Parliament — photo-derived
+    },
+    'day-4': {
+      '10:01': [56.34026, -2.79549], // University of St Andrews — photo-derived
+      '16:38': [57.33729, -4.47808], // The Loch Ness Centre — photo-derived
+    },
+    'day-5': {
+      '09:57': [57.14242, -4.65278], // Fort Augustus — photo-derived
+      '11:32': [56.87117, -5.43622], // Glenfinnan — photo-derived
+      '12:48': [56.69220, -5.18238], // Fort William — photo-derived
+      '12:56': [56.68210, -5.10719], // Ballachulish — photo-derived
+      '18:51': [55.86187, -4.25150], // Buchanan Galleries, Glasgow — photo-derived
+    },
+    'day-6': {
+      '13:12': [54.60083, -3.13739], // Lake District National Park, Keswick — photo-derived
+      '16:11': [54.54755, -3.28757], // Lake District National Park, Cockermouth — photo-derived
+    },
+    'day-7': {
+      '09:54': [54.43135, -2.96270], // Lake District National Park, Ambleside — photo-derived
+      '12:49': [53.40700, -2.98498], // Liverpool — photo-derived
+      '17:07': [52.47797, -1.89589], // Bullring & Grand Central, Birmingham — photo-derived
+    },
+    'day-8': {
+      '10:00': [52.19369, -1.70797], // Stratford-Upon-Avon — photo-derived
+      '14:21': [51.48191, -3.18178], // Cardiff — photo-derived
+      '17:53': [51.86885, -3.46683], // Bannau Brycheiniog National Park, Brecon — photo-derived
+    },
+    'day-9': {
+      '09:41': [51.38094, -2.35959], // The Roman Baths — photo-derived
+      '12:01': [51.41467, -2.12221], // Chippenham — photo-derived
+      '14:11': [51.17882, -1.82643], // Stonehenge — photo-derived
+      '16:04': [51.48261, -0.60817], // Windsor Castle — photo-derived
+    },
+    'day-10': {
+      '11:01': [50.82355, -0.15297], // Brighton — photo-derived
+    },
+  },
 };

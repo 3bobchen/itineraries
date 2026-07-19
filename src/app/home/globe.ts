@@ -88,7 +88,8 @@ export async function createGlobe(host: HTMLElement, options: GlobeOptions): Pro
   let height = host.clientHeight || 1;
 
   const camera = new THREE.PerspectiveCamera(adaptiveFov(width / height), width / height, 0.1, 100);
-  camera.position.set(5.5, 2.5, 3.7);
+  const australiaVector = latLonToVector3(-25, 133);
+  camera.position.copy(australiaVector).multiplyScalar(7.085);
 
   const scene = new THREE.Scene();
 

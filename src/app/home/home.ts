@@ -92,26 +92,48 @@ import { FLIGHTS, FlightRoute } from '../flights/flights.data';
             <div class="itineraries-section">
               <h2 class="section-title">Destinations</h2>
               <div class="itineraries-list">
-                @for (marker of markers(); track marker.city) {
-                  <button
-                    type="button"
-                    (click)="selectCity(marker.city)"
-                    class="itinerary-link"
-                    [class.is-active]="openCity() === marker.city"
-                  >
-                    <span class="itinerary-bullet" aria-hidden="true"></span>
-                    <div class="itinerary-info">
-                      <span class="itinerary-title">{{ marker.city }}</span>
-                      <span class="itinerary-meta mono">
-                        {{ marker.country }} · {{ marker.status === 'available' ? countLabel(marker) : 'Planned' }}
-                      </span>
+                @for (group of groupedMarkers(); track group.country) {
+                  <div class="country-group">
+                    <h3 class="country-group-title mono">{{ group.country }}</h3>
+                    <div class="country-group-list">
+                      @for (marker of group.markers; track marker.city) {
+                        <button
+                          type="button"
+                          (click)="selectCity(marker.city)"
+                          class="itinerary-link"
+                          [class.is-active]="openCity() === marker.city"
+                        >
+                          <span class="itinerary-bullet" aria-hidden="true"></span>
+                          <div class="itinerary-info">
+                            <span class="itinerary-title">{{ marker.city }}</span>
+                            <span class="itinerary-meta mono">
+                              {{ marker.status === 'available' ? countLabel(marker) : 'Planned' }}
+                            </span>
+                          </div>
+                        </button>
+                      }
                     </div>
-                  </button>
+                  </div>
                 }
               </div>
             </div>
           } @else {
             <div class="itineraries-section">
+              <div class="flight-stats">
+                <div class="stat-card">
+                  <span class="stat-value mono">362,636 km</span>
+                  <span class="stat-label">on planes</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-value mono">20d 11h</span>
+                  <span class="stat-label">flight time</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-value mono">43</span>
+                  <span class="stat-label">unique airports</span>
+                </div>
+              </div>
+
               <h2 class="section-title">Flights taken</h2>
 
               <!-- Year filter pills scrolling track -->
@@ -244,33 +266,40 @@ import { FLIGHTS, FlightRoute } from '../flights/flights.data';
       overflow: clip;
     }
 
-    /* Glassy switcher, floated top-right over the globe. */
-    .mode-switcher {
+    .mode-switcher,
+    .menu-toggle {
       position: absolute;
       top: var(--space-lg);
-      right: clamp(1rem, 4vw, 2.5rem);
       z-index: 4;
-      display: flex;
       background: oklch(100% 0 0 / 0.05);
       border: 1px solid oklch(100% 0 0 / 0.15);
-      border-radius: 999px;
-      padding: 3px;
       backdrop-filter: blur(12px) saturate(1.3);
       -webkit-backdrop-filter: blur(12px) saturate(1.3);
       box-shadow: 0 4px 20px oklch(0% 0 0 / 0.3);
     }
 
+    .mode-switcher {
+      right: clamp(1rem, 4vw, 2.5rem);
+      display: flex;
+      border-radius: 999px;
+      padding: 3px;
+    }
+
+    .switch-btn,
+    .filter-pill {
+      font-family: inherit;
+      cursor: pointer;
+      color: oklch(75% 0 0);
+      font-weight: 700;
+      border-radius: 999px;
+      transition: all var(--dur-fast) var(--ease-out);
+    }
+
     .switch-btn {
       background: none;
       border: none;
-      color: oklch(75% 0 0);
       padding: var(--space-xs) var(--space-md);
       font-size: var(--text-xs);
-      font-weight: 700;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: all var(--dur-fast) var(--ease-out);
-      font-family: inherit;
     }
 
     .switch-btn:hover {
@@ -283,25 +312,17 @@ import { FLIGHTS, FlightRoute } from '../flights/flights.data';
       box-shadow: 0 2px 10px oklch(48% 0.13 150 / 0.3);
     }
 
-    /* --- Dashboard control card --------------------------------------------- */
     .menu-toggle {
-      display: none; /* hidden on desktop */
+      display: none;
       align-items: center;
       justify-content: center;
-      position: absolute;
-      top: var(--space-lg);
       left: clamp(1rem, 4vw, 2.5rem);
       z-index: 5;
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: oklch(100% 0 0 / 0.05);
-      border: 1px solid oklch(100% 0 0 / 0.15);
       color: oklch(90% 0 0);
       cursor: pointer;
-      backdrop-filter: blur(12px) saturate(1.3);
-      -webkit-backdrop-filter: blur(12px) saturate(1.3);
-      box-shadow: 0 4px 20px oklch(0% 0 0 / 0.3);
       transition: all var(--dur-fast) var(--ease-out);
     }
 
@@ -469,6 +490,41 @@ import { FLIGHTS, FlightRoute } from '../flights/flights.data';
       margin: 0 0 var(--space-xs);
     }
 
+    .flight-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-2xs);
+      margin-bottom: var(--space-md);
+      padding-bottom: var(--space-xs);
+      border-bottom: 1px solid oklch(100% 0 0 / 0.08);
+    }
+
+    .stat-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+      padding: var(--space-xs);
+      background: oklch(100% 0 0 / 0.03);
+      border: 1px solid oklch(100% 0 0 / 0.06);
+      border-radius: 6px;
+    }
+
+    .stat-value {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    .stat-label {
+      font-size: 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: oklch(100% 0 0 / 0.45);
+    }
+
 
 
     .year-filters {
@@ -488,15 +544,9 @@ import { FLIGHTS, FlightRoute } from '../flights/flights.data';
     .filter-pill {
       background: oklch(100% 0 0 / 0.04);
       border: 1px solid oklch(100% 0 0 / 0.1);
-      color: oklch(75% 0 0);
       padding: 4px 10px;
       font-size: 11px;
-      font-weight: 700;
-      border-radius: 999px;
-      cursor: pointer;
       white-space: nowrap;
-      transition: all var(--dur-fast) var(--ease-out);
-      font-family: inherit;
     }
 
     .filter-pill:hover {
@@ -529,6 +579,33 @@ import { FLIGHTS, FlightRoute } from '../flights/flights.data';
     .itineraries-list::-webkit-scrollbar-thumb {
       background: oklch(100% 0 0 / 0.15);
       border-radius: 99px;
+    }
+
+    .country-group {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-bottom: var(--space-sm);
+    }
+
+    .country-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .country-group-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: oklch(100% 0 0 / 0.45);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding-left: var(--space-xs);
+      margin: var(--space-xs) 0 4px;
+    }
+
+    .country-group-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2xs);
     }
 
     .itinerary-link {
@@ -585,7 +662,6 @@ import { FLIGHTS, FlightRoute } from '../flights/flights.data';
       color: oklch(70% 0 0);
     }
 
-    /* --- Globe layout ------------------------------------------------------- */
     .globe-container {
       position: absolute;
       inset: 0;
@@ -600,12 +676,11 @@ import { FLIGHTS, FlightRoute } from '../flights/flights.data';
       z-index: 0;
     }
 
-    /* --- Globe markers ------------------------------------------------------ */
     .markers {
       position: absolute;
       inset: 0;
       z-index: 2;
-      pointer-events: none; /* drags pass through to the globe between pins */
+      pointer-events: none;
     }
 
     .marker {
@@ -616,18 +691,13 @@ import { FLIGHTS, FlightRoute } from '../flights/flights.data';
       transition: opacity var(--dur-fast) var(--ease-out);
     }
 
-    /* will-change makes each marker its own stacking context, so the open one
-       must outrank its siblings for the popover to clear the other pins. */
     .marker.is-open {
       z-index: 5;
     }
 
     .marker[data-occluded='true'] {
-      opacity: 0; /* on the far side of the globe; inert disables interaction */
+      opacity: 0;
     }
-
-    /* The button's bottom-centre is anchored to the coordinate, so the teardrop's
-       point lands exactly on the city while the balloon rises above it. */
     .pin {
       position: absolute;
       transform: translate(-50%, -100%);
@@ -873,11 +943,20 @@ export class Home {
 
   protected readonly markers = signal<CityMarker[]>(this.itineraries.cityMarkers());
   protected readonly mode = signal<'itineraries' | 'flights'>('itineraries');
-  protected readonly flights: FlightRoute[] = FLIGHTS;
+  protected readonly flights: FlightRoute[] = FLIGHTS
+    .filter((f) => {
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const dd = String(today.getDate()).padStart(2, '0');
+      const todayStr = `${yyyy}-${mm}-${dd}`;
+      return f.date <= todayStr;
+    })
+    .sort((a, b) => b.date.localeCompare(a.date));
   protected readonly activeFlightId = signal<string | null>(null);
   protected readonly menuOpen = signal(false);
 
-  protected readonly selectedYear = signal<string>('All');
+  protected readonly selectedYear = signal<string>('2026');
   protected readonly flightYears = computed(() => {
     const years = new Set(this.flights.map((f) => f.date.substring(0, 4)));
     return ['All', ...Array.from(years).sort().reverse()];
@@ -886,6 +965,21 @@ export class Home {
     const year = this.selectedYear();
     if (year === 'All') return this.flights;
     return this.flights.filter((f) => f.date.startsWith(year));
+  });
+
+  protected readonly groupedMarkers = computed(() => {
+    const groups = new Map<string, CityMarker[]>();
+    for (const marker of this.markers()) {
+      let list = groups.get(marker.country);
+      if (!list) {
+        list = [];
+        groups.set(marker.country, list);
+      }
+      list.push(marker);
+    }
+    return Array.from(groups.entries())
+      .map(([country, markers]) => ({ country, markers }))
+      .sort((a, b) => a.country.localeCompare(b.country));
   });
 
 

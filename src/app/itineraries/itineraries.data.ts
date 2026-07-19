@@ -2900,7 +2900,7 @@ export const ITINERARIES: Itinerary[] = [
   {
     slug: 'california-roadtrip-in-four-days',
     title: 'California Roadtrip in four days',
-    city: 'Yosemite',
+    city: 'California',
     country: 'United States',
     tagline: 'Four days road tripping from San Francisco to Yosemite Valley, the salt flats of Death Valley, the sights of Los Angeles, and the Central Coast.',
     intro: 'I did a loop out of San Francisco in a rental car, driving east into Yosemite Valley and crossing the Sierra crest to stay in Mammoth Lakes on night one. From there, the highway led south through Death Valley to Ridgecrest on night two, onward to Los Angeles and up the coast to Morro Bay on night three, and finally back north through Silicon Valley to wrap up the loop.',
@@ -3246,6 +3246,781 @@ export const ITINERARIES: Itinerary[] = [
               time: '19:58',
               title: 'SFO Airport',
               body: 'Returning the rental car and waiting at Harvey Milk Terminal 1 for the red-eye flight.'
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'los-angeles-in-three-days',
+    title: 'Los Angeles in three days',
+    city: 'Los Angeles',
+    country: 'United States',
+    tagline: 'Three days in Los Angeles — hiking Runyon Canyon, touring the Getty Villa, driving through Malibu\'s mountains, and riding a Lime bike through Downtown during CicLAvia.',
+    intro: 'I stayed at the Sonder on Broadway in Downtown and got around with a rental car, driving west to the coast and up into the canyons. The weekend was relaxed, prioritizing scenic mountain roads and beach walks over a packed sightseeing schedule.',
+    hero: {
+      srcBase: 'la-hero-santa-monica',
+      width: 1024,
+      height: 768,
+      alt: 'The historic wooden Santa Monica Pier at dusk, with the Ferris wheel lit in purple and yellow reflections dancing on the water below.',
+      caption: 'Santa Monica Pier, Day 3 afternoon.'
+    },
+    stats: {
+      days: 3,
+      pace: 'relaxed',
+      with: 'a friend'
+    },
+    days: [
+      {
+        slug: 'day-1',
+        number: 1,
+        title: 'Runyon Canyon and the Hollywood Hills',
+        summary: 'Landing at LAX, picking up the rental car to drive north to Runyon Canyon for a valley view hike, finding the Innsdale Trail for a look at the Hollywood Sign, and checking into the Sonder on Broadway.',
+        walkingKm: 6,
+        image: {
+          srcBase: 'la-day1-runyon-canyon',
+          width: 1706,
+          height: 1279,
+          alt: 'A dry dirt hiking trail in Runyon Canyon with the hazy grid of the Los Angeles basin stretching into the distance under a bright afternoon sky.',
+          caption: 'Hiking the ridges of Runyon Canyon above Hollywood.'
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '14:13',
+              title: 'Runyon Canyon',
+              body: 'After picking up the car at LAX, I drove straight to the trailheads at Runyon Canyon. The dirt paths climb quickly above Hollywood, offering a clear view over the grid of the basin all the way to the high-rises of Downtown.'
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '15:01',
+              title: 'Innsdale Trail (Hollywood Sign)',
+              body: 'A short drive east led to Griffith Park. I walked the Innsdale Trail, a quiet dirt track that wraps around the hillside directly below the Hollywood Sign, where the white block letters stand out against the dry brush of Mount Lee.'
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '18:15',
+              title: 'Sonder on Broadway',
+              body: 'I drove down to Broadway in Downtown to check in at the Sonder. The hotel was located near the Tower Theatre, in a historic stretch of Broadway lined with old theater facades.'
+            }
+          }
+        ]
+      },
+      {
+        slug: 'day-2',
+        number: 2,
+        title: 'The Palisades, Malibu Canyons, and Westwood',
+        summary: 'Driving west to the Roman architecture of the Getty Villa in the morning, hiking the red sandstone of Topanga\'s Red Rock Canyon, watching the sunset from Malibu\'s winding Piuma Road and the lagoon, and wrapping up with a late cafeteria meal on the UCLA campus.',
+        walkingKm: 8,
+        mapGrouping: [['10:54', '15:03'], ['17:56', '18:53'], ['20:33', '22:12']],
+        image: {
+          srcBase: 'la-day2-malibu-piuma-road',
+          width: 1706,
+          height: 1279,
+          alt: 'A winding mountain pass on Piuma Road in Malibu, with layers of the dry Santa Monica Mountains fading into the golden sunset sky.',
+          caption: 'Malibu sunset along Piuma Road.'
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '10:54',
+              title: 'Getty Villa',
+              body: 'The Getty Villa sits in Pacific Palisades, built to replicate a Roman country house with columns, manicured herb gardens, and long reflection pools. I spent the morning walking the colonnades and viewing the collection of ancient Greek and Roman antiquities.',
+              bookAhead: true,
+              image: {
+                srcBase: 'la-stop-getty-villa',
+                width: 768,
+                height: 1024,
+                alt: 'A bee visiting a blooming blue cornflower in the courtyard garden of the Getty Villa, with Roman-style columns visible in the background.',
+                caption: 'The inner peristyle gardens of the Getty Villa.'
+              }
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '15:03',
+              title: 'Red Rock Canyon',
+              body: 'Topanga State Park\'s Red Rock Canyon trail winds through deep red sandstone formations that feel remote despite being a short drive from Calabasas. The trail climbs past caves and steep red rock walls under the hot afternoon sun.',
+              image: {
+                srcBase: 'la-stop-red-rock-canyon',
+                width: 768,
+                height: 1024,
+                alt: 'A towering red sandstone wall in Red Rock Canyon, with dry green chaparral growing along its base under a clear blue sky.',
+                caption: 'Red sandstone cliffs in Topanga State Park.'
+              }
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '17:56',
+              title: 'Piuma Road Scenic Overlook',
+              body: 'Piuma Road climbs high into the Santa Monica Mountains behind Malibu. I parked at a gravel pullout along the ridge as the sun began to drop behind the peaks, looking out over the layers of mountains and the distant ocean below.'
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '18:53',
+              title: 'Malibu Lagoon State Beach',
+              body: 'The road drops back down to the Pacific Coast Highway. I walked the lagoon boardwalks to the sand, where the tide pool waters reflect the pink and purple afterglow of the Malibu sunset.'
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '20:33',
+              title: 'UCLA Campus Cafeteria',
+              body: 'I drove east into Westwood for a walk around the UCLA campus. I met up with a student and sat down at one of the student dining halls for a cafeteria meal of Greek-style penne pasta and grilled chicken.'
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '22:12',
+              title: 'Downtown Broadway',
+              body: 'Drove back to Downtown along the Santa Monica Freeway, returning to the Sonder on Broadway. The historic core is quiet at night, the old theater signs dark and the skyscrapers glowing in the distance.'
+            }
+          }
+        ]
+      },
+      {
+        slug: 'day-3',
+        number: 3,
+        title: 'CicLAvia and the Westside',
+        summary: 'Renting a Lime bike for the CicLAvia open-streets ride through Little Tokyo and the arches of the 6th Street Viaduct, driving west to see the fan palms of Beverly Hills, and walking the Santa Monica Pier.',
+        walkingKm: 4,
+        mapGrouping: [['09:35', '09:46', '10:02', '10:24'], ['12:49', '13:58']],
+        image: {
+          srcBase: 'la-day3-santa-monica-palms',
+          width: 1706,
+          height: 1279,
+          alt: 'Tall palm trees silhouetted against a pale blue sky along the coast in Santa Monica in the afternoon.',
+          caption: 'Coastal palm trees in Santa Monica.'
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '09:35',
+              title: 'Downtown Broadway',
+              body: 'I started the morning on Broadway in Downtown. The street was closed to cars for CicLAvia, an open-streets event that turns the city\'s main thoroughfares into pedestrian and bicycle pathways.'
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '09:46',
+              title: 'Angels Flight',
+              body: 'Angels Flight sits on Bunker Hill. The two orange cars, Olivet and Sinai, still carry passengers up the steep track between Hill Street and the high-rises of California Plaza.',
+              image: {
+                srcBase: 'la-stop-angels-flight',
+                width: 1024,
+                height: 768,
+                alt: 'The orange and black Angels Flight funicular car Olivet climbing the steep track on Bunker Hill, with modern skyscrapers rising in the background under a blue sky.',
+                caption: 'Angels Flight funicular on Bunker Hill.'
+              }
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '10:02',
+              title: 'Japanese Village Plaza',
+              body: 'I rode a Lime bike east into Little Tokyo, stopping at Japanese Village Plaza. The pedestrian plaza is lined with shops under traditional red paper lanterns, and was crowded with cyclists taking a break from the CicLAvia route.',
+              image: {
+                srcBase: 'la-stop-little-tokyo',
+                width: 1024,
+                height: 768,
+                alt: 'The open pedestrian street of Japanese Village Plaza in Little Tokyo, lined with shops under traditional red paper lanterns and a blue sky.',
+                caption: 'Little Tokyo\'s Japanese Village Plaza.'
+              }
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '10:24',
+              title: '6th Street Viaduct',
+              body: 'I rode the Lime bike across the concrete arches of the new 6th Street Viaduct. With the bridge completely closed to vehicle traffic for the event, hundreds of cyclists filled the lanes spanning the industrial yards of Boyle Heights.'
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '12:49',
+              title: 'Beverly Hills Palms',
+              body: 'I returned the bike, picked up the rental car, and drove west to Beverly Hills. The residential streets near Hillcrest Road are famous for their tall, straight rows of California fan palms framing the lawns.',
+              image: {
+                srcBase: 'la-stop-beverly-hills',
+                width: 1024,
+                height: 768,
+                alt: 'A row of tall California fan palms standing along a clean residential street in Beverly Hills, with a blue sky above.',
+                caption: 'Palm-lined streets of Beverly Hills.'
+              }
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '13:58',
+              title: 'Santa Monica Pier',
+              body: 'I drove to the coast and parked near Palisades Park for a walk down the historic wooden pier. The ocean breeze was strong, and the amusement park Ferris wheel was spinning over the waves to wrap up the weekend.'
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'uk-road-trip-in-ten-days',
+    title: 'UK Road Trip in ten days',
+    city: 'UK Road Trip',
+    country: 'United Kingdom',
+    tagline: 'Ten days from Cambridge to the Highlands and back, crossing the borders into Scotland and Wales.',
+    intro: 'I spent ten days road-tripping around Great Britain with my family in a rented car, staying at local B&Bs along the route. From the college lawns of Cambridge to the dramatic glens of the Scottish Highlands and the valleys of Wales, the journey was a scenic loop of the island\'s most historic sights.',
+    hero: {
+      srcBase: 'uk-hero-calton-hill',
+      width: 1024,
+      height: 768,
+      alt: 'The monuments of Calton Hill overlooking the skyline of Edinburgh under a blue morning sky.',
+      caption: 'Morning views of Edinburgh from the top of Calton Hill.'
+    },
+    stats: {
+      days: 10,
+      pace: 'steady',
+      with: 'family'
+    },
+    days: [
+      {
+        slug: 'day-1',
+        number: 1,
+        title: 'Cambridge Colleges and Drive to York',
+        summary: 'Picking up the rental car in London, driving north to Cambridge for an afternoon walk around King\'s and Trinity Colleges, then continuing north to York for an evening arrival.',
+        walkingKm: 5,
+        image: {
+          srcBase: 'uk-day1-cambridge',
+          width: 1706,
+          height: 1279,
+          alt: 'The grand Tudor gatehouse and green lawn of Trinity College, Cambridge.',
+          caption: 'The historic gatehouse and lawns of Trinity College, Cambridge.'
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '12:41',
+              title: 'Cambridge (King\'s & Trinity Colleges)',
+              body: 'I picked up the rental car in London and drove north to Cambridge. I spent the afternoon walking through the lawns of King\'s College and Trinity College, admiring the Gothic chapels and punts on the River Cam.'
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '17:28',
+              title: 'York Evening Arrival',
+              body: 'I continued the drive north, passing Doncaster, and arrived in York in the late afternoon. I checked into a local B&B and took a short evening walk along the historic city walls as the lights came on.'
+            }
+          }
+        ]
+      },
+      {
+        slug: 'day-2',
+        number: 2,
+        title: 'York Minster and the North Sea Coast',
+        summary: 'A morning visit to York Minster and the Museum Gardens, then driving north to Newcastle upon Tyne to see the bridges, and continuing along the coast to Berwick-upon-Tweed before driving to Edinburgh.',
+        walkingKm: 7,
+        image: {
+          srcBase: 'uk-day2-york-minster',
+          width: 1706,
+          height: 1279,
+          alt: 'The towers of York Minster rising above the trees.',
+          caption: 'The towers of York Minster rising above the trees.'
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '08:51',
+              title: 'York Minster & Museum Gardens',
+              body: 'I spent the morning inside York Minster, taking in the medieval stained glass and climbing the tower. Afterwards, I walked through the ruins of St Mary\'s Abbey in the nearby Museum Gardens.'
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '13:33',
+              title: 'Newcastle Quayside',
+              body: 'I drove north to Newcastle upon Tyne and stopped at the Quayside. I walked along the River Tyne, viewing the iconic Tyne Bridge and the Millennium Bridge under an overcast sky.',
+              image: {
+                srcBase: 'uk-stop-newcastle',
+                width: 1024,
+                height: 768,
+                alt: 'The historic columns and streets surrounding Grey\'s Monument plaza in Newcastle.',
+                caption: 'Grey\'s Monument in Newcastle city center.'
+              }
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '16:23',
+              title: 'Anglo-Scottish Border',
+              body: 'Continuing north along the coast, I crossed the border from England into Scotland just north of Berwick-upon-Tweed. I stopped at the border crossing sign to mark the milestone before driving north to Edinburgh.',
+              image: {
+                srcBase: 'uk-stop-berwick',
+                width: 1024,
+                height: 768,
+                alt: 'The border crossing sign on the roadside as we crossed from England into Scotland.',
+                caption: 'The border crossing sign as we entered Scotland.'
+              }
+            }
+          }
+        ]
+      },
+      {
+        slug: 'day-3',
+        number: 3,
+        title: 'Calton Hill and Edinburgh Castle',
+        summary: 'Starting the day with morning views from Calton Hill, walking the Royal Mile to St Giles\' Cathedral, touring Edinburgh Castle, and visiting the Scottish Parliament.',
+        walkingKm: 8,
+        image: {
+          srcBase: 'uk-day3-edinburgh-castle',
+          width: 1706,
+          height: 1279,
+          alt: 'Edinburgh Castle sitting high on its volcanic crag under a blue morning sky.',
+          caption: 'Edinburgh Castle sitting high on its volcanic crag.'
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '08:49',
+              title: 'Calton Hill',
+              body: 'I climbed Calton Hill early in the morning, where the Greek-style monuments look out over the city. The view stretched across the Firth of Forth on one side and the Royal Mile on the other.'
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '09:41',
+              title: 'St Giles\' Cathedral',
+              body: 'I walked down the Royal Mile and entered St Giles\' Cathedral. The stone pillars and the Thistle Chapel were quiet, offering a peaceful break from the street crowds.'
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '10:40',
+              title: 'Edinburgh Castle',
+              body: 'I walked up the cobblestones to Edinburgh Castle. I toured the Great Hall and the Crown Room, looking down from the ramparts onto Princes Street Gardens.'
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '14:51',
+              title: 'Palace of Holyroodhouse',
+              body: 'In the afternoon, I walked to the end of the Royal Mile to tour the Palace of Holyroodhouse, the official residence of the British monarch in Scotland. I explored the historic state apartments and the ruins of Holyrood Abbey.',
+              image: {
+                srcBase: 'uk-stop-edinburgh-parliament',
+                width: 1024,
+                height: 768,
+                alt: 'The grand stone facade of the Palace of Holyroodhouse in Edinburgh.',
+                caption: 'The Palace of Holyroodhouse.'
+              }
+            }
+          }
+        ]
+      },
+      {
+        slug: 'day-4',
+        number: 4,
+        title: 'St Andrews to Loch Ness',
+        summary: 'Crossing the Firth of Forth to St Andrews for a morning walk, then driving north through the Highlands past Dundee and Perth to arrive at Loch Ness.',
+        walkingKm: 5,
+        image: {
+          srcBase: 'uk-day4-st-andrews',
+          width: 1706,
+          height: 1279,
+          alt: 'The historic stone buildings of the University of St Andrews under a cloudy sky.',
+          caption: 'Historic stone buildings in St Andrews.'
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '10:01',
+              title: 'St Andrews',
+              body: 'I crossed the bridge into Fife and stopped in St Andrews. I walked through the university grounds and along the coastal ruins of the cathedral.'
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '16:38',
+              title: 'The Loch Ness Centre',
+              body: 'I drove north through the Highlands to Inverness, then turned south along the shore of Loch Ness. I stopped at the Loch Ness Centre in Drumnadrochit to learn about the loch\'s history.',
+              image: {
+                srcBase: 'uk-stop-loch-ness',
+                width: 1024,
+                height: 768,
+                alt: 'The Loch Ness Centre exhibition entrance in Drumnadrochit, Scotland.',
+                caption: 'The Loch Ness Centre in Drumnadrochit.'
+              }
+            }
+          }
+        ]
+      },
+      {
+        slug: 'day-5',
+        number: 5,
+        title: 'The Highlands, Glencoe, and Loch Lomond',
+        summary: 'Driving from Inverness down to Fort Augustus, visiting the Glenfinnan Viaduct, driving through Fort William and the dramatic pass of Glencoe, driving past Loch Lomond, and ending in Glasgow.',
+        walkingKm: 6,
+        image: {
+          srcBase: 'uk-day5-glenfinnan',
+          width: 1706,
+          height: 1279,
+          alt: 'The Glenfinnan Viaduct spanning the green valley.',
+          caption: 'The Glenfinnan Viaduct.'
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '09:57',
+              title: 'Fort Augustus',
+              body: 'I drove south from Inverness along the loch side to Fort Augustus. I stopped to watch the canal locks on the Caledonian Canal lower a few boats.',
+              image: {
+                srcBase: 'uk-stop-fort-augustus',
+                width: 1024,
+                height: 768,
+                alt: 'A quiet highway curving past green hills under a misty Highland sky near Fort Augustus.',
+                caption: 'Driving past the green hills near Fort Augustus.'
+              }
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '11:35',
+              title: 'Glenfinnan Monument & Loch Shiel',
+              body: 'I detoured west to Glenfinnan to see the historic Glenfinnan Monument erected at the head of Loch Shiel. I walked along the peaceful shoreline of the loch under the mist-covered mountains.',
+              image: {
+                srcBase: 'uk-stop-glenfinnan',
+                width: 1024,
+                height: 768,
+                alt: 'The tall stone monument tower standing next to Loch Shiel surrounded by mountains.',
+                caption: 'The Glenfinnan Monument by the shore of Loch Shiel.'
+              }
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '12:48',
+              title: 'Fort William',
+              body: 'I drove back east to Fort William at the foot of Ben Nevis, where I stopped for a quick lunch and walked the main street.'
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '12:56',
+              title: 'Glencoe / Ballachulish',
+              body: 'I drove south through the spectacular pass of Glencoe. I stopped near Ballachulish to photograph the towering peaks of the Three Sisters.',
+              image: {
+                srcBase: 'uk-stop-glencoe',
+                width: 1024,
+                height: 768,
+                alt: 'The dramatic mountain peaks of Glencoe rising steeply under cloud cover.',
+                caption: 'The mountains of Glencoe near Ballachulish.'
+              }
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '18:51',
+              title: 'Glasgow (Buchanan Street)',
+              body: 'After driving past Loch Lomond, I arrived in Glasgow in the evening. I walked down Buchanan Street, the city\'s main pedestrian thoroughfare, and had dinner near Queen Street Station.',
+              image: {
+                srcBase: 'uk-stop-glasgow-queen-st',
+                width: 1024,
+                height: 768,
+                alt: 'The glowing lights of Buchanan Street and Queen Street Station in Glasgow in the evening.',
+                caption: 'Buchanan Street in Glasgow.'
+              }
+            }
+          }
+        ]
+      },
+      {
+        slug: 'day-6',
+        number: 6,
+        title: 'Crossing the Border to Keswick and Cockermouth',
+        summary: 'Driving south from Glasgow past the OVO Hydro, crossing the border into England, and exploring the Lake District around Keswick and Cockermouth.',
+        walkingKm: 5,
+        image: {
+          srcBase: 'uk-day6-lake-district',
+          width: 1706,
+          height: 1279,
+          alt: 'Derwentwater lake and surrounding hills under a cloudy sky in the Lake District.',
+          caption: 'Derwentwater near Keswick.'
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '13:12',
+              title: 'Keswick & Derwentwater',
+              body: 'I drove south across the border into Cumbria and entered the Lake District. I stopped in the market town of Keswick, walking down to the shores of Derwentwater.',
+              image: {
+                srcBase: 'uk-stop-keswick',
+                width: 1024,
+                height: 768,
+                alt: 'Derwentwater shore in Keswick with a wooden jetty and rowing boats moored in the water.',
+                caption: 'The lakeside at Derwentwater.'
+              }
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '16:11',
+              title: 'Cockermouth',
+              body: 'I drove west to the historic town of Cockermouth, birthplace of William Wordsworth. I checked into a B&B and spent the late afternoon exploring the town\'s quiet streets.',
+              image: {
+                srcBase: 'uk-stop-cockermouth',
+                width: 1024,
+                height: 768,
+                alt: 'A quiet historic street in Cockermouth with stone buildings under a late afternoon sky.',
+                caption: 'Cockermouth town center.'
+              }
+            }
+          }
+        ]
+      },
+      {
+        slug: 'day-7',
+        number: 7,
+        title: 'Windermere, Liverpool docks, and Birmingham',
+        summary: 'Driving through the southern Lake District via Ambleside, visiting the Albert Dock in Liverpool, and driving to Birmingham.',
+        walkingKm: 6,
+        image: {
+          srcBase: 'uk-day7-ambleside',
+          width: 1706,
+          height: 1279,
+          alt: 'The rolling green fells and mountains of the Lake District near Ambleside.',
+          caption: 'The green mountain fells of the Lake District near Ambleside.'
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '09:54',
+              title: 'Ambleside & Windermere',
+              body: 'I drove south from Cockermouth, passing through the central fells to Ambleside. I walked down to the northern tip of Windermere, watching the passenger steamers prepare for the day.'
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '12:49',
+              title: 'Liverpool City Center',
+              body: 'I left the Lake District and drove south to Liverpool. I parked near the center, walking through the bustling shopping streetscapes of Liverpool ONE and the historic city streets before having lunch.',
+              image: {
+                srcBase: 'uk-stop-liverpool',
+                width: 1024,
+                height: 768,
+                alt: 'The historic brick buildings and streetscape of Liverpool city center.',
+                caption: 'Historic buildings in Liverpool city center.'
+              }
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '17:07',
+              title: 'Birmingham',
+              body: 'I continued the drive south to Birmingham, checking in for the night. I walked through the Bullring shopping complex and the modern streetscapes around New Street Station in the early evening.',
+              image: {
+                srcBase: 'uk-stop-birmingham-bullring',
+                width: 1024,
+                height: 768,
+                alt: 'The futuristic metal-disc facade of the Selfridges building in Birmingham under evening skies.',
+                caption: 'The futuristic architecture of the Birmingham Bullring.'
+              }
+            }
+          }
+        ]
+      },
+      {
+        slug: 'day-8',
+        number: 8,
+        title: 'Shakespeare\'s Town, Cardiff Castle, and Brecon',
+        summary: 'Visiting Stratford-upon-Avon, crossing the bridge into Wales to check into Cardiff, and driving north to the Brecon Beacons.',
+        walkingKm: 6,
+        image: {
+          srcBase: 'uk-day8-brecon-beacons',
+          width: 1706,
+          height: 1279,
+          alt: 'The green peaks of the Brecon Beacons at sunset.',
+          caption: 'Bannau Brycheiniog National Park at sunset.'
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '10:00',
+              title: 'Stratford-upon-Avon',
+              body: 'I drove to Stratford-upon-Avon and walked along the canal. I visited Shakespeare\'s birthplace and walked through the gardens near the Royal Shakespeare Theatre.',
+              image: {
+                srcBase: 'uk-stop-stratford',
+                width: 1024,
+                height: 768,
+                alt: 'The canal basin in Stratford-upon-Avon with narrowboats moored next to the gardens.',
+                caption: 'The canal basin in Stratford-upon-Avon.'
+              }
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '14:21',
+              title: 'Cardiff Castle',
+              body: 'I drove west across the Severn Bridge into Wales, checking into Cardiff. I visited Cardiff Castle and walked through the adjacent Bute Park along the River Taff.',
+              image: {
+                srcBase: 'uk-stop-cardiff-castle',
+                width: 1024,
+                height: 768,
+                alt: 'The stone keep of Cardiff Castle rising above the green lawns under a blue sky.',
+                caption: 'The historic keep at Cardiff Castle.'
+              }
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '17:53',
+              title: 'Brecon Beacons',
+              body: 'I drove north into the hills of Bannau Brycheiniog National Park. I stopped at a high overlook in the Brecon Beacons to watch the sunset over the valley before returning to Cardiff.',
+              image: {
+                srcBase: 'uk-stop-brecon-beacons',
+                width: 1024,
+                height: 768,
+                alt: 'A view over the green valleys of Bannau Brycheiniog National Park from a high mountain pass.',
+                caption: 'Looking over the valleys of the Brecon Beacons.'
+              }
+            }
+          }
+        ]
+      },
+      {
+        slug: 'day-9',
+        number: 9,
+        title: 'Roman Bath, Stonehenge, and Windsor Castle',
+        summary: 'Crossing back into England, touring the Roman Baths in Bath, visiting the historic village of Lacock, viewing Stonehenge, and stopping at Windsor Castle before driving into London.',
+        walkingKm: 6,
+        image: {
+          srcBase: 'uk-day9-roman-baths',
+          width: 1706,
+          height: 1279,
+          alt: 'The Great Bath under the columns in Bath.',
+          caption: 'The Roman Baths at Bath.'
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '09:41',
+              title: 'The Roman Baths, Bath',
+              body: 'I drove south across the Severn Estuary and stopped in Bath. I toured the ancient Roman Baths, viewing the steaming green water and the lead-lined pool.',
+              image: {
+                srcBase: 'uk-stop-roman-baths',
+                width: 1024,
+                height: 768,
+                alt: 'The steaming waters of the Great Bath surrounded by Roman statues and columns.',
+                caption: 'The ancient Roman bathing pool in Bath.'
+              }
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '12:01',
+              title: 'Lacock & Chippenham',
+              body: 'I drove to the preserved medieval village of Lacock near Chippenham. I walked past the half-timbered stone cottages, which look unchanged since the Middle Ages.'
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '14:11',
+              title: 'Stonehenge',
+              body: 'I drove southeast across Salisbury Plain to Stonehenge. I walked the circular path around the stone circle, which stood out against the grassy fields.',
+              image: {
+                srcBase: 'uk-stop-stonehenge',
+                width: 1024,
+                height: 768,
+                alt: 'The giant standing stones of Stonehenge under a dramatic sky.',
+                caption: 'The prehistoric stone circle at Stonehenge.'
+              }
+            }
+          },
+          {
+            kind: 'stop',
+            stop: {
+              time: '16:04',
+              title: 'Windsor Castle',
+              body: 'I drove east toward London, stopping in Windsor to walk around the castle walls and through the town center before continuing into London for the night.',
+              image: {
+                srcBase: 'uk-stop-windsor-castle',
+                width: 1024,
+                height: 768,
+                alt: 'The medieval stone towers of Windsor Castle rising above the town walls.',
+                caption: 'Windsor Castle.'
+              }
+            }
+          }
+        ]
+      },
+      {
+        slug: 'day-10',
+        number: 10,
+        title: 'Brighton Beach and Palace Pier',
+        summary: 'A final drive south from London to Brighton, visiting the Royal Pavilion Gardens, walking the pebbled beach, and exploring the Palace Pier.',
+        walkingKm: 4,
+        image: {
+          srcBase: 'uk-day10-brighton',
+          width: 1706,
+          height: 1279,
+          alt: 'The pebble beach and Palace Pier at Brighton.',
+          caption: 'Brighton Beach and the Palace Pier.'
+        },
+        entries: [
+          {
+            kind: 'stop',
+            stop: {
+              time: '11:01',
+              title: 'Brighton Beach & Palace Pier',
+              body: 'I drove south to Brighton on the Sussex coast. I walked through the Royal Pavilion Gardens, then headed to the pebbled beach and walked the wooden deck of the Brighton Palace Pier.',
+              image: {
+                srcBase: 'uk-stop-brighton-pier',
+                width: 1024,
+                height: 768,
+                alt: 'Brighton Palace Pier and pebble beach stretching into the sea under a cloudy sky.',
+                caption: 'Brighton Beach and the Palace Pier.'
+              }
             }
           }
         ]

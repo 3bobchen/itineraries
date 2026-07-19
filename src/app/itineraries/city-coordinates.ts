@@ -13,7 +13,9 @@ export const CITY_COORDS: Record<string, [number, number]> = {
   'Washington, DC': [38.9072, -77.0369],
   'New York City': [40.7128, -74.006],
   'Andorra la Vella': [42.5063, 1.5218],
-  Yosemite: [37.7456, -119.5332],
+  California: [37.7456, -119.5332],
+  'Los Angeles': [34.0522, -118.2437],
+  'UK Road Trip': [54.5, -3.0],
 };
 
 /** Cities with itineraries on the way but nothing published yet. They show as
